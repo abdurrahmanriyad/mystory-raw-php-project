@@ -4,7 +4,8 @@
             "Classes\\" : "app/Classes"
         },
         "files": [
-            "app/Support/helpers.php"
+            "app/Support/helpers.php",
+            "app/Config/config.php"
         ]
     }
 }

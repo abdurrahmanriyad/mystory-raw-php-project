@@ -18,7 +18,7 @@
 <!--<script src="plugins/ckeditor/ckeditor.js"></script>-->
 <script src="../../plugins/select2/select2.full.min.js"></script>
 
-<script src="../../dist/js/app.min.js"></script>-->
+<script src="../../dist/js/app.min.js"></script>
 
 
 <script>

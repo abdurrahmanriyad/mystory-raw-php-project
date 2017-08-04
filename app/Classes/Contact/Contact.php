@@ -1,13 +1,13 @@
 <?php
+
 /**
  * Created by PhpStorm.
  * User: primez
  * Date: 8/3/17
  * Time: 12:38 PM
  */
-
 namespace Classes\Contact;
-
+require_once "../../../vendor/autoload.php";
 
 class Contact
 {
@@ -21,7 +21,7 @@ class Contact
      * @param $email
      * @param $text
      */
-    public function __construct($name, $email, $text)
+    public function __construct($name='', $email='', $text='')
     {
         $this->name = $name;
         $this->email = $email;
@@ -31,6 +31,6 @@ class Contact
 
     public function send()
     {
-        
+
     }
 }

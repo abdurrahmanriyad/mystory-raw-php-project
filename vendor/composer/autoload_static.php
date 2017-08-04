@@ -6,6 +6,11 @@ namespace Composer\Autoload;
 
 class ComposerStaticInit81621421913bd5b509797842c5bdb959
 {
+    public static $files = array (
+        '29a57508a97872b78f4132a4ec912bfe' => __DIR__ . '/../..' . '/app/Support/helpers.php',
+        '7fbe14ba42dfbeec3398ffdda0c4d4e2' => __DIR__ . '/../..' . '/app/Config/config.php',
+    );
+
     public static $prefixLengthsPsr4 = array (
         'C' => 
         array (
@@ -21,6 +26,22 @@ class ComposerStaticInit81621421913bd5b509797842c5bdb959
     );
 
     public static $classMap = array (
+        'Classes\\Authenticaiton\\UserAuth' => __DIR__ . '/../..' . '/app/Classes/Authentication/UserAuth.php',
+        'Classes\\Contact\\Contact' => __DIR__ . '/../..' . '/app/Classes/Contact/Contact.php',
+        'Classes\\Database\\DatabaseConnection' => __DIR__ . '/../..' . '/app/Classes/Database/DatabaseConnection.php',
+        'Classes\\Database\\DbHelper' => __DIR__ . '/../..' . '/app/Classes/Database/DbHelper.php',
+        'Classes\\Database\\MysqlConnection' => __DIR__ . '/../..' . '/app/Classes/Database/MysqlConnection.php',
+        'Classes\\Developer\\Developer' => __DIR__ . '/../..' . '/app/Classes/Developer/Developer.php',
+        'Classes\\Developer\\DeveloperRepository' => __DIR__ . '/../..' . '/app/Classes/Developer/DeveloperRepository.php',
+        'Classes\\Email\\Email' => __DIR__ . '/../..' . '/app/Classes/Email/Email.php',
+        'Classes\\Email\\EmailAction' => __DIR__ . '/../..' . '/app/Classes/Email/EmailAction.php',
+        'Classes\\Session\\Session' => __DIR__ . '/../..' . '/app/Classes/Util/Session.php',
+        'Classes\\Story\\Category' => __DIR__ . '/../..' . '/app/Classes/Story/Category.php',
+        'Classes\\Story\\Comment' => __DIR__ . '/../..' . '/app/Classes/Story/Comment.php',
+        'Classes\\Story\\Rating' => __DIR__ . '/../..' . '/app/Classes/Story/Rating.php',
+        'Classes\\Story\\Story' => __DIR__ . '/../..' . '/app/Classes/Story/Story.php',
+        'Classes\\Story\\StoryRepository' => __DIR__ . '/../..' . '/app/Classes/Story/StoryRepository.php',
+        'Classes\\Story\\Tag' => __DIR__ . '/../..' . '/app/Classes/Story/Tag.php',
         'Classes\\User\\User' => __DIR__ . '/../..' . '/app/Classes/User/User.php',
     );
 

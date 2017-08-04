@@ -1,5 +1,8 @@
 <?php
+function test(){
 
+     echo "http://" . $_SERVER['SERVER_NAME'].":8888/storyteller";
+}
 if (! function_exists('testme')) {
 
     function testme()
@@ -8,26 +11,26 @@ if (! function_exists('testme')) {
     }
 }
 
-if (! function_exists('append_config')) {
+if (! function_exists('base_url')) {
     /**
      * Assign high numeric IDs to a config item to force appending.
      *
      * @param  array  $array
      * @return array
      */
-    function append_config(array $array)
+    function base_url($url)
     {
-        $start = 9999;
+        // output: /myproject/index.php
+        $currentPath = $_SERVER['PHP_SELF'];
 
-        foreach ($array as $key => $value) {
-            if (is_numeric($key)) {
-                $start++;
+        // output: localhost
+        $hostName = $_SERVER['HTTP_HOST'];
 
-                $array[$start] = Arr::pull($array, $key);
-            }
-        }
+        // output: http://
+        $protocol = strtolower(substr($_SERVER["SERVER_PROTOCOL"],0,5))=='https://'?'https://':'http://';
 
-        return $array;
+        // return: http://localhost/myproject/
+        return $protocol.$hostName."/storyteller/".$url;
     }
 }
 
