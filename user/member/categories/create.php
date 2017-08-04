@@ -1,9 +1,21 @@
 <?php require_once "../../../vendor/autoload.php"; ?>
-
+<?php
+    use \Classes\Story\Category;
+    use \Classes\Validation\Validation;
+    use \Classes\ErrorMessage\ErrorMessage;
+?>
 <?php
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         if (isset($_POST['submit'])) {
-            $title = $_POST['title'];
+            $validation = new Validation();
+            $errMessage = new ErrorMessage();
+            $category = new Category();
+            if ($category->addCategory($_POST['category'])) {
+                $errMessage = new ErrorMessage();
+                $message = $errMessage->getSuccessMessage("Succesfully created!");
+            } else {
+                $message = $errMessage->getAlertMessage("Failed to create category");
+            }
 
         }
     }
@@ -40,9 +52,11 @@
                         <div class="box">
                             <div class="box-body">
 
+                                <?php global $message; echo $message; ?>
+
                                 <div class="form-group">
                                     <label for="category_title">Title</label>
-                                    <input type="text" class="form-control" id="category_title" placeholder="Enter Title" name="title">
+                                    <input type="text" class="form-control" id="category_title" placeholder="Enter Title" name="category">
                                 </div>
                             </div>
                             <!-- /.box-body -->

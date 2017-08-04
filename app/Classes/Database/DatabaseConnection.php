@@ -10,5 +10,5 @@ namespace Classes\Database;
 
 interface DatabaseConnection
 {
-    public function connect(DatabaseConnection $connection);
+    public function connect();
 }

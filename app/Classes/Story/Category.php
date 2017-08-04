@@ -7,15 +7,31 @@
  */
 
 namespace Classes\Story;
+use Classes\Database\DbHelper;
+use Classes\Validation\Validation;
+
+require_once "../../../vendor/autoload.php";
 
 
 class Category
 {
-    private $title;
 
-    public function addCategory($title)
+
+    public function addCategory($category)
     {
-        
+        $validation = new Validation();
+        if (! $validation->isEmptyString($category)) {
+            $db_helper = new DbHelper();
+            $inserted  = $db_helper->insert('category',[
+                'category' => $category,
+                'created_at' => date("Y-m-d h:i:s"),
+                'updated_at' => date("Y-m-d h:i:s")
+            ]);
+
+            return $inserted;
+        }
+
+        return false;
     }
 
     public function removeCategory($category_id)
