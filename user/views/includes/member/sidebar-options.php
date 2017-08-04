@@ -43,5 +43,6 @@
     <ul class="treeview-menu">
         <li><a href="<?php echo base_url('user/member/categories'); ?>"><i class="fa fa-circle-o"></i> Categories </a></li>
         <li><a href="<?php echo base_url('user/member/categories/create.php'); ?>"><i class="fa fa-circle-o"></i> Create</a></li>
+        <li><a href="<?php echo base_url('user/member/categories/edit.php'); ?>"><i class="fa fa-circle-o"></i> Edit</a></li>
     </ul>
 </li>

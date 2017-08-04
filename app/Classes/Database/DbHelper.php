@@ -28,10 +28,33 @@ class DbHelper
         $this->database_conneciton = $this->database_conneciton->connect();
     }
 
-
-    public function select($query)
+    public function select($table = "", array $fields, string $where = "", string $order_by = "")
     {
-        
+        $field_names = "*";
+        if (!empty($fields)) {
+            global $field_names;
+            $field_names = implode(',', $fields);
+        }
+
+        $where_clause = '';
+        if (!empty($where)) {
+            global $where_clause;
+            $where_clause = $where;
+        }
+
+        $order_by_clause = '';
+        if (!empty($order_by)) {
+            global $order_by_clause;
+            $order_by_clause = $order_by;
+        }
+        $sql = "SELECT $field_names FROM $table".$where_clause.$order_by_clause;
+        $query = $this->database_conneciton->prepare($sql);
+        foreach ($fields as $value) {
+            $query->bindValue(":$value", $value);
+        }
+        $query->execute();
+        return $result = $query->fetchAll(\PDO::FETCH_OBJ);
+
     }
 
     public function insert($table, array $data)
@@ -55,7 +78,7 @@ class DbHelper
         }
     }
 
-    public function update($query)
+    public function update($table, $data, $where)
     {
 
     }

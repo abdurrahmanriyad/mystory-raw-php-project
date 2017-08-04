@@ -1,4 +1,9 @@
 <?php require_once "../../../vendor/autoload.php"; ?>
+
+<?php
+    use \Classes\Story\Category;
+?>
+
 <?php require_once "../../views/includes/header.php" ?>
 <?php require_once "../../views/includes/sidebar.php" ?>
 
@@ -42,15 +47,22 @@
                                 </tr>
                                 </thead>
                                 <tbody>
+                                <?php
+                                    $category = new Category();
+                                    $categories = $category->getCategories();
+                                    if($categories) :
+                                        $count = 1;
+                                        foreach ($categories as $single_category) :
+                                ?>
                                 <tr>
-                                    <td> 1 </td>
-                                    <td> test  </td>
-                                    <td> 12-2-15</td>
+                                    <td> <?php echo $count++; ?> </td>
+                                    <td> <?php echo $single_category->category; ?>  </td>
+                                    <td> <?php echo $single_category->created_at; ?> </td>
                                     <td>
 
 <!--                                        {{ Form::open(array('method' => 'delete', 'url' => 'blog/admin/categories/' . $category->id)) }}-->
                                         <div class="btn-group">
-                                            <a class="btn btn-primary btn-sm" href="#"><i class="fa fa-pencil-square-o"></i></a>
+                                            <a class="btn btn-primary btn-sm" href="<?php echo base_url("user/member/categories/edit.php?id=".$single_category->id) ?>"><i class="fa fa-pencil-square-o"></i></a>
                                             <button onclick="return confirm('Are you sure ?')" class="btn btn-sm btn-default" type="submit"><i class="fa fa-trash-o"></i></button>
                                         </div>
 <!--                                        {{ Form::close() }}-->
@@ -58,6 +70,11 @@
 
                                     </td>
                                 </tr>
+
+                                <?php
+                                        endforeach;
+                                    endif;
+                                ?>
 
                                 </tbody>
                                 <tfoot>
