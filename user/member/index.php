@@ -1,6 +1,5 @@
-<?php require_once "views/includes/header.php" ?>
-<?php require_once "views/includes/sidebar.php" ?>
-
+<?php require_once "../views/includes/header.php" ?>
+<?php require_once "../views/includes/sidebar.php" ?>
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
@@ -35,7 +34,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="post_desc">Post Content</label>
+                                    <label for="post_desc">Body</label>
                                     <textarea class="form-control" name="post_desc" id="post_desc" placeholder="Enter post contents"></textarea>
                                 </div>
 
@@ -63,16 +62,6 @@
                                     </select>
                                 </div>
 
-                                <div class="form-group">
-                                    <label for="select_post_status">Post Status</label>
-                                    <select class="form-control" id="select_post_status" name="post_status">
-                                        <option>option 1</option>
-                                        <option>option 2</option>
-                                        <option>option 3</option>
-                                        <option>option 4</option>
-                                        <option>option 5</option>
-                                    </select>
-                                </div>
 
                                 <div class="form-group">
                                     <label for="select_tags">Tags</label>
@@ -110,4 +99,4 @@
         <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
-<?php require_once "views/includes/footer.php" ?>
+<?php require_once "../views/includes/footer.php" ?>

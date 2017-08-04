@@ -1,8 +1,69 @@
-<?php namespace Classes\User;
+<?php
+
+namespace Classes\User;
 
 class User{
-    public function __construct()
+    
+    private $name;
+    private $email;
+    private $password;
+    private $type;
+
+    /**
+     * @return mixed
+     */
+    public function getType()
     {
-      echo "sadf";
+        return $this->type;
+    }
+
+    /**
+     * @param mixed $type
+     */
+    public function setType($type)
+    {
+        $this->type = $type;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
+    /**
+     * @param mixed $email
+     */
+    public function setEmail($email)
+    {
+        $this->email = $email;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * @param mixed $name
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+    }
+
+    public function resetPassword()
+    {
+        
+    }
+
+    public function changePassword()
+    {
+        
     }
 }
