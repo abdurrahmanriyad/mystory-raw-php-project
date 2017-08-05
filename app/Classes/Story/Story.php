@@ -4,22 +4,11 @@ namespace Classes\Story;
 
 class Story
 {
-    private $title;
-    private $body;
-    private $created_at;
-
-    /**
-     * Story constructor.
-     * @param $title
-     * @param $body
-     * @param $created_at
-     */
-    public function __construct($title, $body, $created_at)
-    {
-        $this->title = $title;
-        $this->body = $body;
-        $this->created_at = $created_at;
-    }
+    public $title;
+    public $body;
+    public $category_id;
+    public $tags;
+    public $featured_image;
 
     public function approveStory($story_id)
     {
@@ -29,6 +18,11 @@ class Story
     public function rejectStory($story_id)
     {
         
+    }
+
+    public function toString()
+    {
+        return "Title: ".$this->title."</br> ". "Body: ".$this->body."</br> ". "Category_id: ".$this->category_id."</br> "."Tag_id: ".$this->tag_id[0]."</br> ";
     }
 
 }

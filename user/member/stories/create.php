@@ -2,7 +2,8 @@
 <?php
     use \Classes\Story\Tag;
     use \Classes\Story\Category;
-    use \Classes\Validation\Validation;
+    use \Classes\Story\Story;
+    use \Classes\Story\StoryRepository;
     use \Classes\ErrorMessage\ErrorMessage;
 ?>
 <?php
@@ -16,16 +17,16 @@
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         if (isset($_POST['submit'])) {
-            $validation = new Validation();
-            $errMessage = new ErrorMessage();
-            $tag = new Tag();
+            $story = new Story();
 
-            if ($tag->addTag($_POST['tag'])) {
-                $errMessage = new ErrorMessage();
-                $message = $errMessage->getSuccessMessage("Succesfully created!");
-            } else {
-                $message = $errMessage->getAlertMessage("Failed to create category");
-            }
+            $story->title = $_POST['title'];
+            $story->body  = $_POST['body'];
+            $story->category_id  = $_POST['category_id'];
+            $story->featured_image = $_FILES['featured_image'];
+            isset($_POST['tags']) ? $story->tags  = $_POST['tags'] : $story->tags = [];
+
+            $story_repository = new StoryRepository();
+            $story_repository->createStory($story);
 
         }
 
