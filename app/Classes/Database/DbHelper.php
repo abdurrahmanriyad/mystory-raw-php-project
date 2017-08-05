@@ -84,9 +84,10 @@ class DbHelper
 
         $fieldDetails = NULL;
         foreach($data as $key=> $value) {
-            $fieldDetails .= "$key=:$key";
+            $fieldDetails .= "$key=:$key,";
         }
         $fieldDetails = rtrim($fieldDetails, ',');
+
         $sql = "UPDATE $table SET $fieldDetails WHERE $where";
         $query = $this->database_conneciton->prepare($sql);
 

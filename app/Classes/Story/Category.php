@@ -51,7 +51,7 @@ class Category
 
     public function editCategory($id, $category)
     {
-        return $this->db_helper->update('category', ["category" => $category], 'id ='.$id);
+        return $this->db_helper->update('category', ["category" => $category, "updated_at" => date("Y-m-d h:i:s")], 'id ='.$id);
     }
     
     public function getCategoryById($id)

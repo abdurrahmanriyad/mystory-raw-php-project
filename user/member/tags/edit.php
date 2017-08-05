@@ -1,17 +1,18 @@
 <?php require_once "../../../vendor/autoload.php"; ?>
 
 <?php
-    use \Classes\Story\Category;
+    use \Classes\Story\Tag;
     use \Classes\Validation\Validation;
     use \Classes\ErrorMessage\ErrorMessage;
-    $category = new Category();
+    $tag = new Tag();
 ?>
 
 <?php
+
     if ($_SERVER['REQUEST_METHOD'] === 'GET') {
         if (isset($_GET['id']) ) {
             $id = $_GET['id'];
-            $single_category = $category->getCategoryById($id);
+            $single_tag = $tag->getTagById($id);
         }
     }
 
@@ -20,16 +21,18 @@
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         if (isset($_POST['submit'])) {
+
             $validation = new Validation();
             $errMessage = new ErrorMessage();
-            $edit_category = $_POST['category'];
-            $category_id = $_POST['id'];
-            if ($category->editCategory($category_id, $edit_category)) {
+            $edit_tag = $_POST['tag'];
+            $tag_id = $_POST['id'];
+
+            if ($tag->editTag($tag_id, $edit_tag)) {
                 $errMessage = new ErrorMessage();
-                $message = $errMessage->getSuccessMessage("Successfully created!");
-                $single_category = $category->getCategoryById($category_id);
+                $message = $errMessage->getSuccessMessage("Successfully Updated!");
+                $single_tag = $tag->getTagById($tag_id);
             } else {
-                $message = $errMessage->getAlertMessage("Failed to create category");
+                $message = $errMessage->getAlertMessage("Failed to create updated");
             }
 
         }
@@ -74,8 +77,8 @@
 
                                 <div class="form-group">
                                     <label for="category_title">Title</label>
-                                    <input type="hidden" name="id" value="<?php echo $single_category[0]->id ?>">
-                                    <input type="text" class="form-control" id="category_title" value="<?php echo $single_category[0]->category; ?>" placeholder="Enter Title" name="category">
+                                    <input type="hidden" name="id" value="<?php echo $single_tag[0]->id ?>">
+                                    <input type="text" class="form-control" id="category_title" value="<?php echo $single_tag[0]->tag; ?>" placeholder="Enter Title" name="tag">
                                 </div>
                             </div>
                             <!-- /.box-body -->

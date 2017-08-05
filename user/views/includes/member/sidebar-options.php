@@ -1,19 +1,4 @@
 <?php require_once "../../../vendor/autoload.php"; ?>
-<li class="treeview">
-    <a href="#">
-        <i class="fa fa-pie-chart"></i>
-        <span>Story</span>
-<span class="pull-right-container">
-  <i class="fa fa-angle-left pull-right"></i>
-</span>
-    </a>
-    <ul class="treeview-menu">
-        <li><a href="<?php  ?>"><i class="fa fa-circle-o"></i> Create </a></li>
-        <li><a href="create.php"><i class="fa fa-circle-o"></i> Tag</a></li>
-        <li><a href="categories/create.php"><i class="fa fa-circle-o"></i> Category</a></li>
-    </ul>
-</li>
-
 
 <li class="treeview">
     <a href="#">
@@ -32,6 +17,23 @@
     </ul>
 </li>
 
+
+<li class="treeview">
+    <a href="#">
+        <i class="fa fa-pie-chart"></i>
+        <span>Story</span>
+<span class="pull-right-container">
+  <i class="fa fa-angle-left pull-right"></i>
+</span>
+    </a>
+    <ul class="treeview-menu">
+        <li><a href="<?php echo base_url('user/member/stories/create.php')  ?>"><i class="fa fa-circle-o"></i> Create </a></li>
+        <li><a href="create.php"><i class="fa fa-circle-o"></i> Tag</a></li>
+        <li><a href="categories/create.php"><i class="fa fa-circle-o"></i> Category</a></li>
+    </ul>
+</li>
+
+
 <li class="treeview">
     <a href="#">
         <i class="fa fa-pie-chart"></i>
@@ -44,5 +46,21 @@
         <li><a href="<?php echo base_url('user/member/categories'); ?>"><i class="fa fa-circle-o"></i> Categories </a></li>
         <li><a href="<?php echo base_url('user/member/categories/create.php'); ?>"><i class="fa fa-circle-o"></i> Create</a></li>
         <li><a href="<?php echo base_url('user/member/categories/edit.php'); ?>"><i class="fa fa-circle-o"></i> Edit</a></li>
+    </ul>
+</li>
+
+
+<li class="treeview">
+    <a href="#">
+        <i class="fa fa-pie-chart"></i>
+        <span>Tag</span>
+<span class="pull-right-container">
+  <i class="fa fa-angle-left pull-right"></i>
+</span>
+    </a>
+    <ul class="treeview-menu">
+        <li><a href="<?php echo base_url('user/member/tags'); ?>"><i class="fa fa-circle-o"></i> Tags </a></li>
+        <li><a href="<?php echo base_url('user/member/tags/create.php'); ?>"><i class="fa fa-circle-o"></i> Create</a></li>
+        <li><a href="<?php echo base_url('user/member/tags/edit.php'); ?>"><i class="fa fa-circle-o"></i> Edit</a></li>
     </ul>
 </li>

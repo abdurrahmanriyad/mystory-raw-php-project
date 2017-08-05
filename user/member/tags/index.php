@@ -1,6 +1,6 @@
 <?php
     require_once "../../../vendor/autoload.php";
-    use \Classes\Story\Category;
+    use \Classes\Story\Tag;
     use \Classes\Session\Session;
 
     $session = new Session();
@@ -29,7 +29,7 @@
         <section class="content">
 
             <ul class="list-inline">
-                <li><a href="<?php echo base_url("user/member/categories/create.php") ?>"><button class="btn btn-success"><i class="fa fa-plus"></i> &nbsp New Category</button></a></li>
+                <li><a href="<?php echo base_url("user/member/tag/create.php") ?>"><button class="btn btn-success"><i class="fa fa-plus"></i> &nbsp New Category</button></a></li>
             </ul>
 
             <!-- Main row -->
@@ -63,25 +63,25 @@
                                 <tbody>
 
                                 <?php
-                                    $category = new Category();
-                                    $categories = $category->getCategories();
+                                    $tag = new Tag();
+                                    $tags = $tag->getTags();
 
-                                    if($categories) :
+                                    if($tags) :
                                             $count = 1;
 
-                                        foreach ($categories as $single_category) :
+                                        foreach ($tags as $single_tag) :
                                 ?>
 
                                 <tr>
                                     <td> <?php echo $count++; ?> </td>
-                                    <td> <?php echo $single_category->category; ?>  </td>
-                                    <td> <?php echo $single_category->created_at; ?> </td>
+                                    <td> <?php echo $single_tag->tag; ?>  </td>
+                                    <td> <?php echo $single_tag->created_at; ?> </td>
                                     <td>
 
                                         <div class="btn-group">
-                                            <a class="btn btn-primary btn-sm" href="<?php echo base_url("user/member/categories/edit.php?id=".$single_category->id) ?>"><i class="fa fa-pencil-square-o"></i></a>
+                                            <a class="btn btn-primary btn-sm" href="<?php echo base_url("user/member/tags/edit.php?id=".$single_tag->id) ?>"><i class="fa fa-pencil-square-o"></i></a>
 
-                                            <form style="display: inline-block" action="<?php echo base_url("user/member/categories/delete.php?id=".$single_category->id) ?>" method="POST">
+                                            <form style="display: inline-block" action="<?php echo base_url("user/member/tags/delete.php?id=".$single_tag->id) ?>" method="POST">
                                                 <button class="btn btn-sm btn-default" type="submit" name="delete"><i class="fa fa-trash-o"></i></button>
                                             </form>
                                         </div>
