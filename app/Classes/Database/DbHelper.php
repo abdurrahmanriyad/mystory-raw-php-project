@@ -57,6 +57,7 @@ class DbHelper
 
     }
 
+
     public function insert($table, array $data)
     {
 
@@ -81,10 +82,29 @@ class DbHelper
     public function update($table, $data, $where)
     {
 
+        $fieldDetails = NULL;
+        foreach($data as $key=> $value) {
+            $fieldDetails .= "$key=:$key";
+        }
+        $fieldDetails = rtrim($fieldDetails, ',');
+        $sql = "UPDATE $table SET $fieldDetails WHERE $where";
+        $query = $this->database_conneciton->prepare($sql);
+
+        foreach ($data as $key => $value) {
+            $query->bindValue(":$key", $value);
+        }
+
+        $result = $query->execute();
+
+        if ($result) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
-    public function delete($query)
+    public function delete($table, $where)
     {
-
+        return $this->database_conneciton->exec("DELETE FROM $table WHERE $where");
     }
 }

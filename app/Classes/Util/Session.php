@@ -8,7 +8,8 @@
  */
 class Session
 {
-    public static function init(){
+    public function __construct()
+    {
         if(version_compare(phpversion(), '5.4.0', '<')){
             if(session_id() == ""){
                 session_start();
@@ -36,6 +37,11 @@ class Session
         session_destroy();
         session_unset();
         echo '<script> window.location = "login.php";</script>';
+    }
+
+    public function unsetSession($key)
+    {
+        unset($_SESSION['session_message']);
     }
 
     public static function checkSession(){

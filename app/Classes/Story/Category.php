@@ -46,12 +46,12 @@ class Category
 
     public function removeCategory($category_id)
     {
-        
+        return $this->db_helper->delete('category', 'id ='.$category_id);
     }
 
-    public function editCategory($id, $title)
+    public function editCategory($id, $category)
     {
-
+        return $this->db_helper->update('category', ["category" => $category], 'id ='.$id);
     }
     
     public function getCategoryById($id)

@@ -1,6 +1,29 @@
+<?php require_once "../../../vendor/autoload.php"; ?>
+<?php
+    use \Classes\Story\Category;
+    use \Classes\Validation\Validation;
+    use \Classes\ErrorMessage\ErrorMessage;
+?>
+<?php
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        if (isset($_POST['submit'])) {
+            $validation = new Validation();
+            $errMessage = new ErrorMessage();
+            $category = new Category();
+            if ($category->addCategory($_POST['category'])) {
+                $errMessage = new ErrorMessage();
+                $message = $errMessage->getSuccessMessage("Succesfully created!");
+            } else {
+                $message = $errMessage->getAlertMessage("Failed to create category");
+            }
+
+        }
+    }
+?>
+
+
 <?php require_once "../../views/includes/header.php" ?>
 <?php require_once "../../views/includes/sidebar.php" ?>
-
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
@@ -22,18 +45,19 @@
             <div class="row">
                 <!-- Left col -->
                 <!--form begin-->
-                <form role="form">
+                <form role="form" method="POST" action="">
 
                     <div class="col-md-9">
                         <!-- TABLE: LATEST ORDERS -->
                         <div class="box">
                             <div class="box-body">
 
-                                <div class="form-group">
-                                    <label for="post_title">Title</label>
-                                    <input type="text" class="form-control" id="post_title" placeholder="Enter Title" name="title">
-                                </div>
+                                <?php global $message; echo $message; ?>
 
+                                <div class="form-group">
+                                    <label for="category_title">Title</label>
+                                    <input type="text" class="form-control" id="category_title" placeholder="Enter Title" name="category">
+                                </div>
                             </div>
                             <!-- /.box-body -->
                         </div>
@@ -47,7 +71,7 @@
                         <div class="box box-primary">
                             <div class="box-body">
                                 <div class="box-footer text-right">
-                                    <input class="btn btn-primary btn-md btn-block" type="submit" value="Save">
+                                    <input class="btn btn-primary btn-md btn-block" name="submit" type="submit" value="Save">
                                 </div>
                             </div>
                             <!-- /.box-body -->
