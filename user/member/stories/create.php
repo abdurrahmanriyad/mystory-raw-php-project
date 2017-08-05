@@ -13,6 +13,7 @@
 
     $tags = $tag->getTags();
     $categories = $category->getCategories();
+    $errMessage = new ErrorMessage();
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
@@ -26,7 +27,16 @@
             isset($_POST['tags']) ? $story->tags  = $_POST['tags'] : $story->tags = [];
 
             $story_repository = new StoryRepository();
-            $story_repository->createStory($story);
+            $inserted_id = $story_repository->createStory($story);
+            if(!$inserted_id) {
+                $message = $errMessage->getAlertMessage("failed to create story!");
+            } else {
+
+                foreach ($story->tags as $temp_tag) {
+                    $tag->addPivotStoryTag($inserted_id, $temp_tag);
+                }
+                $message = $errMessage->getSuccessMessage("Succesfully created story!");
+            }
 
         }
 
@@ -68,8 +78,7 @@
                         <!-- TABLE: LATEST ORDERS -->
                         <div class="box">
                             <div class="box-body">
-
-
+                                <?php echo $message; ?>
                                 <div class="form-group">
                                     <label for="title" class="control-label">Title : </label>
                                     <input class="form-control" placeholder="Enter Title" name="title" type="text" id="title">

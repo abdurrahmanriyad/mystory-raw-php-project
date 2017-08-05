@@ -73,7 +73,7 @@ class DbHelper
         $result = $query->execute();
 
         if ($result) {
-            return true;
+            return $this->database_conneciton->lastInsertId();
         } else {
             return false;
         }

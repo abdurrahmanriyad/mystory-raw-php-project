@@ -25,9 +25,9 @@ class FormFile
                 $temporary = explode(".", $file['name']);
                 $file_extension = end($temporary);
 
-                if ((($file["type"] == "image/png")
-                        || ($file["type"] == "image/jpg")
-                        || ($file["type"] == "image/jpeg"))
+            if ((      ($file["type"] == "image/png")
+                    || ($file["type"] == "image/jpg")
+                    || ($file["type"] == "image/jpeg"))
                     && ($file["size"] < 2048000)
                     && in_array($file_extension, $valid_extensions)){
 

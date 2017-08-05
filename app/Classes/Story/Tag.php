@@ -37,6 +37,15 @@ class Tag
         return false;
     }
 
+    public function addPivotStoryTag($story_id, $tag_id)
+    {
+        $inserted  = $this->db_helper->insert('story_has_tag',[
+            'tag_id' => $tag_id,
+            'story_id' => $story_id
+        ]);
+        return $inserted;
+    }
+
     public function removeTag($tag_id)
     {
         return $this->db_helper->delete('tag', 'id ='.$tag_id);
