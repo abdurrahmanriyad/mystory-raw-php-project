@@ -26,39 +26,28 @@ class StoryRepository
     }
 
 
-    public function createStory(Story $story)
+    public function addStory(Story $story)
     {
-        //validation
-        if(!$this->validation->isStoryEmpty($story)){
-            $uplaoded_filename = $this->formFile->uploadFile($story->featured_image);
-
-            if ($uplaoded_filename) {
-
-                $inserted  = $this->db_helper->insert('story',[
-                    'title' => $story->title,
-                    'body' => $story->body,
-                    'featured_image' => $uplaoded_filename,
-                    'user_id' => 1,
-                    'category_id' => $story->category_id,
-                    'created_at' => date("Y-m-d h:i:s"),
-                    'updated_at' => date("Y-m-d h:i:s")
-                ]);
-
-                return $inserted;
-            }
-        }
-
-        return false;
+        return $this->db_helper->insert('story',[
+            'title' => $story->title,
+            'body' => $story->body,
+            'featured_image' => $story->featured_image,
+            'user_id' => 1,
+            'category_id' => $story->category_id,
+            'created_at' => date("Y-m-d h:i:s"),
+            'updated_at' => date("Y-m-d h:i:s")
+        ]);
     }
+    
 
-    public function getStory()
+    public function get()
     {
         
     }
 
-    public function searchStory()
+    public function getAllStories($id)
     {
-        
+
     }
 
     public function getStoryByCategory()

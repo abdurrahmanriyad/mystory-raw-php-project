@@ -36,7 +36,6 @@ class Validation
     }
 
     public function isStoryEmpty(Story $story){
-
         if (trim($story->title) == '') {
             return true;
         } else if (trim($story->body) == '') {
@@ -46,7 +45,6 @@ class Validation
         } else if (empty($story->tags)) {
             return true;
         }
-
         return false;
     }
 }

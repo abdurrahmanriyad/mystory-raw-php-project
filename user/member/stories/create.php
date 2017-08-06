@@ -6,6 +6,7 @@
     use \Classes\Story\CategoryRepository;
     use \Classes\Story\Story;
     use \Classes\Story\StoryRepository;
+    use \Classes\Story\StoryService;
     use \Classes\ErrorMessage\ErrorMessage;
 ?>
 <?php
@@ -21,24 +22,21 @@
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         if (isset($_POST['submit'])) {
-            $story = new Story();
+            $objStory = new Story();
+            $objStoryService = new StoryService();
 
-            $story->title = $_POST['title'];
-            $story->body  = $_POST['body'];
-            $story->category_id  = $_POST['category_id'];
-            $story->featured_image = $_FILES['featured_image'];
-            isset($_POST['tags']) ? $story->tags  = $_POST['tags'] : $story->tags = [];
+            $objStory->title = $_POST['title'];
+            $objStory->body  = $_POST['body'];
+            $objStory->category_id  = $_POST['category_id'];
+            $objStory->featured_image = $_FILES['featured_image'];
+            isset($_POST['tags']) ? $objStory->tags = $_POST['tags'] : $objStory->tags = [''];
 
-            $story_repository = new StoryRepository();
-            $inserted_id = $story_repository->createStory($story);
+            $inserted_id = $objStoryService->submitStory($objStory);
+
             if(!$inserted_id) {
-                $message = $errMessage->getAlertMessage("failed to create story!");
+                $message = $objErrMessage->getAlertMessage("failed to create story!");
             } else {
-
-                foreach ($story->tags as $temp_tag) {
-                    $tag->addPivotStoryTag($inserted_id, $temp_tag);
-                }
-                $message = $errMessage->getSuccessMessage("Succesfully created story!");
+                $message = $objErrMessage->getSuccessMessage("Successfully created story!");
             }
 
         }

@@ -8,6 +8,9 @@ class Story
     public $body;
     public $created_at;
     public $rating;
+    public $featured_image;
+    public $category_id;
+    public $tags;
 
 
 
@@ -36,6 +39,11 @@ class Story
     }
 
     public function addCategory(Category $category)
+    {
+        $this->Category = $category;
+    }
+
+    public function addPivotStoryTag()
     {
         
     }

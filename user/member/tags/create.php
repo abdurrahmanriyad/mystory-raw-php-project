@@ -10,7 +10,7 @@
 
         if (isset($_POST['submit'])) {
             $validation = new Validation();
-            $errMessage = new ErrorMessage();
+            $objErrMessage = new ErrorMessage();
             $objTagRepository = new TagRepository();
 
             $objTag = new Tag();
