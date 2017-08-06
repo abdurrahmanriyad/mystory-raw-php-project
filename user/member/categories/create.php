@@ -10,7 +10,8 @@
         if (isset($_POST['submit'])) {
             $objErrMessage = new ErrorMessage();
             $objCategoryRepository = new CategoryRepository();
-            $objCategory = new Category($_POST['category']);
+            $objCategory = new Category();
+            $objCategory->title = $_POST['category'];
 
             if ($objCategoryRepository->addCategory($objCategory)) {
                 $objErrMessage = new ErrorMessage();

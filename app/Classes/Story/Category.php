@@ -22,9 +22,9 @@ class Category
      * Category constructor.
      * @param $title
      */
-    public function __construct($title)
+    public function __construct()
     {
-        $this->title = $title;
+
     }
 
 

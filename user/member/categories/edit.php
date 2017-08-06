@@ -22,18 +22,19 @@
 
         if (isset($_POST['submit'])) {
 
-            $objCategory = new Category($_POST['category']);
+            $objCategory = new Category();
             $objCategory->id = $_POST['id'];
+            $objCategory->title = $_POST['category'];
 
 
             if ($objCategoryRepository->editCategory($objCategory)) {
 
                 $objErrMessage = new ErrorMessage();
-                $message = $objErrMessage->getSuccessMessage("Successfully created!");
+                $message = $objErrMessage->getSuccessMessage("Successfully updated!");
                 $single_category = $objCategoryRepository->getCategoryById($objCategory->id);
 
             } else {
-                $message = $objErrMessage->getAlertMessage("Failed to create category");
+                $message = $objErrMessage->getAlertMessage("Failed to update category");
             }
 
         }

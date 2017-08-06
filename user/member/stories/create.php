@@ -1,19 +1,22 @@
 <?php require_once "../../../vendor/autoload.php"; ?>
 <?php
     use \Classes\Story\Tag;
+    use \Classes\Story\TagRepository;
     use \Classes\Story\Category;
+    use \Classes\Story\CategoryRepository;
     use \Classes\Story\Story;
     use \Classes\Story\StoryRepository;
     use \Classes\ErrorMessage\ErrorMessage;
 ?>
 <?php
 
-    $tag = new Tag();
-    $category = new Category();
+    $objTagRepository = new TagRepository();
+    $objCategoryRepository = new CategoryRepository();
 
-    $tags = $tag->getTags();
-    $categories = $category->getCategories();
-    $errMessage = new ErrorMessage();
+    $tags = $objTagRepository->getTags();
+    $categories = $objCategoryRepository->getCategories();
+    $objErrMessage = new ErrorMessage();
+    $message = "";
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
