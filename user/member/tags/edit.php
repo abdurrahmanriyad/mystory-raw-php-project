@@ -1,10 +1,9 @@
 <?php require_once "../../../vendor/autoload.php"; ?>
 
 <?php
-    use \Classes\Story\Tag;
-    use \Classes\Validation\Validation;
+    use \Classes\Story\TagRepository;
     use \Classes\ErrorMessage\ErrorMessage;
-    $tag = new Tag();
+    $objTagRepository = new TagRepository();
 ?>
 
 <?php
@@ -12,7 +11,7 @@
     if ($_SERVER['REQUEST_METHOD'] === 'GET') {
         if (isset($_GET['id']) ) {
             $id = $_GET['id'];
-            $single_tag = $tag->getTagById($id);
+            $single_tag = $objTagRepository->getTagById($id);
         }
     }
 
@@ -22,17 +21,16 @@
 
         if (isset($_POST['submit'])) {
 
-            $validation = new Validation();
             $errMessage = new ErrorMessage();
             $edit_tag = $_POST['tag'];
             $tag_id = $_POST['id'];
 
-            if ($tag->editTag($tag_id, $edit_tag)) {
-                $errMessage = new ErrorMessage();
-                $message = $errMessage->getSuccessMessage("Successfully Updated!");
-                $single_tag = $tag->getTagById($tag_id);
+            if ($objTagRepository->editTag($tag_id, $edit_tag)) {
+                $objErrMessage = new ErrorMessage();
+                $message = $objErrMessage->getSuccessMessage("Successfully Updated!");
+                $single_tag = $objTagRepository->getTagById($tag_id);
             } else {
-                $message = $errMessage->getAlertMessage("Failed to create updated");
+                $message = $objErrMessage->getAlertMessage("Failed to create updated");
             }
 
         }

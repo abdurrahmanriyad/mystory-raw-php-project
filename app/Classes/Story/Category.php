@@ -15,52 +15,17 @@ require_once "../../../vendor/autoload.php";
 
 class Category
 {
-
-    private $db_helper;
+    public $id;
+    public $title;
 
     /**
      * Category constructor.
-     * @param $db_helper
+     * @param $title
      */
-    public function __construct()
+    public function __construct($title)
     {
-        $this->db_helper = new DbHelper();
+        $this->title = $title;
     }
 
 
-    public function addCategory($category)
-    {
-        $validation = new Validation();
-        if (! $validation->isEmptyString($category)) {
-            $inserted  = $this->db_helper->insert('category',[
-                'category' => $category,
-                'created_at' => date("Y-m-d h:i:s"),
-                'updated_at' => date("Y-m-d h:i:s")
-            ]);
-
-            return $inserted;
-        }
-
-        return false;
-    }
-
-    public function removeCategory($category_id)
-    {
-        return $this->db_helper->delete('category', 'id ='.$category_id);
-    }
-
-    public function editCategory($id, $category)
-    {
-        return $this->db_helper->update('category', ["category" => $category, "updated_at" => date("Y-m-d h:i:s")], 'id ='.$id);
-    }
-    
-    public function getCategoryById($id)
-    {
-        return $this->db_helper->select('category', [], ' WHERE id ='.$id);
-    }
-
-    public function getCategories()
-    {
-        return $this->db_helper->select('category', []);
-    }
 }

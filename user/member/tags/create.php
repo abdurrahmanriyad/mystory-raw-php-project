@@ -1,6 +1,7 @@
 <?php require_once "../../../vendor/autoload.php"; ?>
 <?php
     use \Classes\Story\Tag;
+    use \Classes\Story\TagRepository;
     use \Classes\Validation\Validation;
     use \Classes\ErrorMessage\ErrorMessage;
 ?>
@@ -10,13 +11,18 @@
         if (isset($_POST['submit'])) {
             $validation = new Validation();
             $errMessage = new ErrorMessage();
-            $tag = new Tag();
+            $objTagRepository = new TagRepository();
 
-            if ($tag->addTag($_POST['tag'])) {
-                $errMessage = new ErrorMessage();
-                $message = $errMessage->getSuccessMessage("Succesfully created!");
+            $objTag = new Tag();
+            $objTag->title = $_POST['tag'];
+
+            if ($objTagRepository->addTag($objTag)) {
+
+                $objErrMessage = new ErrorMessage();
+                $message = $objErrMessage->getSuccessMessage("Succesfully created!");
+
             } else {
-                $message = $errMessage->getAlertMessage("Failed to create category");
+                $message = $objErrMessage->getAlertMessage("Failed to create category");
             }
 
         }

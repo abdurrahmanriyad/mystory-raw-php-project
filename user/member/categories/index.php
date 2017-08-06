@@ -1,9 +1,9 @@
 <?php
     require_once "../../../vendor/autoload.php";
-    use \Classes\Story\Category;
+    use \Classes\Story\CategoryRepository;
     use \Classes\Session\Session;
 
-    $session = new Session();
+    $objSession = new Session();
 
 ?>
 
@@ -43,11 +43,11 @@
 
                             <?php
 
-                                $session_message = $session->get('session_message');
+                                $session_message = $objSession->get('session_message');
 
                                 if (isset($session_message)) {
                                     echo $session_message;
-                                    $session->unsetSession('session_message');
+                                    $objSession->unsetSession('session_message');
                                 }
                             ?>
 
@@ -63,8 +63,8 @@
                                 <tbody>
 
                                 <?php
-                                    $category = new Category();
-                                    $categories = $category->getCategories();
+                                    $objCategoryRepository = new CategoryRepository();
+                                    $categories = $objCategoryRepository->getCategories();
 
                                     if($categories) :
                                             $count = 1;

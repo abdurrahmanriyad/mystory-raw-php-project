@@ -1,9 +1,10 @@
 <?php
     require_once "../../../vendor/autoload.php";
-    use \Classes\Story\Tag;
+
+    use \Classes\Story\TagRepository;
     use \Classes\Session\Session;
 
-    $session = new Session();
+    $objSession = new Session();
 
 ?>
 
@@ -43,11 +44,11 @@
 
                             <?php
 
-                                $session_message = $session->get('session_message');
+                                $session_message = $objSession->get('session_message');
 
                                 if (isset($session_message)) {
                                     echo $session_message;
-                                    $session->unsetSession('session_message');
+                                    $objSession->unsetSession('session_message');
                                 }
                             ?>
 
@@ -63,12 +64,11 @@
                                 <tbody>
 
                                 <?php
-                                    $tag = new Tag();
-                                    $tags = $tag->getTags();
+                                    $objTagRepository = new TagRepository();
+                                    $tags = $objTagRepository->getTags();
 
                                     if($tags) :
-                                            $count = 1;
-
+                                        $count = 1;
                                         foreach ($tags as $single_tag) :
                                 ?>
 
@@ -92,7 +92,6 @@
 
                                 <?php
                                         endforeach;
-
                                     endif;
                                 ?>
 

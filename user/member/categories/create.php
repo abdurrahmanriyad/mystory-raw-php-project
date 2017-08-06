@@ -1,23 +1,25 @@
 <?php require_once "../../../vendor/autoload.php"; ?>
 <?php
     use \Classes\Story\Category;
-    use \Classes\Validation\Validation;
+    use \Classes\Story\CategoryRepository;
     use \Classes\ErrorMessage\ErrorMessage;
 ?>
 <?php
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        if (isset($_POST['submit'])) {
-            $validation = new Validation();
-            $errMessage = new ErrorMessage();
-            $category = new Category();
-            if ($category->addCategory($_POST['category'])) {
-                $errMessage = new ErrorMessage();
-                $message = $errMessage->getSuccessMessage("Succesfully created!");
-            } else {
-                $message = $errMessage->getAlertMessage("Failed to create category");
-            }
 
+        if (isset($_POST['submit'])) {
+            $objErrMessage = new ErrorMessage();
+            $objCategoryRepository = new CategoryRepository();
+            $objCategory = new Category($_POST['category']);
+
+            if ($objCategoryRepository->addCategory($objCategory)) {
+                $objErrMessage = new ErrorMessage();
+                $message = $objErrMessage->getSuccessMessage("Succesfully created!");
+            } else {
+                $message = $objErrMessage->getAlertMessage("Failed to create category");
+            }
         }
+
     }
 ?>
 

@@ -11,7 +11,8 @@ namespace Classes\Story;
 
 class Rating
 {
-    private $current_rating_level;
+    public $like;
+    public $disLike;
 
     public function like()
     {

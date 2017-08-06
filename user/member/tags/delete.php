@@ -3,19 +3,23 @@
     require_once "../../../vendor/autoload.php";
 
     use \Classes\Story\Tag;
+    use \Classes\Story\TagRepository;
     use \Classes\Session\Session;
     use \Classes\ErrorMessage\ErrorMessage;
 
-    $error_message = new ErrorMessage();
-    $tag = new Tag();
-    $session = new Session();
+    $objError_message = new ErrorMessage();
+    $objTagRepository = new TagRepository();
+    $objSession = new Session();
 
     if (isset($_GET['id'])) {
 
-        if ($tag->removeTag($_GET['id']) ) {
-            $session->set("session_message", $error_message->getSuccessMessage("Successfully Deleted!"));
+        $objTag = new Tag();
+        $objTag->id = $_GET['id'];
+
+        if ($objTagRepository->removeTag($objTag) ) {
+            $objSession->set("session_message", $objError_message->getSuccessMessage("Successfully Deleted!"));
         } else {
-            $session->set("session_message", $error_message->getAlertMessage("Failed to delete"));
+            $objSession->set("session_message", $objError_message->getAlertMessage("Failed to delete"));
         }
 
     }

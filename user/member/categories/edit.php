@@ -2,16 +2,17 @@
 
 <?php
     use \Classes\Story\Category;
-    use \Classes\Validation\Validation;
+    use \Classes\Story\CategoryRepository;
     use \Classes\ErrorMessage\ErrorMessage;
-    $category = new Category();
+
+    $objCategoryRepository = new CategoryRepository();
 ?>
 
 <?php
     if ($_SERVER['REQUEST_METHOD'] === 'GET') {
         if (isset($_GET['id']) ) {
             $id = $_GET['id'];
-            $single_category = $category->getCategoryById($id);
+            $single_category = $objCategoryRepository->getCategoryById($id);
         }
     }
 
@@ -20,16 +21,19 @@
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         if (isset($_POST['submit'])) {
-            $validation = new Validation();
-            $errMessage = new ErrorMessage();
-            $edit_category = $_POST['category'];
-            $category_id = $_POST['id'];
-            if ($category->editCategory($category_id, $edit_category)) {
-                $errMessage = new ErrorMessage();
-                $message = $errMessage->getSuccessMessage("Successfully created!");
-                $single_category = $category->getCategoryById($category_id);
+
+            $objCategory = new Category($_POST['category']);
+            $objCategory->id = $_POST['id'];
+
+
+            if ($objCategoryRepository->editCategory($objCategory)) {
+
+                $objErrMessage = new ErrorMessage();
+                $message = $objErrMessage->getSuccessMessage("Successfully created!");
+                $single_category = $objCategoryRepository->getCategoryById($objCategory->id);
+
             } else {
-                $message = $errMessage->getAlertMessage("Failed to create category");
+                $message = $objErrMessage->getAlertMessage("Failed to create category");
             }
 
         }
@@ -69,8 +73,7 @@
                         <!-- TABLE: LATEST ORDERS -->
                         <div class="box">
                             <div class="box-body">
-
-                                <?php global $message; echo $message; ?>
+                                <?php global $message; echo $message;?>
 
                                 <div class="form-group">
                                     <label for="category_title">Title</label>

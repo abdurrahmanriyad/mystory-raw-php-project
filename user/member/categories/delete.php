@@ -2,20 +2,20 @@
 
     require_once "../../../vendor/autoload.php";
 
-    use \Classes\Story\Category;
+    use \Classes\Story\CategoryRepository;
     use \Classes\Session\Session;
     use \Classes\ErrorMessage\ErrorMessage;
 
-    $error_message = new ErrorMessage();
-    $category = new Category();
+    $objErrMessage = new ErrorMessage();
+    $objCategoryRepository = new CategoryRepository();
     $session = new Session();
 
     if (isset($_GET['id'])) {
 
-        if ($category->removeCategory($_GET['id']) ) {
-            $session->set("session_message", $error_message->getSuccessMessage("Successfully Deleted!"));
+        if ($objCategoryRepository->removeCategory($_GET['id']) ) {
+            $session->set("session_message", $objErrMessage->getSuccessMessage("Successfully Deleted!"));
         } else {
-            $session->set("session_message", $error_message->getAlertMessage("Failed to delete"));
+            $session->set("session_message", $objErrMessage->getAlertMessage("Failed to delete"));
         }
 
     }

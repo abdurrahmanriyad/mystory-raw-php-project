@@ -13,23 +13,14 @@ class Comment
 {
     private $comment;
 
-    public function makeComment($comment)
+    /**
+     * Comment constructor.
+     * @param $comment
+     */
+    public function __construct($comment)
     {
-
+        $this->comment = $comment;
     }
 
-    public function deleteComment($comment_id)
-    {
 
-    }
-
-    public function getComment($comment_id)
-    {
-        
-    }
-
-    public function getComments()
-    {
-        
-    }
 }

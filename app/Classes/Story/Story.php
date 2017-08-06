@@ -6,23 +6,38 @@ class Story
 {
     public $title;
     public $body;
-    public $category_id;
-    public $tags;
-    public $featured_image;
+    public $created_at;
+    public $rating;
 
-    public function approveStory($story_id)
+
+
+    public function addTag($story_id, $tag_id)
+    {
+        $inserted  = $this->db_helper->insert('story_has_tag',[
+            'tag_id' => $tag_id,
+            'story_id' => $story_id
+        ]);
+        return $inserted;
+    }
+
+    public function addComment(Comment $comment)
     {
 
     }
 
-    public function rejectStory($story_id)
+    public function deleteComment(Comment $comment)
+    {
+
+    }
+
+    public function editComment(Comment $comment)
+    {
+
+    }
+
+    public function addCategory(Category $category)
     {
         
-    }
-
-    public function toString()
-    {
-        return "Title: ".$this->title."</br> ". "Body: ".$this->body."</br> ". "Category_id: ".$this->category_id."</br> "."Tag_id: ".$this->tag_id[0]."</br> ";
     }
 
 }
