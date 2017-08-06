@@ -3,6 +3,7 @@
 namespace Classes\Story;
 
 use Classes\Story\Story;
+use Classes\Story\TagRepository;
 use Classes\Story\StoryRepository;
 use Classes\Form\FormFile;
 use Classes\Validation\Validation;
@@ -30,9 +31,9 @@ class StoryService
         //validation
         if (!$this->objValidation->isStoryEmpty($story)) {
 
-            $uplaoded_filename = $this->objFormFile->uploadFile($story->featured_image);
-            $story->featured_image = $uplaoded_filename;
-            if ($uplaoded_filename) {
+            $uploaded_filename = $this->objFormFile->uploadFile($story->featured_image);
+            $story->featured_image = $uploaded_filename;
+            if ($uploaded_filename) {
 
                 $inserted  = $this->objStoryRepository->addStory($story);
                 if ($inserted) {
@@ -49,6 +50,37 @@ class StoryService
         return false;
     }
 
+    public function updateStory(Story $story, $id)
+    {
+        //validation
+        if (!$this->objValidation->isStoryEmpty($story)) {
+            if (unlink('../../../uploads/'.$story->previous_featured_image)) {
+                $uploaded_filename = $this->objFormFile->uploadFile($story->featured_image);
+                $story->featured_image = $uploaded_filename;
+                if ($uploaded_filename) {
+
+                    $updated  = $this->objStoryRepository->updateStory($story, $id);
+
+                    if ($updated) {
+                        $this->removeRelatedTags($id);
+                        foreach ($story->tags as $temp_tag) {
+                            $this->objStory->addPivotStoryTag($updated, $temp_tag);
+                        }
+                    }
+
+                    return $updated;
+                }
+            }
+        }
+
+        return false;
+    }
+
+    public function removeRelatedTags($story_id)
+    {
+        $this->objStoryRepository->removeTags($story_id);
+    }
+    
     public function approveStory()
     {
 

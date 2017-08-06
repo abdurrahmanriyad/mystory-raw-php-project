@@ -2,6 +2,8 @@
 
 namespace Classes\Story;
 
+use Classes\Database\DbHelper;
+
 class Story
 {
     public $title;
@@ -11,16 +13,11 @@ class Story
     public $featured_image;
     public $category_id;
     public $tags;
+    public $db_helper;
 
-
-
-    public function addTag($story_id, $tag_id)
+    public function __construct()
     {
-        $inserted  = $this->db_helper->insert('story_has_tag',[
-            'tag_id' => $tag_id,
-            'story_id' => $story_id
-        ]);
-        return $inserted;
+        $this->db_helper = new DbHelper();
     }
 
     public function addComment(Comment $comment)
@@ -43,9 +40,13 @@ class Story
         $this->Category = $category;
     }
 
-    public function addPivotStoryTag()
+    public function addPivotStoryTag($story_id, $tag_id)
     {
-        
+        $inserted  = $this->db_helper->insert('story_has_tag',[
+            'tag_id' => $tag_id,
+            'story_id' => $story_id
+        ]);
+        return $inserted;
     }
 
 }

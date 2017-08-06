@@ -57,6 +57,13 @@ class DbHelper
 
     }
 
+    public function query($query)
+    {
+        $query = $this->database_conneciton->prepare($query);
+        $query->execute();
+        return $query->fetchAll(\PDO::FETCH_OBJ);
+    }
+
 
     public function insert($table, array $data)
     {

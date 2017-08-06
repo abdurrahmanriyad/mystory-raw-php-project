@@ -27,9 +27,8 @@
 </span>
     </a>
     <ul class="treeview-menu">
+        <li><a href="<?php echo base_url('user/member/stories/')  ?>"><i class="fa fa-circle-o"></i> Stories</a></li>
         <li><a href="<?php echo base_url('user/member/stories/create.php')  ?>"><i class="fa fa-circle-o"></i> Create </a></li>
-        <li><a href="create.php"><i class="fa fa-circle-o"></i> Tag</a></li>
-        <li><a href="categories/create.php"><i class="fa fa-circle-o"></i> Category</a></li>
     </ul>
 </li>
 

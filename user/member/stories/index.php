@@ -1,6 +1,7 @@
 <?php
     require_once "../../../vendor/autoload.php";
-    use \Classes\Story\CategoryRepository;
+
+    use \Classes\Story\StoryRepository;
     use \Classes\Session\Session;
 
     $objSession = new Session();
@@ -63,25 +64,25 @@
                                 <tbody>
 
                                 <?php
-                                    $objCategoryRepository = new CategoryRepository();
-                                    $categories = $objCategoryRepository->getCategories();
+                                    $objStoryRepository = new StoryRepository();
+                                    $stories = $objStoryRepository->getAllStories();
 
-                                    if($categories) :
+                                    if($stories) :
                                             $count = 1;
 
-                                        foreach ($categories as $single_category) :
+                                        foreach ($stories as $single_story) :
                                 ?>
 
                                 <tr>
                                     <td> <?php echo $count++; ?> </td>
-                                    <td> <?php echo $single_category->category; ?>  </td>
-                                    <td> <?php echo $single_category->created_at; ?> </td>
+                                    <td> <?php echo $single_story->title; ?>  </td>
+                                    <td> <?php echo $single_story->created_at; ?> </td>
                                     <td>
 
                                         <div class="btn-group">
-                                            <a class="btn btn-primary btn-sm" href="<?php echo base_url("user/member/categories/edit.php?id=".$single_category->id) ?>"><i class="fa fa-pencil-square-o"></i></a>
+                                            <a class="btn btn-primary btn-sm" href="<?php echo base_url("user/member/stories/edit.php?id=".$single_story->id) ?>"><i class="fa fa-pencil-square-o"></i></a>
 
-                                            <form style="display: inline-block" action="<?php echo base_url("user/member/categories/delete.php?id=".$single_category->id) ?>" method="POST">
+                                            <form style="display: inline-block" action="<?php echo base_url("user/member/categories/delete.php?id=".$single_story->id) ?>" method="POST">
                                                 <button class="btn btn-sm btn-default" type="submit" name="delete"><i class="fa fa-trash-o"></i></button>
                                             </form>
                                         </div>
