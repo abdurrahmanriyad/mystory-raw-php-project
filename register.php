@@ -6,7 +6,7 @@
 
 <?php
     if (Input::exists()) {
-
+        echo Input::get('name');
     }
 ?>
 
