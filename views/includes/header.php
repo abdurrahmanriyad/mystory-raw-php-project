@@ -26,11 +26,11 @@
                 <div class="col m8">
                     <ul class="main_nav">
                         <li><a href="#">Home</a></li>
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Write Your Story</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><button data-target="login" class="btn modal-trigger">Login</button></li>
                     </ul>
+
                 </div>
             </div>
         </div>
@@ -44,8 +44,8 @@
                     <div class="featured">
                         <div class="outer">
                             <div class="story">
-                                <h4 class="title">hello world</h4>
-                                <p class="subtitle">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil sequi odit, asperiores ullam quod totam itaque voluptas adipisci atque deserunt voluptate illo distinctio quaerat. In sequi tenetur sed minus facilis!</p>
+                                <h4 class="title">Amazon Kindle aims to boost English writing</h4>
+                                <p class="subtitle">When Amazon Kindle was launched in India in 2015, India was already the third largest country in the world in terms of English publishing. So the Kindle content was already relevant to Indian readers. They went on to add Indian English writers too. Today, they have thousands of Indian authors on board!</p>
                                 <a href="#" class="waves-effect waves-light btn">READ FULL STORY</a>
                             </div>
                         </div>
@@ -57,3 +57,40 @@
     <!-- featured area finish -->
 </div>
 <!-- header wrapper finished -->
+
+
+
+<!-- Modal Structure -->
+<div id="login" class="modal">
+    <div class="modal-content">
+        <form class="col s12">
+
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="email" type="email" class="validate">
+                    <label for="email">Email</label>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="email" type="password" class="validate">
+                    <label for="email">Password</label>
+                </div>
+            </div>
+
+
+        </form>
+    </div>
+    <div class="modal-footer">
+        <div class="row">
+            <div class="col m9 reg-link">
+                Not a User? <a href="register.php">Register</a>
+            </div>
+
+            <div class="col m3">
+                <a class="waves-effect waves-light btn login"><i class="fa fa-input">Login</i></a>
+            </div>
+        </div>
+    </div>
+</div>

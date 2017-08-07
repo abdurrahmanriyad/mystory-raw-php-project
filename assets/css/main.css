@@ -20,7 +20,7 @@ body{
     top: 0;
     height: 100%;
     width: 100%;
-    background: linear-gradient(rgba(34, 49, 63, .7), rgba(238,110,115, 0.4)), url(https://images.unsplash.com/photo-1499952127939-9bbf5af6c51c?dpr=1&auto=format&fit=crop&w=1500&h=994&q=80&cs=tinysrgb&crop=) no-repeat;
+    background: linear-gradient(rgba(34, 49, 63, .7), rgba(238,110,115, 0.4)), url(https://images.unsplash.com/photo-1472466287482-c6c7fe50b716?dpr=1&auto=format&fit=crop&w=1500&h=1000&q=80&cs=tinysrgb&crop=) no-repeat;
     background-size: cover;
     background-position: center;
     z-index: -5;
@@ -43,6 +43,9 @@ body{
 .main_nav{
     list-style: none;
     text-align: right;
+}
+.main_nav .modal-trigger {
+    margin-left: 27px;
 }
 .main_nav > li {
     display: inline-block;
@@ -70,6 +73,9 @@ body{
     transition: all .3s;
 }
 .main_nav  > li:hover > a::before{
+    max-width: 100%;
+}
+.main_nav  > li:nth-child(2) > a::before{
     max-width: 100%;
 }
 
@@ -101,6 +107,15 @@ body{
 }
 .content{
     padding-right: 20px;
+}
+.story_block .card {
+    margin-bottom: 45px;
+}
+.story_block .card .card-action {
+    background-color: inherit;
+    border-top: 1px solid rgba(160, 160, 160, 0.2);
+    padding: 24px;
+    position: relative;
 }
 .story_block .card-title.author {
     font-size: 18px;
@@ -256,4 +271,30 @@ textarea.materialize-textarea {
 }
 .post_an_answer .row {
     margin-bottom: 0;
+}
+
+
+/*modal*/
+.modal {
+    width: 35%;
+    overflow: hidden;
+    max-height: 100%;
+}
+.modal .modal-footer {
+    height: auto;
+}
+.modal .btn.login i{
+    font-size: 13px;
+    font-family: 'Roboto', sans-serif;
+}
+.reg-link {
+    display: block;
+    margin-top: 15px;
+    text-align: right;
+}
+
+
+/*register*/
+.register_block{
+    margin-bottom: 40px;
 }

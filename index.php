@@ -8,79 +8,81 @@
                     <div class="story_block">
                         <div class="card">
                             <div class="card-image">
-                                <img src="https://unsplash.it/500/200/?random">
-                                <span class="card-title author">by <span>Abdur Rahman</span></span>
+                                <img src="https://images.unsplash.com/photo-1495164885980-991125767796?dpr=2&auto=format&fit=crop&w=1500&h=844&q=80&cs=tinysrgb&crop=">
+                                <span class="card-title author">by <span>Riyad Uddin</span></span>
                             </div>
                             <div class="card-content">
-                                <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
+                                <h4 class="card-title"><strong><a href="#">Kashmiri woman is using a quirky brand to promote Koshur culture</a></strong></h4>
+                                <p>For most of her life, 29-year-old Sama Beg has lived outside Kashmir. Raised in the Middle East, she went to the US for her education. But a part of her always wanted to return to Kashmir and give back something.</p>
                             </div>
                             <div class="card-action">
                                 <div class="col s4">
                                     <div class="comments">
-                                        <i class="fa fa-comments"></i> 36
+                                        <i class="fa fa-comments"></i> 23
                                     </div>
                                 </div>
                                 <div class="col s4">
                                     <ul class="rating">
-                                        <li class="fill"> <i class="fa fa-star-o"></i></li>
-                                        <li class="fill"> <i class="fa fa-star-o"></i></li>
-                                        <li class="fill"> <i class="fa fa-star-o"></i></li>
+                                        <li class="fill"> <i class="fa fa-star"></i></li>
+                                        <li class="fill"> <i class="fa fa-star"></i></li>
+                                        <li class="fill"> <i class="fa fa-star"></i></li>
                                         <li class="fill"> <i class="fa fa-star-o"></i></li>
                                         <li class="fill"> <i class="fa fa-star-o"></i></li>
                                     </ul>
                                 </div>
                                 <div class="col s4">
                                     <div class="like">
-                                        <span class="upvote"><i class="fa fa-thumbs-up"></i> 35</span>
-                                        <span class="downvote"><i class="fa fa-thumbs-down"></i> 35</span>
+                                        <span class="upvote"><i class="fa fa-thumbs-up"></i> 14</span>
+                                        <span class="downvote"><i class="fa fa-thumbs-down"></i> 2</span>
                                     </div>
                                 </div>
                             </div>
                         </div>
+
+
+
+                        <div class="card">
+                            <div class="card-image">
+                                <img src="https://images.unsplash.com/photo-1462204215829-29407c570832?dpr=2&auto=format&fit=crop&w=1500&h=1000&q=80&cs=tinysrgb&crop=">
+                                <span class="card-title author">by <span>Abdur Rahman</span></span>
+                            </div>
+                            <div class="card-content">
+                                <h4 class="card-title"><strong><a href="#">Naiyya Saggi’s 5-year plan: to see BabyChakra as the trusted companion to every young parent</a></strong></h4>
+                                <p>“Everything we do starts from the needs of parents—typically young moms,” says Naiyya Saggi, Co-founder of BabyChakra, an online platform connecting Indian parents to the best services for their babies.</p>
+                            </div>
+                            <div class="card-action">
+                                <div class="col s4">
+                                    <div class="comments">
+                                        <i class="fa fa-comments"></i> 6
+                                    </div>
+                                </div>
+                                <div class="col s4">
+                                    <ul class="rating">
+                                        <li class="fill"> <i class="fa fa-star"></i></li>
+                                        <li class="fill"> <i class="fa fa-star"></i></li>
+                                        <li class="fill"> <i class="fa fa-star"></i></li>
+                                        <li class="fill"> <i class="fa fa-star"></i></li>
+                                        <li class="fill"> <i class="fa fa-star-o"></i></li>
+                                    </ul>
+                                </div>
+                                <div class="col s4">
+                                    <div class="like">
+                                        <span class="upvote"><i class="fa fa-thumbs-up"></i> 45</span>
+                                        <span class="downvote"><i class="fa fa-thumbs-down"></i> 10</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
                     </div>
                 </div>
             </div>
 
             <div class="col m3">
-                <div class="sidebar_area">
-                    <div class="sidebar_block categories">
-                        <h5 class="title">categories</h5>
-                        <ul>
-                            <li><a href="#">Alvin</a></li>
-                            <li><a href="#">Alvin</a></li>
-                            <li><a href="#">Alvin</a></li>
-                            <li><a href="#">Alvin</a></li>
-                        </ul>
-                    </div>
-
-                    <div class="sidebar_block">
-                        <h5 class="title">Tags</h5>
-                            <div class="tags">
-                                <a href="#">tech</a>
-                                <a href="#">tech</a>
-                                <a href="#">tech</a>
-                                <a href="#">tecasdfsdfh</a>
-                                <a href="#">tech</a>
-                                <a href="#">tech</a>
-
-                            </div>
-                    </div>
-
-
-                    <div class="sidebar_block most_rated">
-                        <h5 class="title">Most Rated</h5>
-                            <ul>
-                                <li><a href="#">Lorem ipsum dolor sit amet, consectetur...</a></li>
-
-                                <li><a href="#">Lorem ipsum dolor sit amet, consectetur...</a></li>
-
-                                <li><a href="#">Lorem ipsum dolor sit amet, consectetur...</a></li>
-
-                                <li><a href="#">Lorem ipsum dolor sit amet, consectetur...</a></li>
-                            </ul>
-                    </div>
-
-                </div>
+                <?php include_once 'views/includes/sidebar.php' ?>
             </div>
         </div>
     </div>
