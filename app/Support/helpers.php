@@ -42,3 +42,14 @@ if (! function_exists('redirect')) {
         echo '<script> window.location="'.$url.'"</script>';
     }
 }
+
+if (! function_exists('escape')) {
+
+    /**
+     * @param $string
+     */
+    function escape ($string) {
+        return htmlentities($string, ENT_QUOTES, 'UTF-8');
+    }
+}
+

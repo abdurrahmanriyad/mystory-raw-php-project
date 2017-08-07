@@ -1,12 +1,40 @@
 <?php
     require_once "vendor/autoload.php";
     use \Classes\Validation\Input;
+    use \Classes\Validation\Validation;
 ?>
 
 
 <?php
     if (Input::exists()) {
-        echo Input::get('name');
+        $objValidation = new Validation();
+        $objValidation->validate($_POST,
+            array(
+                'name' => array(
+                    'required' => true,
+                    'min' => 5,
+                    'max' => 20,
+                    'unique' => 'user'
+                ),
+                'password' => array(
+                    'required' => true,
+                    'min' => 5
+                ),
+                'password_again' => array(
+                    'required' => true,
+                    'matches' => 'password'
+                ),
+                'email' => array(
+                    'required' => true
+                )
+            )
+        );
+
+        if ($objValidation->passed()) {
+            echo "passed";
+        } else {
+            print_r($objValidation->errors());
+        }
     }
 ?>
 
@@ -23,7 +51,7 @@
 
                                 <div class="row">
                                     <div class="input-field col s12">
-                                        <input id="name" type="text" class="validate" name="name" >
+                                        <input id="name" type="text" class="validate" name="name" value="<?php echo escape(Input::get('name')); ?>">
                                         <label for="name">Name</label>
                                     </div>
                                 </div>
@@ -44,8 +72,8 @@
 
                                 <div class="row">
                                     <div class="input-field col s12">
-                                        <input id="conpassword" type="password" class="validate" name="conpassword">
-                                        <label for="conpassword">Confirm_Password</label>
+                                        <input id="password_again" type="password" class="validate" name="password_again">
+                                        <label for="password_again">Confirm_Password</label>
                                     </div>
                                 </div>
 
