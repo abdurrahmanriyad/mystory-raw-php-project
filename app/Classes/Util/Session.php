@@ -1,4 +1,4 @@
-<?php namespace Classes\Session;
+<?php namespace Classes\Util;
 
 /**
  * Created by PhpStorm.
@@ -8,21 +8,13 @@
  */
 class Session
 {
-    public function __construct()
+    public static function exists($name)
     {
-        if(version_compare(phpversion(), '5.4.0', '<')){
-            if(session_id() == ""){
-                session_start();
-            }
-        } else{
-            if(session_status() == PHP_SESSION_NONE){
-                session_start();
-            }
-        }
+        return isset($_SESSION[$name]) ? true : false;
     }
 
     public static function set($key, $value){
-        $_SESSION[$key] = $value;
+        return $_SESSION[$key] = $value;
     }
 
     public static function get($key){
@@ -39,9 +31,20 @@ class Session
         echo '<script> window.location = "login.php";</script>';
     }
 
-    public function unsetSession($key)
+    public static function flash($name, $string = '')
     {
-        unset($_SESSION['session_message']);
+        if (self::exists($name)) {
+            $session = self::get($name);
+            self::unsetSession($name);
+            return $session;
+        } else {
+            self::set($name, $string);
+        }
+    }
+
+    public static function unsetSession($key)
+    {
+        unset($_SESSION[$key]);
     }
 
     public static function checkSession(){

@@ -1,3 +1,10 @@
+<?php
+    require_once "vendor/autoload.php";
+    use \Classes\Validation\Input;
+    use \Classes\Validation\Validation;
+    use \Classes\Util\Token;
+    use \Classes\Util\Session;
+?>
 <?php  require_once "views/includes/header.php" ?>
 
 <div class="content_area">

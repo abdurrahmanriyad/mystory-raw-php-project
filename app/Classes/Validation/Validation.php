@@ -8,7 +8,7 @@
 
 namespace Classes\Validation;
 
-require_once $_SERVER['DOCUMENT_ROOT']."/storyteller/vendor/autoload.php";
+require_once $_SERVER['DOCUMENT_ROOT']."/mystory/vendor/autoload.php";
 
 use \Classes\Database\DB;
 
@@ -104,8 +104,6 @@ class Validation
 
         if(empty($this->errors)) {
             $this->passed = true;
-        } else {
-            print_r($this->errors());
         }
 
         return '';

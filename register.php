@@ -2,38 +2,44 @@
     require_once "vendor/autoload.php";
     use \Classes\Validation\Input;
     use \Classes\Validation\Validation;
+    use \Classes\Util\Token;
+    use \Classes\Util\Session;
+
 ?>
 
 
 <?php
     if (Input::exists()) {
-        $objValidation = new Validation();
-        $objValidation->validate($_POST,
-            array(
-                'name' => array(
-                    'required' => true,
-                    'min' => 5,
-                    'max' => 20,
-                    'unique' => 'user'
-                ),
-                'password' => array(
-                    'required' => true,
-                    'min' => 5
-                ),
-                'password_again' => array(
-                    'required' => true,
-                    'matches' => 'password'
-                ),
-                'email' => array(
-                    'required' => true
-                )
-            )
-        );
+        if (Token::check(Input::get('token'))) {
 
-        if ($objValidation->passed()) {
-            echo "passed";
-        } else {
-            print_r($objValidation->errors());
+            $objValidation = new Validation();
+            $objValidation->validate($_POST,
+                array(
+                    'name' => array(
+                        'required' => true,
+                        'min' => 5,
+                        'max' => 20,
+                        'unique' => 'user'
+                    ),
+                    'password' => array(
+                        'required' => true,
+                        'min' => 5
+                    ),
+                    'password_again' => array(
+                        'required' => true,
+                        'matches' => 'password'
+                    ),
+                    'email' => array(
+                        'required' => true
+                    )
+                )
+            );
+
+            if ($objValidation->passed()) {
+                Session::flash("success", "User created successfully!");
+            } else {
+                print_r($objValidation->errors());
+            }
         }
     }
 ?>
@@ -97,7 +103,7 @@
                                     </div>
                                 </div>
 
-
+                                <input type="hidden" name="token" value="<?php echo Token::generate(); ?>">
                                 <div class="right-align"><button class="waves-effect waves-light btn" type="submit">Register</button></div>
                             </form>
 

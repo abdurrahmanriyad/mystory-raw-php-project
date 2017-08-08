@@ -2,7 +2,7 @@
 
 namespace Classes\Database;
 
-require_once $_SERVER['DOCUMENT_ROOT']."/storyteller/vendor/autoload.php";
+require_once $_SERVER['DOCUMENT_ROOT']."/mystory/vendor/autoload.php";
 
 use Classes\Config\Config;
 

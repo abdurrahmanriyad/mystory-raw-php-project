@@ -16,7 +16,7 @@ if (! function_exists('base_url')) {
      * @param $url
      * @return string
      */
-    function base_url($url)
+    function base_url($url = '')
     {
         // output: /myproject/index.php
         $currentPath = $_SERVER['PHP_SELF'];
@@ -28,7 +28,7 @@ if (! function_exists('base_url')) {
         $protocol = strtolower(substr($_SERVER["SERVER_PROTOCOL"],0,5))=='https://'?'https://':'http://';
 
         // return: http://localhost/myproject/
-        return $protocol.$hostName."/storyteller/".$url;
+        return $protocol.$hostName."/mystory/".$url;
     }
 }
 
