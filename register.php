@@ -1,6 +1,8 @@
 <?php
     require_once "vendor/autoload.php";
     use \Classes\Validation\Input;
+    use \Classes\Member\Member;
+    use \Classes\Member\MembershipService;
     use \Classes\Validation\Validation;
     use \Classes\Util\Token;
     use \Classes\Util\Session;
@@ -17,8 +19,15 @@
                 array(
                     'name' => array(
                         'required' => true,
+                        'min' => 5
+                    ),
+                    'username' => array(
+                        'required' => true,
                         'min' => 5,
-                        'max' => 20,
+                        'unique' => 'user'
+                    ),
+                    'email' => array(
+                        'required' => true,
                         'unique' => 'user'
                     ),
                     'password' => array(
@@ -29,17 +38,31 @@
                         'required' => true,
                         'matches' => 'password'
                     ),
-                    'email' => array(
+                    'profession' => array(
                         'required' => true
-                    )
+                    ),
+
+
                 )
             );
 
             if ($objValidation->passed()) {
-                Session::flash("success", "User created successfully!");
+                $objMember = new Member();
+                $objMember->name = Input::get('name');
+                $objMember->setUsername(Input::get('username'));
+                $objMember->setEmail(Input::get('email'));
+                $objMember->setPassword(password_hash(Input::get('password'), PASSWORD_DEFAULT));
+                $objMember->setDateOfBirth(Input::get('dateOfBirth'));
+                $objMember->profession = Input::get('profession');
+
+                $objMembershipService = new MembershipService();
+                $objMembershipService->register($objMember);
+
             } else {
                 print_r($objValidation->errors());
             }
+
+
         }
     }
 ?>
@@ -64,10 +87,19 @@
 
                                 <div class="row">
                                     <div class="input-field col s12">
+                                        <input id="username" type="text" class="validate" name="username">
+                                        <label for="username">Username</label>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="input-field col s12">
                                         <input id="email" type="email" class="validate" name="email">
                                         <label for="email">Email</label>
                                     </div>
                                 </div>
+
+
 
                                 <div class="row">
                                     <div class="input-field col s12">
@@ -86,7 +118,7 @@
 
                                 <div class="row">
                                     <div class="input-field col s12">
-                                        <select class="select">
+                                        <select class="select" name="profession">
                                           <option value="" disabled selected>Choose your option</option>
                                           <option value="1">Option 1</option>
                                           <option value="2">Option 2</option>
@@ -98,8 +130,8 @@
 
                                 <div class="row">
                                     <div class="input-field col s12">
-                                        <input type="text" class="datepicker">
-                                        <label for="dateofbirth">Date of Birth</label>
+                                        <input id="dateOfBirth" type="text" class="datepicker" name="dateOfBirth">
+                                        <label for="dateOfBirth">Date of Birth</label>
                                     </div>
                                 </div>
 

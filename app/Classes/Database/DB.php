@@ -9,16 +9,16 @@ use Classes\Config\Config;
 class DB
 {
     private static $_instance = null;
-    private $_pdo,
-            $_query,
+    private $pdo,
+            $query,
             $_error = false,
-            $_results,
-            $_count = 0;
+            $results,
+            $count = 0;
 
     private function __construct()
     {
         try {
-            $this->_pdo = new \PDO('mysql:host=' . Config::get('mysql/host') . ';dbname=' . Config::get('mysql/db') , Config::get('mysql/username'), Config::get('mysql/password'));
+            $this->pdo = new \PDO('mysql:host=' . Config::get('mysql/host') . ';dbname=' . Config::get('mysql/db') , Config::get('mysql/username'), Config::get('mysql/password'));
         } catch(\PDOException $e) {
             die($e->getMessage());
         }
@@ -38,18 +38,19 @@ class DB
     {
         $this->_error = false;
 
-        if ($this->_query = $this->_pdo->prepare($sql)) {
+        if ($this->query = $this->pdo->prepare($sql)) {
             $x = 1;
             if (count($params)) {
                 foreach ($params as $param) {
-                    $this->_query->bindValue($x, $param);
+                    $this->query->bindValue($x, $param);
                     $x++;
                 }
             }
 
-            if ($this->_query->execute()) {
-                $this->_results = $this->_query->fetchAll(\PDO::FETCH_OBJ);
-                $this->_count = $this->_query->rowCount();
+            if ($this->query->execute()) {
+                $this->results = $this->query->fetchAll(\PDO::FETCH_OBJ);
+                $this->count = $this->query->rowCount();
+
             } else {
                 $this->_error = true;
             }
@@ -104,7 +105,7 @@ class DB
             }
 
 
-            echo $sql = "INSERT INTO {$table} (".implode(',', $keys).") VALUES ({$values})";
+            $sql = "INSERT INTO {$table} (".implode(',', $keys).") VALUES ({$values})";
 
             if (!$this->query($sql, $fields)->error()) {
                 return true;
@@ -142,12 +143,12 @@ class DB
 
     public function results()
     {
-        return $this->_results;
+        return $this->results;
     }
 
     public function first()
     {
-        return $this->_results[0];
+        return $this->results[0];
     }
 
     public function error()
@@ -157,6 +158,6 @@ class DB
 
     public function count()
     {
-        return $this->_count;
+        return $this->count;
     }
 }

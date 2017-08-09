@@ -23,128 +23,45 @@
   <component name="FileEditorManager">
     <leaf>
       <file leaf-file-name="Validation.php" pinned="false" current-in-tab="false">
-        <entry file="file:///Applications/MAMP/htdocs/mystory/app/Classes/Validation/Validation.php">
+        <entry file="file://$PROJECT_DIR$/app/Classes/Validation/Validation.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-20.407408">
-              <caret line="106" column="9" selection-start-line="106" selection-start-column="9" selection-end-line="106" selection-end-column="9" />
+            <state vertical-scroll-proportion="-21.555555">
+              <caret line="91" column="50" selection-start-line="91" selection-start-column="50" selection-end-line="91" selection-end-column="50" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Session.php" pinned="false" current-in-tab="false">
-        <entry file="file:///Applications/MAMP/htdocs/mystory/app/Classes/Util/Session.php">
+      <file leaf-file-name="MembershipService.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Classes/Member/MembershipService.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.9259259">
-              <caret line="9" column="1" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
+            <state vertical-scroll-proportion="-20.0">
+              <caret line="35" column="22" selection-start-line="35" selection-start-column="22" selection-end-line="35" selection-end-column="22" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.php" pinned="false" current-in-tab="true">
-        <entry file="file:///Applications/MAMP/htdocs/mystory/index.php">
+      <file leaf-file-name="DB.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/Classes/Database/DB.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.15177065">
-              <caret line="5" column="30" selection-start-line="5" selection-start-column="30" selection-end-line="5" selection-end-column="30" />
+            <state vertical-scroll-proportion="0.86937433">
+              <caret line="110" column="28" selection-start-line="110" selection-start-column="28" selection-end-line="110" selection-end-column="28" />
               <folding>
-                <element signature="e#50#80#0#PHP" expanded="true" />
+                <marker date="1502270332000" expanded="true" signature="2606:2671" placeholder="INSERT INTO ..." />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="autoload.php" pinned="false" current-in-tab="false">
-        <entry file="file:///Applications/MAMP/htdocs/mystory/vendor/autoload.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.6666667">
-              <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-              <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="register.php" pinned="false" current-in-tab="false">
-        <entry file="file:///Applications/MAMP/htdocs/mystory/register.php">
+        <entry file="file://$PROJECT_DIR$/register.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-16.666666">
-              <caret line="38" column="72" selection-start-line="38" selection-start-column="72" selection-end-line="38" selection-end-column="72" />
+            <state vertical-scroll-proportion="-7.3333335">
+              <caret line="17" column="32" selection-start-line="17" selection-start-column="32" selection-end-line="17" selection-end-column="32" />
               <folding>
                 <element signature="e#50#80#0#PHP" expanded="true" />
-                <marker date="1502218221000" expanded="true" signature="1351:1896" placeholder="..." />
-                <marker date="1502218221000" expanded="true" signature="1383:1896" placeholder="..." />
-                <marker date="1502218221000" expanded="true" signature="1413:1896" placeholder="..." />
-                <marker date="1502218221000" expanded="true" signature="1450:1896" placeholder="..." />
-                <marker date="1502218221000" expanded="true" signature="1492:1896" placeholder="..." />
-                <marker date="1502218221000" expanded="true" signature="1555:1896" placeholder="..." />
-                <marker date="1502218221000" expanded="true" signature="1640:1896" placeholder="..." />
-                <marker date="1502218221000" expanded="true" signature="1691:1896" placeholder="..." />
-                <marker date="1502218221000" expanded="true" signature="1761:1896" placeholder="..." />
-                <marker date="1502218221000" expanded="true" signature="2114:2441" placeholder="..." />
-                <marker date="1502218221000" expanded="true" signature="2184:2402" placeholder="..." />
-                <marker date="1502218221000" expanded="true" signature="2492:2834" placeholder="..." />
-                <marker date="1502218221000" expanded="true" signature="2562:2795" placeholder="..." />
-                <marker date="1502218221000" expanded="true" signature="2885:3253" placeholder="..." />
-                <marker date="1502218221000" expanded="true" signature="2955:3214" placeholder="..." />
-                <marker date="1502218221000" expanded="true" signature="3305:3976" placeholder="..." />
-                <marker date="1502218221000" expanded="true" signature="3375:3937" placeholder="..." />
-                <marker date="1502218221000" expanded="true" signature="3439:3828" placeholder="..." />
-                <marker date="1502218221000" expanded="true" signature="4027:4345" placeholder="..." />
-                <marker date="1502218221000" expanded="true" signature="4097:4306" placeholder="..." />
-                <marker date="1502218221000" expanded="true" signature="4750:4790" placeholder="..." />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="helpers.php" pinned="false" current-in-tab="false">
-        <entry file="file:///Applications/MAMP/htdocs/mystory/app/Support/helpers.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-11.222222">
-              <caret line="18" column="30" selection-start-line="18" selection-start-column="30" selection-end-line="18" selection-end-column="30" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Input.php" pinned="false" current-in-tab="false">
-        <entry file="file:///Applications/MAMP/htdocs/mystory/app/Classes/Validation/Input.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-15.333333">
-              <caret line="23" column="30" selection-start-line="23" selection-start-column="27" selection-end-line="23" selection-end-column="30" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Token.php" pinned="false" current-in-tab="false">
-        <entry file="file:///Applications/MAMP/htdocs/mystory/app/Classes/Util/Token.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-12.0">
-              <caret line="23" column="55" selection-start-line="23" selection-start-column="55" selection-end-line="23" selection-end-column="55" />
-              <folding>
-                <element signature="e#185#211#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Config.php" pinned="false" current-in-tab="false">
-        <entry file="file:///Applications/MAMP/htdocs/mystory/app/Classes/Config/Config.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-2.0">
-              <caret line="3" column="6" selection-start-line="3" selection-start-column="6" selection-end-line="3" selection-end-column="6" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DB.php" pinned="false" current-in-tab="false">
-        <entry file="file:///Applications/MAMP/htdocs/mystory/app/Classes/Database/DB.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-2.6666667">
-              <caret line="4" column="48" selection-start-line="4" selection-start-column="48" selection-end-line="4" selection-end-column="48" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -161,57 +78,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="/Applications/MAMP/htdocs/storyteller/app/Classes/Story/CommentRepository.php" />
-        <option value="/Applications/MAMP/htdocs/storyteller/app/Classes/Story/Comment.php" />
-        <option value="/Applications/MAMP/htdocs/storyteller/user/member/categories/index.php" />
-        <option value="/Applications/MAMP/htdocs/storyteller/app/Classes/Story/CategoryRepository.php" />
-        <option value="/Applications/MAMP/htdocs/storyteller/user/member/categories/delete.php" />
-        <option value="/Applications/MAMP/htdocs/storyteller/app/Classes/Story/TagRepository.php" />
-        <option value="/Applications/MAMP/htdocs/storyteller/app/Classes/Story/Tag.php" />
-        <option value="/Applications/MAMP/htdocs/storyteller/user/member/tags/delete.php" />
-        <option value="/Applications/MAMP/htdocs/storyteller/user/member/tags/edit.php" />
-        <option value="/Applications/MAMP/htdocs/storyteller/user/member/tags/index.php" />
-        <option value="/Applications/MAMP/htdocs/storyteller/app/Classes/Story/Category.php" />
-        <option value="/Applications/MAMP/htdocs/storyteller/user/member/categories/create.php" />
-        <option value="/Applications/MAMP/htdocs/storyteller/user/member/categories/edit.php" />
-        <option value="/Applications/MAMP/htdocs/storyteller/user/member/tags/create.php" />
-        <option value="/Applications/MAMP/htdocs/storyteller/user/member/stories/create.php" />
-        <option value="/Applications/MAMP/htdocs/storyteller/app/Classes/Story/Story.php" />
-        <option value="/Applications/MAMP/htdocs/storyteller/app/Classes/Database/DbHelper.php" />
-        <option value="/Applications/MAMP/htdocs/storyteller/user/views/includes/member/sidebar-options.php" />
-        <option value="/Applications/MAMP/htdocs/storyteller/app/Classes/Story/StoryService.php" />
-        <option value="/Applications/MAMP/htdocs/storyteller/app/Classes/Story/StoryRepository.php" />
-        <option value="/Applications/MAMP/htdocs/storyteller/user/member/stories/edit.php" />
-        <option value="/Applications/MAMP/htdocs/storyteller/assets/js/materialize.js" />
-        <option value="/Applications/MAMP/htdocs/storyteller/assets/js/main.js" />
-        <option value="/Applications/MAMP/htdocs/storyteller/views/includes/header.php" />
-        <option value="/Applications/MAMP/htdocs/storyteller/assets/css/main.css" />
-        <option value="/Applications/MAMP/htdocs/storyteller/views/includes/footer.php" />
-        <option value="/Applications/MAMP/htdocs/storyteller/views/includes/sidebar.php" />
-        <option value="/Applications/MAMP/htdocs/storyteller/index.php" />
-        <option value="/Applications/MAMP/htdocs/storyteller/single-story.php" />
-        <option value="/Applications/MAMP/htdocs/storyteller/user/views/includes/sidebar.php" />
-        <option value="/Applications/MAMP/htdocs/storyteller/user/views/includes/header.php" />
-        <option value="/Applications/MAMP/htdocs/storyteller/user/views/includes/footer.php" />
-        <option value="/Applications/MAMP/htdocs/storyteller/user/member/stories/index.php" />
-        <option value="/Applications/MAMP/htdocs/storyteller/app/Classes/Validation/Input.php" />
-        <option value="/Applications/MAMP/htdocs/storyteller/app/Classes/Validation/Sanitize.php" />
-        <option value="/Applications/MAMP/htdocs/storyteller/app/Support/helpers.php" />
-        <option value="/Applications/MAMP/htdocs/storyteller/app/Classes/Config/Config.php" />
-        <option value="/Applications/MAMP/htdocs/storyteller/app/Classes/Validation/Validation.php" />
-        <option value="/Applications/MAMP/htdocs/storyteller/app/Classes/Database/DB.php" />
-        <option value="/Applications/MAMP/htdocs/storyteller/app/Config/config.php" />
-        <option value="/Applications/MAMP/htdocs/storyteller/register.php" />
-        <option value="/Applications/MAMP/htdocs/storyteller/app/Classes/Util/Token.php" />
-        <option value="/Applications/MAMP/htdocs/storyteller/app/Classes/Util/Session.php" />
-        <option value="/Applications/MAMP/htdocs/mystory/app/Classes/Database/DB.php" />
-        <option value="/Applications/MAMP/htdocs/mystory/app/Classes/Util/Token.php" />
-        <option value="/Applications/MAMP/htdocs/mystory/app/Classes/Validation/Validation.php" />
-        <option value="/Applications/MAMP/htdocs/mystory/app/Support/helpers.php" />
-        <option value="/Applications/MAMP/htdocs/mystory/app/Classes/Util/Session.php" />
-        <option value="/Applications/MAMP/htdocs/mystory/vendor/autoload.php" />
-        <option value="/Applications/MAMP/htdocs/mystory/register.php" />
-        <option value="/Applications/MAMP/htdocs/mystory/index.php" />
+        <option value="$PROJECT_DIR$/../storyteller/app/Classes/Story/TagRepository.php" />
+        <option value="$PROJECT_DIR$/../storyteller/app/Classes/Story/Tag.php" />
+        <option value="$PROJECT_DIR$/../storyteller/user/member/tags/delete.php" />
+        <option value="$PROJECT_DIR$/../storyteller/user/member/tags/edit.php" />
+        <option value="$PROJECT_DIR$/../storyteller/user/member/tags/index.php" />
+        <option value="$PROJECT_DIR$/../storyteller/app/Classes/Story/Category.php" />
+        <option value="$PROJECT_DIR$/../storyteller/user/member/categories/create.php" />
+        <option value="$PROJECT_DIR$/../storyteller/user/member/categories/edit.php" />
+        <option value="$PROJECT_DIR$/../storyteller/user/member/tags/create.php" />
+        <option value="$PROJECT_DIR$/../storyteller/user/member/stories/create.php" />
+        <option value="$PROJECT_DIR$/../storyteller/app/Classes/Story/Story.php" />
+        <option value="$PROJECT_DIR$/../storyteller/app/Classes/Database/DbHelper.php" />
+        <option value="$PROJECT_DIR$/../storyteller/user/views/includes/member/sidebar-options.php" />
+        <option value="$PROJECT_DIR$/../storyteller/app/Classes/Story/StoryService.php" />
+        <option value="$PROJECT_DIR$/../storyteller/app/Classes/Story/StoryRepository.php" />
+        <option value="$PROJECT_DIR$/../storyteller/user/member/stories/edit.php" />
+        <option value="$PROJECT_DIR$/../storyteller/assets/js/materialize.js" />
+        <option value="$PROJECT_DIR$/../storyteller/assets/js/main.js" />
+        <option value="$PROJECT_DIR$/../storyteller/views/includes/header.php" />
+        <option value="$PROJECT_DIR$/../storyteller/assets/css/main.css" />
+        <option value="$PROJECT_DIR$/../storyteller/views/includes/footer.php" />
+        <option value="$PROJECT_DIR$/../storyteller/views/includes/sidebar.php" />
+        <option value="$PROJECT_DIR$/../storyteller/index.php" />
+        <option value="$PROJECT_DIR$/../storyteller/single-story.php" />
+        <option value="$PROJECT_DIR$/../storyteller/user/views/includes/sidebar.php" />
+        <option value="$PROJECT_DIR$/../storyteller/user/views/includes/header.php" />
+        <option value="$PROJECT_DIR$/../storyteller/user/views/includes/footer.php" />
+        <option value="$PROJECT_DIR$/../storyteller/user/member/stories/index.php" />
+        <option value="$PROJECT_DIR$/../storyteller/app/Classes/Validation/Input.php" />
+        <option value="$PROJECT_DIR$/../storyteller/app/Classes/Validation/Sanitize.php" />
+        <option value="$PROJECT_DIR$/../storyteller/app/Support/helpers.php" />
+        <option value="$PROJECT_DIR$/../storyteller/app/Classes/Config/Config.php" />
+        <option value="$PROJECT_DIR$/../storyteller/app/Classes/Validation/Validation.php" />
+        <option value="$PROJECT_DIR$/../storyteller/app/Classes/Database/DB.php" />
+        <option value="$PROJECT_DIR$/../storyteller/app/Config/config.php" />
+        <option value="$PROJECT_DIR$/../storyteller/register.php" />
+        <option value="$PROJECT_DIR$/../storyteller/app/Classes/Util/Token.php" />
+        <option value="$PROJECT_DIR$/../storyteller/app/Classes/Util/Session.php" />
+        <option value="$PROJECT_DIR$/app/Classes/Util/Token.php" />
+        <option value="$PROJECT_DIR$/app/Support/helpers.php" />
+        <option value="$PROJECT_DIR$/app/Classes/Util/Session.php" />
+        <option value="$PROJECT_DIR$/vendor/autoload.php" />
+        <option value="$PROJECT_DIR$/index.php" />
+        <option value="$PROJECT_DIR$/app/Classes/Security/Hash.php" />
+        <option value="$PROJECT_DIR$/app/Classes/Member/User.php" />
+        <option value="$PROJECT_DIR$/app/Classes/Member/MemberRepository.php" />
+        <option value="$PROJECT_DIR$/app/Classes/Member/Member.php" />
+        <option value="$PROJECT_DIR$/register.php" />
+        <option value="$PROJECT_DIR$/app/Classes/Member/MembershipService.php" />
+        <option value="$PROJECT_DIR$/app/Classes/Validation/Validation.php" />
+        <option value="$PROJECT_DIR$/app/Classes/Database/DB.php" />
       </list>
     </option>
   </component>
@@ -254,6 +171,12 @@
     <panes>
       <pane id="ProjectPane">
         <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="storyteller" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
           <PATH>
             <PATH_ELEMENT>
               <option name="myItemId" value="storyteller" />
@@ -470,6 +393,50 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="Security" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="storyteller" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mystory" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Classes" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Member" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="storyteller" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="mystory" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Classes" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="Form" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -608,8 +575,8 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -621,18 +588,18 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="/Applications/MAMP/htdocs/storyteller/app/Classes/Config" />
-      <recent name="/Applications/MAMP/htdocs/storyteller/app/Classes/Database" />
-      <recent name="/Applications/MAMP/htdocs/storyteller/user/member/stories" />
-      <recent name="/Applications/MAMP/htdocs/storyteller/user/member/story" />
-      <recent name="/Applications/MAMP/htdocs/storyteller/user/member" />
+      <recent name="$PROJECT_DIR$/../storyteller/app/Classes/Config" />
+      <recent name="$PROJECT_DIR$/../storyteller/app/Classes/Database" />
+      <recent name="$PROJECT_DIR$/../storyteller/user/member/stories" />
+      <recent name="$PROJECT_DIR$/../storyteller/user/member/story" />
+      <recent name="$PROJECT_DIR$/../storyteller/user/member" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="/Applications/MAMP/htdocs/storyteller/user/member/story" />
-      <recent name="/Applications/MAMP/htdocs/storyteller/user/member/categories" />
-      <recent name="/Applications/MAMP/htdocs/storyteller/user/member/tags" />
-      <recent name="/Applications/MAMP/htdocs/storyteller/user" />
-      <recent name="/Applications/MAMP/htdocs/storyteller/user/member" />
+      <recent name="$PROJECT_DIR$/../storyteller/user/member/story" />
+      <recent name="$PROJECT_DIR$/../storyteller/user/member/categories" />
+      <recent name="$PROJECT_DIR$/../storyteller/user/member/tags" />
+      <recent name="$PROJECT_DIR$/../storyteller/user" />
+      <recent name="$PROJECT_DIR$/../storyteller/user/member" />
     </key>
   </component>
   <component name="RunManager">
@@ -678,14 +645,15 @@
     <editor active="true" />
     <layout>
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21150684" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21369863" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32953367" sideWeight="0.5019178" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32953367" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32953367" sideWeight="0.4980822" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32885212" sideWeight="0.4980822" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -693,7 +661,6 @@
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32953367" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
@@ -708,277 +675,235 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file:///Applications/MAMP/htdocs/mystory/app/Classes/Authentication/UserAuth.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.15806806">
-          <caret line="8" column="33" selection-start-line="8" selection-start-column="33" selection-end-line="8" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///Applications/MAMP/htdocs/mystory/user/member/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.07903403">
-          <caret line="1" column="53" selection-start-line="1" selection-start-column="53" selection-end-line="1" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///Applications/MAMP/htdocs/mystory/user/index2.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.0">
-          <caret line="246" column="126" selection-start-line="245" selection-start-column="18" selection-end-line="246" selection-end-column="126" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/com/jetbrains/php/lang/psi/stubs/data/standard_4.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.296296">
-          <caret line="806" column="9" selection-start-line="806" selection-start-column="9" selection-end-line="806" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///Applications/MAMP/htdocs/mystory/app/Classes/Story/Comment.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="25" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///Applications/MAMP/htdocs/mystory/app/Classes/Story/Rating.php">
+    <entry file="file://$PROJECT_DIR$/app/Classes/Story/Rating.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.2731872">
           <caret line="14" column="20" selection-start-line="14" selection-start-column="20" selection-end-line="14" selection-end-column="20" />
         </state>
       </provider>
     </entry>
-    <entry file="file:///Applications/MAMP/htdocs/mystory/user/member/categories/index.php">
+    <entry file="file://$PROJECT_DIR$/user/member/categories/index.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-1.3333334">
           <caret line="2" column="4" selection-start-line="2" selection-start-column="4" selection-end-line="2" selection-end-column="42" />
         </state>
       </provider>
     </entry>
-    <entry file="file:///Applications/MAMP/htdocs/mystory/app/Classes/Story/TagRepository.php">
+    <entry file="file://$PROJECT_DIR$/app/Classes/Story/TagRepository.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="40" column="20" selection-start-line="40" selection-start-column="20" selection-end-line="40" selection-end-column="20" />
         </state>
       </provider>
     </entry>
-    <entry file="file:///Applications/MAMP/htdocs/mystory/user/member/tags/delete.php">
+    <entry file="file://$PROJECT_DIR$/user/member/tags/delete.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file:///Applications/MAMP/htdocs/mystory/user/member/tags/index.php">
+    <entry file="file://$PROJECT_DIR$/user/member/tags/index.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.52140504">
           <caret line="8" column="2" selection-start-line="8" selection-start-column="2" selection-end-line="8" selection-end-column="2" />
         </state>
       </provider>
     </entry>
-    <entry file="file:///Applications/MAMP/htdocs/mystory/user/member/categories/delete.php">
+    <entry file="file://$PROJECT_DIR$/user/member/categories/delete.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.2766191">
           <caret line="14" column="43" selection-start-line="14" selection-start-column="43" selection-end-line="14" selection-end-column="43" />
         </state>
       </provider>
     </entry>
-    <entry file="file:///Applications/MAMP/htdocs/mystory/user/member/categories/create.php">
+    <entry file="file://$PROJECT_DIR$/user/member/categories/create.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="13" column="53" selection-start-line="13" selection-start-column="53" selection-end-line="13" selection-end-column="53" />
         </state>
       </provider>
     </entry>
-    <entry file="file:///Applications/MAMP/htdocs/mystory/app/Classes/Story/Category.php">
+    <entry file="file://$PROJECT_DIR$/app/Classes/Story/Category.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-7.3333335">
           <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file:///Applications/MAMP/htdocs/mystory/app/Classes/Form/FormFile.php">
+    <entry file="file://$PROJECT_DIR$/app/Classes/Form/FormFile.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-5.3333335">
           <caret line="13" column="6" selection-start-line="13" selection-start-column="6" selection-end-line="13" selection-end-column="6" />
         </state>
       </provider>
     </entry>
-    <entry file="file:///Applications/MAMP/htdocs/mystory/user/member/tags/edit.php">
+    <entry file="file://$PROJECT_DIR$/user/member/tags/edit.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.34738618">
           <caret line="23" column="13" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file:///Applications/MAMP/htdocs/mystory/user/member/tags/create.php">
+    <entry file="file://$PROJECT_DIR$/user/member/tags/create.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-6.0">
           <caret line="12" column="12" selection-start-line="12" selection-start-column="12" selection-end-line="12" selection-end-column="48" />
         </state>
       </provider>
     </entry>
-    <entry file="file:///Applications/MAMP/htdocs/mystory/app/Classes/Story/Tag.php">
+    <entry file="file://$PROJECT_DIR$/app/Classes/Story/Tag.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-10.0">
           <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file:///Applications/MAMP/htdocs/mystory/user/member/stories/create.php">
+    <entry file="file://$PROJECT_DIR$/user/member/stories/create.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-21.296297">
           <caret line="42" column="0" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file:///Applications/MAMP/htdocs/mystory/app/Classes/Story/Story.php">
+    <entry file="file://$PROJECT_DIR$/app/Classes/Story/Story.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="1.0809443">
           <caret line="42" column="55" selection-start-line="42" selection-start-column="55" selection-end-line="42" selection-end-column="55" />
         </state>
       </provider>
     </entry>
-    <entry file="file:///Applications/MAMP/htdocs/mystory/app/Classes/Story/StoryService.php">
+    <entry file="file://$PROJECT_DIR$/app/Classes/Story/StoryService.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-18.666666">
           <caret line="61" column="62" selection-start-line="61" selection-start-column="59" selection-end-line="61" selection-end-column="70" />
         </state>
       </provider>
     </entry>
-    <entry file="file:///Applications/MAMP/htdocs/mystory/user/member/categories/edit.php">
+    <entry file="file://$PROJECT_DIR$/user/member/categories/edit.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-9.333333">
           <caret line="26" column="53" selection-start-line="26" selection-start-column="53" selection-end-line="26" selection-end-column="53" />
         </state>
       </provider>
     </entry>
-    <entry file="file:///Applications/MAMP/htdocs/mystory/app/Classes/Story/CategoryRepository.php">
+    <entry file="file://$PROJECT_DIR$/app/Classes/Story/CategoryRepository.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-22.74074">
           <caret line="38" column="121" selection-start-line="38" selection-start-column="52" selection-end-line="38" selection-end-column="121" />
         </state>
       </provider>
     </entry>
-    <entry file="file:///Applications/MAMP/htdocs/mystory/user/member/stories/edit.php">
+    <entry file="file://$PROJECT_DIR$/user/member/stories/edit.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-19.333334">
           <caret line="47" column="27" selection-start-line="47" selection-start-column="27" selection-end-line="47" selection-end-column="27" />
         </state>
       </provider>
     </entry>
-    <entry file="file:///Applications/MAMP/htdocs/mystory/app/Classes/Story/StoryRepository.php">
+    <entry file="file://$PROJECT_DIR$/app/Classes/Story/StoryRepository.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.93591905">
           <caret line="68" column="30" selection-start-line="68" selection-start-column="30" selection-end-line="68" selection-end-column="30" />
         </state>
       </provider>
     </entry>
-    <entry file="file:///Applications/MAMP/htdocs/mystory/assets/js/materialize.js">
+    <entry file="file://$PROJECT_DIR$/assets/js/materialize.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="356.71155">
           <caret line="5" column="152502" selection-start-line="5" selection-start-column="152502" selection-end-line="5" selection-end-column="152502" />
         </state>
       </provider>
     </entry>
-    <entry file="file:///Applications/MAMP/htdocs/mystory/assets/js/main.js">
+    <entry file="file://$PROJECT_DIR$/assets/js/main.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="12" column="18" selection-start-line="12" selection-start-column="18" selection-end-line="12" selection-end-column="18" />
         </state>
       </provider>
     </entry>
-    <entry file="file:///Applications/MAMP/htdocs/mystory/assets/css/main.css">
+    <entry file="file://$PROJECT_DIR$/assets/css/main.css">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="113" column="13" selection-start-line="113" selection-start-column="13" selection-end-line="113" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file:///Applications/MAMP/htdocs/mystory/views/includes/header.php">
+    <entry file="file://$PROJECT_DIR$/views/includes/header.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="47" column="354" selection-start-line="47" selection-start-column="354" selection-end-line="47" selection-end-column="354" />
         </state>
       </provider>
     </entry>
-    <entry file="file:///Applications/MAMP/htdocs/mystory/views/includes/footer.php">
+    <entry file="file://$PROJECT_DIR$/views/includes/footer.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="3" column="46" selection-start-line="3" selection-start-column="46" selection-end-line="3" selection-end-column="46" />
         </state>
       </provider>
     </entry>
-    <entry file="file:///Applications/MAMP/htdocs/mystory/views/includes/sidebar.php">
+    <entry file="file://$PROJECT_DIR$/views/includes/sidebar.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="34" column="6" selection-start-line="34" selection-start-column="6" selection-end-line="34" selection-end-column="6" />
         </state>
       </provider>
     </entry>
-    <entry file="file:///Applications/MAMP/htdocs/mystory/single-story.php">
+    <entry file="file://$PROJECT_DIR$/single-story.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="290" column="66" selection-start-line="290" selection-start-column="66" selection-end-line="290" selection-end-column="66" />
         </state>
       </provider>
     </entry>
-    <entry file="file:///Applications/MAMP/htdocs/mystory/user/views/includes/sidebar.php">
+    <entry file="file://$PROJECT_DIR$/user/views/includes/sidebar.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.17782657">
           <caret line="9" column="30" selection-start-line="9" selection-start-column="30" selection-end-line="9" selection-end-column="30" />
         </state>
       </provider>
     </entry>
-    <entry file="file:///Applications/MAMP/htdocs/mystory/user/views/includes/footer.php">
+    <entry file="file://$PROJECT_DIR$/user/views/includes/footer.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.07903403">
           <caret line="4" column="64" selection-start-line="4" selection-start-column="64" selection-end-line="4" selection-end-column="64" />
         </state>
       </provider>
     </entry>
-    <entry file="file:///Applications/MAMP/htdocs/mystory/user/views/includes/header.php">
+    <entry file="file://$PROJECT_DIR$/user/views/includes/header.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="5" column="21" selection-start-line="5" selection-start-column="11" selection-end-line="5" selection-end-column="21" />
         </state>
       </provider>
     </entry>
-    <entry file="file:///Applications/MAMP/htdocs/mystory/user/member/stories/index.php">
+    <entry file="file://$PROJECT_DIR$/user/member/stories/index.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="1.0472009">
           <caret line="54" column="28" selection-start-line="54" selection-start-column="28" selection-end-line="54" selection-end-column="28" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file:///Applications/MAMP/htdocs/mystory/user/views/includes/member/sidebar-options.php">
+    <entry file="file://$PROJECT_DIR$/user/views/includes/member/sidebar-options.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="30" column="35" selection-start-line="30" selection-start-column="35" selection-end-line="30" selection-end-column="35" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file:///Applications/MAMP/htdocs/mystory/app/Classes/Contact/Contact.php">
+    <entry file="file://$PROJECT_DIR$/app/Classes/Contact/Contact.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.07903403">
           <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="44" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file:///Applications/MAMP/htdocs/mystory/app/Classes/Database/DbHelper.php">
+    <entry file="file://$PROJECT_DIR$/app/Classes/Database/DbHelper.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="9" column="38" selection-start-line="9" selection-start-column="38" selection-end-line="9" selection-end-column="38" />
-          <folding>
-            <marker date="1502033083000" expanded="true" signature="-1:-1" placeholder="SELECT ${$fi..." />
-            <marker date="1502033083000" expanded="true" signature="-1:-1" placeholder="INSERT INTO ..." />
-            <marker date="1502033083000" expanded="true" signature="-1:-1" placeholder="DELETE FROM ..." />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -990,7 +915,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file:///Applications/MAMP/htdocs/mystory/app/Classes/Developer/Developer.php">
+    <entry file="file://$PROJECT_DIR$/app/Classes/Developer/Developer.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -998,7 +923,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file:///Applications/MAMP/htdocs/mystory/app/Config/config.php">
+    <entry file="file://$PROJECT_DIR$/app/Config/config.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-14.666667">
           <caret line="22" column="19" selection-start-line="22" selection-start-column="9" selection-end-line="22" selection-end-column="19" />
@@ -1006,41 +931,33 @@
         </state>
       </provider>
     </entry>
-    <entry file="file:///Applications/MAMP/htdocs/mystory/app/Classes/Config/Config.php">
+    <entry file="file://$PROJECT_DIR$/app/Classes/Config/Config.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.0">
+        <state vertical-scroll-proportion="0.0">
           <caret line="3" column="6" selection-start-line="3" selection-start-column="6" selection-end-line="3" selection-end-column="6" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file:///Applications/MAMP/htdocs/mystory/app/Classes/Validation/Input.php">
+    <entry file="file://$PROJECT_DIR$/app/Classes/Validation/Input.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-15.333333">
+        <state vertical-scroll-proportion="0.0">
           <caret line="23" column="30" selection-start-line="23" selection-start-column="27" selection-end-line="23" selection-end-column="30" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file:///Applications/MAMP/htdocs/mystory/app/Classes/Database/DB.php">
+    <entry file="file://$PROJECT_DIR$/app/Support/helpers.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.6666667">
-          <caret line="4" column="48" selection-start-line="4" selection-start-column="48" selection-end-line="4" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file:///Applications/MAMP/htdocs/mystory/app/Support/helpers.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.222222">
+        <state vertical-scroll-proportion="0.0">
           <caret line="18" column="30" selection-start-line="18" selection-start-column="30" selection-end-line="18" selection-end-column="30" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file:///Applications/MAMP/htdocs/mystory/app/Classes/Util/Token.php">
+    <entry file="file://$PROJECT_DIR$/app/Classes/Util/Token.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-12.0">
+        <state vertical-scroll-proportion="0.0">
           <caret line="23" column="55" selection-start-line="23" selection-start-column="55" selection-end-line="23" selection-end-column="55" />
           <folding>
             <element signature="e#185#211#0#PHP" expanded="true" />
@@ -1048,15 +965,55 @@
         </state>
       </provider>
     </entry>
-    <entry file="file:///Applications/MAMP/htdocs/mystory/app/Classes/Util/Session.php">
+    <entry file="file://$PROJECT_DIR$/app/Classes/Util/Session.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.9259259">
+        <state vertical-scroll-proportion="0.0">
           <caret line="9" column="1" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file:///Applications/MAMP/htdocs/mystory/vendor/autoload.php">
+    <entry file="file://$PROJECT_DIR$/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.0">
+          <caret line="1" column="39" selection-start-line="1" selection-start-column="39" selection-end-line="1" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Classes/Security/Hash.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-17.333334">
+          <caret line="26" column="1" selection-start-line="26" selection-start-column="1" selection-end-line="26" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Classes/Authentication/UserAuth.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Classes/Member/MemberRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.3333335">
+          <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Classes/Member/Member.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-15.333333">
+          <caret line="60" column="0" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/vendor/autoload.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.6666667">
           <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
@@ -1064,51 +1021,38 @@
         </state>
       </provider>
     </entry>
-    <entry file="file:///Applications/MAMP/htdocs/mystory/register.php">
+    <entry file="file://$PROJECT_DIR$/register.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-16.666666">
-          <caret line="38" column="72" selection-start-line="38" selection-start-column="72" selection-end-line="38" selection-end-column="72" />
+        <state vertical-scroll-proportion="-7.3333335">
+          <caret line="17" column="32" selection-start-line="17" selection-start-column="32" selection-end-line="17" selection-end-column="32" />
           <folding>
             <element signature="e#50#80#0#PHP" expanded="true" />
-            <marker date="1502218221000" expanded="true" signature="1351:1896" placeholder="..." />
-            <marker date="1502218221000" expanded="true" signature="1383:1896" placeholder="..." />
-            <marker date="1502218221000" expanded="true" signature="1413:1896" placeholder="..." />
-            <marker date="1502218221000" expanded="true" signature="1450:1896" placeholder="..." />
-            <marker date="1502218221000" expanded="true" signature="1492:1896" placeholder="..." />
-            <marker date="1502218221000" expanded="true" signature="1555:1896" placeholder="..." />
-            <marker date="1502218221000" expanded="true" signature="1640:1896" placeholder="..." />
-            <marker date="1502218221000" expanded="true" signature="1691:1896" placeholder="..." />
-            <marker date="1502218221000" expanded="true" signature="1761:1896" placeholder="..." />
-            <marker date="1502218221000" expanded="true" signature="2114:2441" placeholder="..." />
-            <marker date="1502218221000" expanded="true" signature="2184:2402" placeholder="..." />
-            <marker date="1502218221000" expanded="true" signature="2492:2834" placeholder="..." />
-            <marker date="1502218221000" expanded="true" signature="2562:2795" placeholder="..." />
-            <marker date="1502218221000" expanded="true" signature="2885:3253" placeholder="..." />
-            <marker date="1502218221000" expanded="true" signature="2955:3214" placeholder="..." />
-            <marker date="1502218221000" expanded="true" signature="3305:3976" placeholder="..." />
-            <marker date="1502218221000" expanded="true" signature="3375:3937" placeholder="..." />
-            <marker date="1502218221000" expanded="true" signature="3439:3828" placeholder="..." />
-            <marker date="1502218221000" expanded="true" signature="4027:4345" placeholder="..." />
-            <marker date="1502218221000" expanded="true" signature="4097:4306" placeholder="..." />
-            <marker date="1502218221000" expanded="true" signature="4750:4790" placeholder="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file:///Applications/MAMP/htdocs/mystory/app/Classes/Validation/Validation.php">
+    <entry file="file://$PROJECT_DIR$/app/Classes/Validation/Validation.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-20.407408">
-          <caret line="106" column="9" selection-start-line="106" selection-start-column="9" selection-end-line="106" selection-end-column="9" />
+        <state vertical-scroll-proportion="-21.555555">
+          <caret line="91" column="50" selection-start-line="91" selection-start-column="50" selection-end-line="91" selection-end-column="50" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file:///Applications/MAMP/htdocs/mystory/index.php">
+    <entry file="file://$PROJECT_DIR$/app/Classes/Member/MembershipService.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.15177065">
-          <caret line="5" column="30" selection-start-line="5" selection-start-column="30" selection-end-line="5" selection-end-column="30" />
+        <state vertical-scroll-proportion="-20.0">
+          <caret line="35" column="22" selection-start-line="35" selection-start-column="22" selection-end-line="35" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Classes/Database/DB.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.86937433">
+          <caret line="110" column="28" selection-start-line="110" selection-start-column="28" selection-end-line="110" selection-end-column="28" />
           <folding>
-            <element signature="e#50#80#0#PHP" expanded="true" />
+            <marker date="1502270332000" expanded="true" signature="2606:2671" placeholder="INSERT INTO ..." />
           </folding>
         </state>
       </provider>
