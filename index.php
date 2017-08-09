@@ -1,8 +1,16 @@
 <?php
     require_once "vendor/autoload.php";
+    use \Classes\Config\Config;
+    use \Classes\Util\Session;
+    use \Classes\Member\MembershipService;
 ?>
 <?php  require_once "views/includes/header.php" ?>
-
+<?php
+    $objMembershipService = new MembershipService();
+    if ($objMembershipService->isLoggedIn()) {
+        echo "logged in";
+    }
+?>
 <div class="content_area">
     <div class="container">
         <div class="row">

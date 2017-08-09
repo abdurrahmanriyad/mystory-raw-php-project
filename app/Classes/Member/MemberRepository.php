@@ -36,4 +36,19 @@ class MemberRepository
         return $inserted = $this->db->insert('user', $data);
     }
 
+
+    public function get($user = null)
+    {
+        if ($user) {
+            $field = (is_numeric($user)) ? 'id' : 'username';
+            $data = $this->db->get('user', [$field, "=", $user]);
+
+            if($data->count()) {
+                return $data->first();
+            }
+        }
+
+        return '';
+    }
+
 }

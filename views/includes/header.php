@@ -25,10 +25,23 @@
 
                 <div class="col m8">
                     <ul class="main_nav">
-                        <li><a href="#">Home</a></li>
+                        <li><a href="index.php">Home</a></li>
                         <li><a href="#">Write Your Story</a></li>
                         <li><a href="#">Contact</a></li>
-                        <li><button data-target="login" class="btn modal-trigger">Login</button></li>
+                        <li><a href="login.php" class="btn btn-login">Login</a></li>
+                        <li>
+                            <a class='dropdown-button btn' data-beloworigin="true" data-activates='profile_dropdown'>
+                                <img src="assets/img/user.jpg" alt="" class="profile_img_icon">
+                            </a>
+
+                            <!-- Dropdown Structure -->
+                            <ul id='profile_dropdown' class='dropdown-content'>
+                                <li><a href="#">one two adsfsdf dsf adsf s</a></li>
+                                <li><a href="#">two</a></li>
+                                <li class="divider"></li>
+                                <li><a href="logout.php">Logout</a></li>
+                            </ul>
+                        </li>
                     </ul>
 
                 </div>
@@ -57,40 +70,3 @@
     <!-- featured area finish -->
 </div>
 <!-- header wrapper finished -->
-
-
-
-<!-- Modal Structure -->
-<div id="login" class="modal">
-    <div class="modal-content">
-        <form class="col s12">
-
-            <div class="row">
-                <div class="input-field col s12">
-                    <input id="email" type="email" class="validate">
-                    <label for="email">Email</label>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="input-field col s12">
-                    <input id="email" type="password" class="validate">
-                    <label for="email">Password</label>
-                </div>
-            </div>
-
-
-        </form>
-    </div>
-    <div class="modal-footer">
-        <div class="row">
-            <div class="col m9 reg-link">
-                Not a User? <a href="register.php">Register</a>
-            </div>
-
-            <div class="col m3">
-                <a class="waves-effect waves-light btn login"><i class="fa fa-input">Login</i></a>
-            </div>
-        </div>
-    </div>
-</div>
