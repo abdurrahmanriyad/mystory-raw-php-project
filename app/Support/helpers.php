@@ -32,16 +32,6 @@ if (! function_exists('base_url')) {
     }
 }
 
-if (! function_exists('redirect')) {
-
-    /**
-     * @param string $url
-     */
-    function redirect($url = "")
-    {
-        echo '<script> window.location="'.$url.'"</script>';
-    }
-}
 
 if (! function_exists('escape')) {
 

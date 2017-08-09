@@ -6,6 +6,7 @@
     use \Classes\Validation\Validation;
     use \Classes\Util\Token;
     use \Classes\Util\Session;
+    use \Classes\Util\Redirect;
 
 ?>
 
@@ -56,7 +57,11 @@
                 $objMember->profession = Input::get('profession');
 
                 $objMembershipService = new MembershipService();
-                $objMembershipService->register($objMember);
+                $inserted = $objMembershipService->register($objMember);
+
+                if ($inserted) {
+                    Redirect::to('index.php');
+                }
 
             } else {
                 print_r($objValidation->errors());
