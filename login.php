@@ -7,11 +7,13 @@ use \Classes\Validation\Validation;
 use \Classes\Util\Token;
 use \Classes\Util\Session;
 use \Classes\Util\Redirect;
-
 ?>
-
-
 <?php
+
+$objMembershipService = new MembershipService();
+$objMembershipService->checkIfRemembered();
+
+
 if (Input::exists()) {
     if (Token::check(Input::get('token'))) {
 
@@ -29,16 +31,14 @@ if (Input::exists()) {
         );
 
         if ($objValidation->passed()) {
-
             $username = Input::get('username');
             $password = Input::get('password');
 
-
-            $objMembershipService = new MembershipService();
-            $loggedIn = $objMembershipService->login($username, $password);
+            $remember = (Input::get('remember') === 'on') ? true : false;
+            $loggedIn = $objMembershipService->login($username, $password, $remember);
 
             if ($loggedIn) {
-                Redirect::to('index.php');
+//                Redirect::to('index.php');
             }
 
         } else {
@@ -72,6 +72,13 @@ if (Input::exists()) {
                                     <div class="input-field col s12">
                                         <input id="password" type="password" class="validate" name="password">
                                         <label for="password">Password</label>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col s12">
+                                        <input type="checkbox" class="filled-in" id="filled-in-box" checked="checked" name="remember"/>
+                                        <label for="filled-in-box">Remember me</label>
                                     </div>
                                 </div>
 
