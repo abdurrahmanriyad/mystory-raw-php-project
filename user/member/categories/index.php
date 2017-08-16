@@ -1,7 +1,7 @@
 <?php
     require_once "../../../vendor/autoload.php";
     use \Classes\Story\CategoryRepository;
-    use \Classes\Session\Session;
+    use \Classes\Util\Session;
 
     $objSession = new Session();
 

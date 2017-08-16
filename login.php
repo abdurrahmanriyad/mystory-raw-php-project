@@ -38,7 +38,7 @@ if (Input::exists()) {
             $loggedIn = $objMembershipService->login($username, $password, $remember);
 
             if ($loggedIn) {
-//                Redirect::to('index.php');
+                Redirect::to('index.php');
             }
 
         } else {

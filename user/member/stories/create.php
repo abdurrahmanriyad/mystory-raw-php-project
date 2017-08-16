@@ -8,6 +8,13 @@
     use \Classes\Story\StoryRepository;
     use \Classes\Story\StoryService;
     use \Classes\ErrorMessage\ErrorMessage;
+    use \Classes\Validation\Input;
+    use \Classes\Member\Member;
+    use \Classes\Member\MembershipService;
+    use \Classes\Validation\Validation;
+    use \Classes\Util\Token;
+    use \Classes\Util\Session;
+    use \Classes\Util\Redirect;
 ?>
 <?php
 
@@ -19,29 +26,100 @@
     $objErrMessage = new ErrorMessage();
     $message = "";
 
-    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-        if (isset($_POST['submit'])) {
-            $objStory = new Story();
-            $objStoryService = new StoryService();
 
-            $objStory->title = $_POST['title'];
-            $objStory->body  = $_POST['body'];
-            $objStory->category_id  = $_POST['category_id'];
-            $objStory->featured_image = $_FILES['featured_image'];
-            isset($_POST['tags']) ? $objStory->tags = $_POST['tags'] : $objStory->tags = [''];
+    if (Input::exists()) {
+        if (Token::check(Input::get('token'))) {
 
-            $inserted_id = $objStoryService->submitStory($objStory);
+            $objValidation = new Validation();
+            $objValidation->validate($_POST,
+                array(
+                    'title' => array(
+                        'required' => true,
+                        'min' => 5
+                    ),
+                    'body' => array(
+                        'required' => true,
+                        'min' => 5,
+                    ),
+                    'category_id' => array(
+                        'required' => true
+                    )
+                )
+            );
 
-            if(!$inserted_id) {
-                $message = $objErrMessage->getAlertMessage("failed to create story!");
+            if ($objValidation->passed()) {
+
+                $objStory = new Story();
+                $objStoryService = new StoryService();
+
+                $objStory->title = Input::get('title');
+                $objStory->body  = Input::get('body');
+                $objStory->category_id  = Input::get('category_id');
+                $objStory->featured_image = Input::file('featured_image');
+
+                $inputTag = Input::get('tags');
+
+                isset($inputTag) ? $objStory->tags = $inputTag : $objStory->tags = [''];
+
+                $inserted_id = $objStoryService->submitStory($objStory);
+//
+//                if(!$inserted_id) {
+//                    $message = $objErrMessage->getAlertMessage("failed to create story!");
+//                } else {
+//                    $message = $objErrMessage->getSuccessMessage("Successfully created story!");
+//                }
+
+
+//                $objMember = new Member();
+//                $objMember->name = Input::get('name');
+//                $objMember->setUsername(Input::get('username'));
+//                $objMember->setEmail(Input::get('email'));
+//                $objMember->setPassword(password_hash(Input::get('password'), PASSWORD_DEFAULT));
+//                $objMember->setDateOfBirth(Input::get('dateOfBirth'));
+//                $objMember->profession = Input::get('profession');
+//
+//                $objMembershipService = new MembershipService();
+//                $inserted = $objMembershipService->register($objMember);
+//
+//                if ($inserted) {
+//                    Redirect::to('index.php');
+//                }
+
             } else {
-                $message = $objErrMessage->getSuccessMessage("Successfully created story!");
+                print_r($objValidation->errors());
             }
 
-        }
 
+        }
     }
+
+
+
+
+//    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+//
+//        if (isset($_POST['submit'])) {
+//            $objStory = new Story();
+//            $objStoryService = new StoryService();
+//
+//            $objStory->title = $_POST['title'];
+//            $objStory->body  = $_POST['body'];
+//            $objStory->category_id  = $_POST['category_id'];
+//            $objStory->featured_image = $_FILES['featured_image'];
+//            isset($_POST['tags']) ? $objStory->tags = $_POST['tags'] : $objStory->tags = [''];
+//
+//            $inserted_id = $objStoryService->submitStory($objStory);
+//
+//            if(!$inserted_id) {
+//                $message = $objErrMessage->getAlertMessage("failed to create story!");
+//            } else {
+//                $message = $objErrMessage->getSuccessMessage("Successfully created story!");
+//            }
+//
+//        }
+//
+//    }
 ?>
 
 
@@ -66,7 +144,7 @@
         <!-- Main content -->
         <section class="content">
             <ul class="list-inline text-left">
-                <li><a href="{{ url('blog/admin/posts') }}"><button class="btn btn-success"><i class="fa fa-backward"></i> &nbsp; Back</button></a></li>
+                <li><a href="<?php echo base_url('user/member/stories/') ?>"><button class="btn btn-success"><i class="fa fa-backward"></i> &nbsp; Back</button></a></li>
             </ul>
             <!-- Main row -->
             <div class="row">
@@ -132,6 +210,7 @@
 
 
                                 <div class="box-footer text-right">
+                                    <input type="hidden" name="token" value="<?php echo Token::generate(); ?>">
                                     <input class="btn btn-primary btn-md btn-block" name="submit" type="submit" value="Save">
                                 </div>
                             </div>

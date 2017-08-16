@@ -5,7 +5,7 @@ namespace Classes\Story;
 use Classes\Form\FormFile;
 use Classes\Story\Story;
 use Classes\Validation\Validation;
-use Classes\Database\DbHelper;
+use Classes\Database\DB;
 
 require_once "../../../vendor/autoload.php";
 
@@ -14,7 +14,7 @@ class StoryRepository
 {
     private $validation;
     private $formFile;
-    private $db_helper;
+    private $db;
 
     /**
      * StoryRepository constructor.
@@ -23,13 +23,13 @@ class StoryRepository
     {
         $this->validation = new Validation();
         $this->formFile = new FormFile();
-        $this->db_helper = new DbHelper();
+        $this->db = DB::getInstance();
     }
 
 
     public function addStory(Story $story)
     {
-        return $this->db_helper->insert('story',[
+        return $this->db->insert('story',[
             'title' => $story->title,
             'body' => $story->body,
             'featured_image' => $story->featured_image,
@@ -81,9 +81,9 @@ class StoryRepository
 
     public function getAllStories()
     {
-        return $this->db_helper->query(
+        return $this->db->query(
             "SELECT story.*, story_has_tag.tag_id, tag.tag, category.category FROM story LEFT JOIN story_has_tag ON story.id = story_has_tag.story_id LEFT JOIN tag ON story_has_tag.tag_id = tag.id INNER JOIN category on story.category_id = category.id"
-        );
+        )->results();
 
     }
 

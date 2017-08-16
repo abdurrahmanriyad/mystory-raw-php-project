@@ -28,23 +28,20 @@ class StoryService
 
     public function submitStory(Story $story)
     {
-        //validation
-        if (!$this->objValidation->isStoryEmpty($story)) {
+        $uploaded_filename = $this->objFormFile->uploadFile($story->featured_image);
+        $story->featured_image = $uploaded_filename;
+        if ($uploaded_filename) {
 
-            $uploaded_filename = $this->objFormFile->uploadFile($story->featured_image);
-            $story->featured_image = $uploaded_filename;
-            if ($uploaded_filename) {
-
-                $inserted  = $this->objStoryRepository->addStory($story);
-                if ($inserted) {
+            $inserted  = $this->objStoryRepository->addStory($story);
+            if ($inserted) {
+                if(!empty($story->tags)) {
                     foreach ($story->tags as $temp_tag) {
-
                         $this->objStory->addPivotStoryTag($inserted, $temp_tag);
                     }
                 }
-
-                return $inserted;
             }
+
+            return $inserted;
         }
 
         return false;

@@ -2,7 +2,7 @@
     require_once "../../../vendor/autoload.php";
 
     use \Classes\Story\StoryRepository;
-    use \Classes\Session\Session;
+    use \Classes\Util\Session;
 
     $objSession = new Session();
 
@@ -30,7 +30,7 @@
         <section class="content">
 
             <ul class="list-inline">
-                <li><a href="<?php echo base_url("user/member/categories/create.php") ?>"><button class="btn btn-success"><i class="fa fa-plus"></i> &nbsp New Story</button></a></li>
+                <li><a href="<?php echo base_url("user/member/stories/create.php") ?>"><button class="btn btn-success"><i class="fa fa-plus"></i> &nbsp New Story</button></a></li>
             </ul>
 
             <!-- Main row -->
