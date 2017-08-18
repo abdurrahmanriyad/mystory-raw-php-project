@@ -47,7 +47,6 @@ class DB
                     $x++;
                 }
             }
-
             if ($this->query->execute()) {
                 $this->results = $this->query->fetchAll(\PDO::FETCH_OBJ);
                 $this->count = $this->query->rowCount();
@@ -82,6 +81,11 @@ class DB
     public function get($table, $where)
     {
         return $this->action('SELECT *', $table, $where);
+    }
+
+    public function all($table)
+    {
+        return $this->query("SELECT * from $table", [])->results();
     }
 
     public function delete($table, $where)

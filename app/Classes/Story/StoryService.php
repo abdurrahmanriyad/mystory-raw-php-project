@@ -72,27 +72,34 @@ class StoryService
 
             return $updated;
         }
-//
-//
-//        return false;
+        return false;
+    }
+
+
+    public function deleteStory($id)
+    {
+        $story = $this->objStoryRepository->get($id);
+        if (file_exists("../../../uploads/" . $story->featured_image)) {
+            unlink('../../../uploads/'.$story->featured_image);
+        }
+        $this->objStoryRepository->deleteStory($id);
+        $this->objStoryRepository->removeTags($id);
+
+
+
     }
 
     public function removeRelatedTags($story_id)
     {
         $this->objStoryRepository->removeTags($story_id);
     }
-    
+
     public function approveStory()
     {
 
     }
 
     public function rejectStory()
-    {
-
-    }
-
-    public function deleteStory()
     {
 
     }

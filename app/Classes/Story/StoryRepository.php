@@ -56,6 +56,7 @@ class StoryRepository
 
     public function get($id)
     {
+        $objStory = new Story();
 
         $story = $this->db->query(
             "SELECT story.*, category.category FROM story INNER JOIN category on story.category_id = category.id WHERE story.id = {$id}"
@@ -64,7 +65,6 @@ class StoryRepository
 
         if ($story->count()) {
             $story = $story->first();
-            $objStory = new Story();
             $objStory->title = $story->title;
             $objStory->body = $story->body;
             $objStory->category_id = $story->category_id;
@@ -83,6 +83,11 @@ class StoryRepository
         return $objStory;
     }
 
+    public function deleteStory($id)
+    {
+        return $this->db->delete('story', ['id', '=', $id]);
+    }
+    
     public function removeTags($id)
     {
         return  $this->db->delete('story_has_tag',['story_id', '=', $id]);
@@ -90,9 +95,8 @@ class StoryRepository
 
     public function getAllStories()
     {
-        return $this->db->query(
-            "SELECT story.*, story_has_tag.tag_id, tag.tag, category.category FROM story LEFT JOIN story_has_tag ON story.id = story_has_tag.story_id LEFT JOIN tag ON story_has_tag.tag_id = tag.id INNER JOIN category on story.category_id = category.id"
-        )->results();
+        return $this->db->all('story');
+
 
     }
 

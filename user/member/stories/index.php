@@ -82,7 +82,7 @@
                                         <div class="btn-group">
                                             <a class="btn btn-primary btn-sm" href="<?php echo base_url("user/member/stories/edit.php?id=".$single_story->id) ?>"><i class="fa fa-pencil-square-o"></i></a>
 
-                                            <form style="display: inline-block" action="<?php echo base_url("user/member/categories/delete.php?id=".$single_story->id) ?>" method="POST">
+                                            <form style="display: inline-block" action="<?php echo base_url("user/member/stories/delete.php?id=".$single_story->id) ?>" method="POST">
                                                 <button class="btn btn-sm btn-default" type="submit" name="delete"><i class="fa fa-trash-o"></i></button>
                                             </form>
                                         </div>
