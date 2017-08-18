@@ -4,6 +4,7 @@
     use \Classes\Story\Category;
     use \Classes\Story\CategoryRepository;
     use \Classes\ErrorMessage\ErrorMessage;
+    use \Classes\Validation\Input;
 
     $objCategoryRepository = new CategoryRepository();
 ?>
@@ -18,27 +19,21 @@
 
 
 
-    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-
-        if (isset($_POST['submit'])) {
-
-            $objCategory = new Category();
-            $objCategory->id = $_POST['id'];
-            $objCategory->title = $_POST['category'];
+    if (Input::exists()) {
+        $objCategory = new Category();
+        $objCategory->id = Input::get('id');
+        $objCategory->title = Input::get('category');
 
 
-            if ($objCategoryRepository->editCategory($objCategory)) {
+        if ($objCategoryRepository->editCategory($objCategory)) {
 
-                $objErrMessage = new ErrorMessage();
-                $message = $objErrMessage->getSuccessMessage("Successfully updated!");
-                $single_category = $objCategoryRepository->getCategoryById($objCategory->id);
+            $objErrMessage = new ErrorMessage();
+            $message = $objErrMessage->getSuccessMessage("Successfully updated!");
+            $single_category = $objCategoryRepository->getCategoryById($objCategory->id);
 
-            } else {
-                $message = $objErrMessage->getAlertMessage("Failed to update category");
-            }
-
+        } else {
+            $message = $objErrMessage->getAlertMessage("Failed to update category");
         }
-
     }
 
 

@@ -6,6 +6,7 @@
     use \Classes\ErrorMessage\ErrorMessage;
     use \Classes\Story\StoryService;
     use \Classes\Validation\Input;
+    use \Classes\Util\Redirect;
 
 
     $objectStoryService = new StoryService();
@@ -17,5 +18,5 @@
         $objectStoryService->deleteStory($storyId);
     }
 
-    redirect(base_url("user/member/stories"));
+    Redirect::to(base_url("user/member/stories"));
 

@@ -1,15 +1,4 @@
 <?php
-function test(){
-
-     echo "http://" . $_SERVER['SERVER_NAME'].":8888/storyteller";
-}
-if (! function_exists('testme')) {
-
-    function testme()
-    {
-        echo "called";
-    }
-}
 
 if (! function_exists('base_url')) {
     /**
