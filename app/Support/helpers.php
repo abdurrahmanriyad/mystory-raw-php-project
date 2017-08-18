@@ -61,5 +61,25 @@ if (! function_exists('in_array_of_object')) {
     }
 }
 
+if (! function_exists('string_limit')) {
+
+    function string_limit($value, $limit = 300, $end = '...')
+    {
+        $value = strip_tags($value);
+        if (strlen($value) <= $limit) {
+            return $value;
+        }
+
+        $excerpt   = substr($value, 0, $limit-3);
+        $lastSpace = strrpos($excerpt, ' ');
+        $excerpt   = substr($excerpt, 0, $lastSpace);
+        $excerpt  .= $end;
+
+        return $excerpt;
+    }
+}
+
+
+
 
 

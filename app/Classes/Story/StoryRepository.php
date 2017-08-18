@@ -7,8 +7,6 @@ use Classes\Story\Story;
 use Classes\Validation\Validation;
 use Classes\Database\DB;
 
-require_once "../../../vendor/autoload.php";
-
 
 class StoryRepository
 {
@@ -96,8 +94,6 @@ class StoryRepository
     public function getAllStories()
     {
         return $this->db->all('story');
-
-
     }
 
     public function getStoryByCategory()

@@ -11,8 +11,6 @@ use Classes\Database\DbHelper;
 use Classes\Database\DB;
 use Classes\Validation\Validation;
 
-require_once "../../../vendor/autoload.php";
-
 class TagRepository
 {
 

@@ -8,9 +8,6 @@
 
 namespace Classes\Form;
 
-require_once "../../../vendor/autoload.php";
-
-
 class FormFile
 {
 
