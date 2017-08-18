@@ -100,4 +100,14 @@ class StoryRepository
     {
         
     }
+
+    public function getTagsArrayOfStory(array $tags)
+    {
+        $tagsArray = array();
+        foreach ($tags as $tag) {
+           $tagsArray[] = $tag->id;
+        }
+
+        return $tagsArray;
+    }
 }

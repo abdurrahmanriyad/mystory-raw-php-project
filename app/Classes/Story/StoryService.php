@@ -40,7 +40,6 @@ class StoryService
             if ($inserted) {
                 if(!empty($story->tags)) {
                     foreach ($story->tags as $temp_tag) {
-                        echo $temp_tag;
                         $this->objStory->addPivotStoryTag($inserted, $temp_tag);
                     }
                 }
@@ -73,9 +72,9 @@ class StoryService
 
             return $updated;
         }
-
-
-        return false;
+//
+//
+//        return false;
     }
 
     public function removeRelatedTags($story_id)

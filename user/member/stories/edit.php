@@ -55,8 +55,8 @@
                 $objStoryService = new StoryService();
 
                 $objStory->title = Input::get('title');
-                $objStory->body  = Input::get('body');
-                $objStory->category_id  = Input::get('category_id');
+                $objStory->body = Input::get('body');
+                $objStory->category_id = Input::get('category_id');
                 $objStory->featured_image = $story->featured_image;;
                 $objStory->new_featured_image = Input::file('featured_image');
 
@@ -65,10 +65,13 @@
 
                 $updated_id = $objStoryService->updateStory($objStory, $storyId);
 
+                $tags = $objTagRepository->getTags();
+                $categories = $objCategoryRepository->getCategories();
+
                 if(!$updated_id) {
                     $message = $objErrMessage->getAlertMessage("failed to create story!");
                 } else {
-                    $message = $objErrMessage->getSuccessMessage("Successfully created story!");
+                    $message = $objErrMessage->getSuccessMessage("Successfully updated story!");
                     $story = $objStoryRepository->get($storyId);
                 }
 
@@ -77,6 +80,7 @@
             }
         }
     }
+
 ?>
 
 
@@ -155,17 +159,31 @@
                                         <?php endforeach; ?>
                                     </select>
                                 </div>
-                                
+
+
                                 <div class="form-group">
                                     <label for="tag_id" class="control-label">Tags : </label>
                                     <select name="tags[]" multiple class="form-control select2" id="tag_id">
-                                        <?php foreach ($tags as $single_tag) : ?>
-                                            <?php if (in_array($single_tag->id, [1,'asd', 'sdf'])) : ?>
-                                                <option value="<?php echo $single_tag->id ?>" selected> <?php echo $single_tag->tag ?> </option>
-                                            <?php else : ?>
+
+                                        <?php if ($story->tags) : ?>
+                                            <?php $tagsArray =  $objStoryRepository->getTagsArrayOfStory($story->tags) ?>
+                                            <?php foreach ($tags as $single_tag) : ?>
+
+                                                <?php if (in_array($single_tag->id, $tagsArray)) : ?>
+                                                    <option value="<?php echo $single_tag->id ?>" selected> <?php echo $single_tag->tag ?> </option>
+                                                <?php else : ?>
+                                                    <option value="<?php echo $single_tag->id ?>"> <?php echo $single_tag->tag ?> </option>
+                                                <?php endif; ?>
+
+                                            <?php endforeach; ?>
+
+
+                                        <?php else : ?>
+                                            <?php foreach ($tags as $single_tag) : ?>
                                                 <option value="<?php echo $single_tag->id ?>"> <?php echo $single_tag->tag ?> </option>
-                                            <?php endif; ?>
-                                        <?php endforeach; ?>
+                                            <?php endforeach; ?>
+                                        <?php endif; ?>
+
                                     </select>
                                 </div>
 

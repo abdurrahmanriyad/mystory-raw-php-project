@@ -34,10 +34,9 @@ class FormFile
                     if (file_exists("../../../uploads/" . $file["name"])) {
                         return false;
                     } else {
-
-                        move_uploaded_file($file["tmp_name"],
-                            '../../../uploads/'. $temporary[0].rand(0,15234562233).'.'.$temporary[1]);
-                        return ''.$temporary[0].rand(0,15234562233).'.'.$temporary[1];
+                        $filename = $temporary[0].rand(0,15234562233).'.'.$temporary[1];
+                        move_uploaded_file($file["tmp_name"],'../../../uploads/'.$filename);
+                        return $filename;
                     }
 
                 }

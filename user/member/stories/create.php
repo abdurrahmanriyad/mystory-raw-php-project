@@ -78,33 +78,6 @@
 
         }
     }
-
-
-
-
-//    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-//
-//        if (isset($_POST['submit'])) {
-//            $objStory = new Story();
-//            $objStoryService = new StoryService();
-//
-//            $objStory->title = $_POST['title'];
-//            $objStory->body  = $_POST['body'];
-//            $objStory->category_id  = $_POST['category_id'];
-//            $objStory->featured_image = $_FILES['featured_image'];
-//            isset($_POST['tags']) ? $objStory->tags = $_POST['tags'] : $objStory->tags = [''];
-//
-//            $inserted_id = $objStoryService->submitStory($objStory);
-//
-//            if(!$inserted_id) {
-//                $message = $objErrMessage->getAlertMessage("failed to create story!");
-//            } else {
-//                $message = $objErrMessage->getSuccessMessage("Successfully created story!");
-//            }
-//
-//        }
-//
-//    }
 ?>
 
 
