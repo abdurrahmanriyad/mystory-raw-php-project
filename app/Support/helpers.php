@@ -43,3 +43,34 @@ if (! function_exists('escape')) {
     }
 }
 
+if (! function_exists('pretty_dump')) {
+
+    /**
+     * @param $data
+     */
+    function pretty_dump ($data) {
+        echo '<pre>';
+            var_dump($data);
+        echo '</pre>';
+    }
+}
+
+if (! function_exists('in_array_of_object')) {
+
+    /**
+     * @param array $array
+     * @param $val
+     * @return bool
+     */
+    function in_array_of_object (array $array, $val) {
+        foreach ($array as $element) {
+            if ($element->id == $val) {
+                return true;
+            }
+        }
+        return false;
+    }
+}
+
+
+

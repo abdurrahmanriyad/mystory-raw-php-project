@@ -35,10 +35,9 @@ class FormFile
                         return false;
                     } else {
 
-
                         move_uploaded_file($file["tmp_name"],
                             '../../../uploads/'. $temporary[0].rand(0,15234562233).'.'.$temporary[1]);
-                        return $temporary[0].rand(0,15234562233).'.'.$temporary[1];
+                        return ''.$temporary[0].rand(0,15234562233).'.'.$temporary[1];
                     }
 
                 }

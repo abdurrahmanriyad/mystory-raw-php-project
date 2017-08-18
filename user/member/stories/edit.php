@@ -8,51 +8,74 @@
     use \Classes\Story\StoryRepository;
     use \Classes\Story\StoryService;
     use \Classes\ErrorMessage\ErrorMessage;
+    use \Classes\Validation\Input;
+    use \Classes\Util\Token;
+    use \Classes\Validation\Validation;
 ?>
 <?php
 
-
-    $story_id = $_GET['id'];
-    if (isset($story_id)) {
+    if (Input::exists('get')) {
+        $storyId = Input::get('id');
         $objStoryRepository = new StoryRepository();
-        $story = $objStoryRepository->get($story_id);
+        $story = $objStoryRepository->get($storyId);
     }
-
 
     $objTagRepository = new TagRepository();
     $objCategoryRepository = new CategoryRepository();
 
-
     $tags = $objTagRepository->getTags();
     $categories = $objCategoryRepository->getCategories();
+
     $objErrMessage = new ErrorMessage();
     $message = "";
 
-    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    if (Input::exists()) {
+        if (Token::check(Input::get('token'))) {
 
-        if (isset($_POST['submit'])) {
-            $objStory = new Story();
-            $objStoryService = new StoryService();
+            $objValidation = new Validation();
+            $objValidation->validate($_POST,
+                array(
+                    'title' => array(
+                        'required' => true,
+                        'min' => 5
+                    ),
+                    'body' => array(
+                        'required' => true,
+                        'min' => 5,
+                    ),
+                    'category_id' => array(
+                        'required' => true
+                    )
+                )
+            );
 
-            $objStory->title = $_POST['title'];
-            $objStory->body  = $_POST['body'];
-            $objStory->category_id  = $_POST['category_id'];
-            $objStory->featured_image = $_FILES['featured_image'];
-            $story = $objStoryRepository->get($story_id);
-            $objStory->previous_featured_image = $story->featured_image;
+            if ($objValidation->passed()) {
 
-            isset($_POST['tags']) ? $objStory->tags = $_POST['tags'] : $objStory->tags = [''];
+                $objStory = new Story();
+                $objStoryService = new StoryService();
 
-            $updated_id = $objStoryService->updateStory($objStory, $story_id);
+                $objStory->title = Input::get('title');
+                $objStory->body  = Input::get('body');
+                $objStory->category_id  = Input::get('category_id');
+                $objStory->featured_image = $story->featured_image;;
+                $objStory->new_featured_image = Input::file('featured_image');
 
-            if(!$updated_id) {
-                $message = $objErrMessage->getAlertMessage("failed to create story!");
+                $tags = Input::get('tags');
+                isset($tags) ? $objStory->tags = $tags : $objStory->tags = [''];
+
+                $updated_id = $objStoryService->updateStory($objStory, $storyId);
+
+                if(!$updated_id) {
+                    $message = $objErrMessage->getAlertMessage("failed to create story!");
+                } else {
+                    $message = $objErrMessage->getSuccessMessage("Successfully created story!");
+                    $story = $objStoryRepository->get($storyId);
+                }
+
             } else {
-                $message = $objErrMessage->getSuccessMessage("Successfully created story!");
+                print_r($objValidation->errors());
             }
-
         }
-
     }
 ?>
 
@@ -124,23 +147,20 @@
                                     <label for="category_id" class="control-label">Category : </label>
                                     <select class="form-control" id="category_id" name="category_id">
                                         <?php foreach ($categories as $single_category) : ?>
-                                            <?php if ($single_category->id == $story->id) : ?>
+                                            <?php if ($single_category->id == $story->category_id) : ?>
                                                 <option value="<?php echo $single_category->id ?>" selected> <?php echo $single_category->category ?> </option>
                                             <?php else : ?>
-                                                <option value="<?php echo $single_category->id ?>" selected> <?php echo $single_category->category ?> </option>
+                                                <option value="<?php echo $single_category->id ?>"> <?php echo $single_category->category ?> </option>
                                                 <?php endif; ?>
                                         <?php endforeach; ?>
                                     </select>
                                 </div>
-
-
-
-
+                                
                                 <div class="form-group">
                                     <label for="tag_id" class="control-label">Tags : </label>
                                     <select name="tags[]" multiple class="form-control select2" id="tag_id">
                                         <?php foreach ($tags as $single_tag) : ?>
-                                            <?php if (in_array($single_tag->id, $story->tags)) : ?>
+                                            <?php if (in_array($single_tag->id, [1,'asd', 'sdf'])) : ?>
                                                 <option value="<?php echo $single_tag->id ?>" selected> <?php echo $single_tag->tag ?> </option>
                                             <?php else : ?>
                                                 <option value="<?php echo $single_tag->id ?>"> <?php echo $single_tag->tag ?> </option>
@@ -152,6 +172,7 @@
 
 
                                 <div class="box-footer text-right">
+                                    <input type="hidden" name="token" value="<?php echo Token::generate(); ?>">
                                     <input class="btn btn-primary btn-md btn-block" name="submit" type="submit" value="Save">
                                 </div>
                             </div>

@@ -13,7 +13,8 @@ class DB
             $query,
             $_error = false,
             $results,
-            $count = 0;
+            $count = 0,
+            $lastInserted = null;
 
     private function __construct()
     {
@@ -159,5 +160,10 @@ class DB
     public function count()
     {
         return $this->count;
+    }
+
+    public function lastInsertedId()
+    {
+        return $this->pdo->lastInsertId();
     }
 }

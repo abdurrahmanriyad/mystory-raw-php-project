@@ -29,7 +29,7 @@ class StoryRepository
 
     public function addStory(Story $story)
     {
-        return $this->db->insert('story',[
+         $this->db->insert('story',[
             'title' => $story->title,
             'body' => $story->body,
             'featured_image' => $story->featured_image,
@@ -38,45 +38,54 @@ class StoryRepository
             'created_at' => date("Y-m-d h:i:s"),
             'updated_at' => date("Y-m-d h:i:s")
         ]);
+
+        return $this->db->lastInsertedId();
     }
 
     public function updateStory(Story $story, $id)
     {
-        return $this->db_helper->update('story',[
+        return $this->db->update('story', $id, [
             'title' => $story->title,
             'body' => $story->body,
             'featured_image' => $story->featured_image,
             'user_id' => 1,
             'category_id' => $story->category_id,
             'updated_at' => date("Y-m-d h:i:s")
-        ], $id);
+        ]);
     }
 
     public function get($id)
     {
-        $results = $this->db_helper->query(
-            "SELECT story.*, story_has_tag.tag_id, tag.tag, tag.id as tag_id, category.category FROM story INNER JOIN story_has_tag ON story.id = story_has_tag.story_id AND story.id = {$id} INNER JOIN tag ON story_has_tag.tag_id = tag.id INNER JOIN category on story.category_id = category.id"
+
+        $story = $this->db->query(
+            "SELECT story.*, category.category FROM story INNER JOIN category on story.category_id = category.id WHERE story.id = {$id}"
         );
 
-//        var_dump($results);
-        $tags = [];
-        foreach ($results as $result) {
-            $tags[] = $result->tag_id;
+
+        if ($story->count()) {
+            $story = $story->first();
+            $objStory = new Story();
+            $objStory->title = $story->title;
+            $objStory->body = $story->body;
+            $objStory->category_id = $story->category_id;
+            $objStory->featured_image = $story->featured_image;
+
+            $tags = $this->db->query(
+                "SELECT * FROM tag WHERE id IN (SELECT tag_id from story_has_tag WHERE story_id = {$id})"
+            );
+
+            if ($tags->count()) {
+                $objStory->tags = $tags->results();
+            }
+
         }
 
-        $story = new Story();
-        $story->title = $results[0]->title;
-        $story->body = $results[0]->body;
-        $story->category_id = $results[0]->category_id;
-        $story->featured_image = $results[0]->featured_image;
-        $story->tags = $tags;
-
-        return $story;
+        return $objStory;
     }
 
     public function removeTags($id)
     {
-        return  $this->db_helper->delete('story_has_tag', "story_id = ".$id);
+        return  $this->db->delete('story_has_tag',['story_id', '=', $id]);
     }
 
     public function getAllStories()

@@ -63,28 +63,13 @@
                 isset($inputTag) ? $objStory->tags = $inputTag : $objStory->tags = [''];
 
                 $inserted_id = $objStoryService->submitStory($objStory);
-//
-//                if(!$inserted_id) {
-//                    $message = $objErrMessage->getAlertMessage("failed to create story!");
-//                } else {
-//                    $message = $objErrMessage->getSuccessMessage("Successfully created story!");
-//                }
 
+                if(!$inserted_id) {
+                    $message = $objErrMessage->getAlertMessage("failed to create story!");
+                } else {
+                    $message = $objErrMessage->getSuccessMessage("Successfully created story!");
+                }
 
-//                $objMember = new Member();
-//                $objMember->name = Input::get('name');
-//                $objMember->setUsername(Input::get('username'));
-//                $objMember->setEmail(Input::get('email'));
-//                $objMember->setPassword(password_hash(Input::get('password'), PASSWORD_DEFAULT));
-//                $objMember->setDateOfBirth(Input::get('dateOfBirth'));
-//                $objMember->profession = Input::get('profession');
-//
-//                $objMembershipService = new MembershipService();
-//                $inserted = $objMembershipService->register($objMember);
-//
-//                if ($inserted) {
-//                    Redirect::to('index.php');
-//                }
 
             } else {
                 print_r($objValidation->errors());
@@ -144,7 +129,8 @@
         <!-- Main content -->
         <section class="content">
             <ul class="list-inline text-left">
-                <li><a href="<?php echo base_url('user/member/stories/') ?>"><button class="btn btn-success"><i class="fa fa-backward"></i> &nbsp; Back</button></a></li>
+                <li><a href="<?php echo base_url('user/member/
+                stories/') ?>"><button class="btn btn-success"><i class="fa fa-backward"></i> &nbsp; Back</button></a></li>
             </ul>
             <!-- Main row -->
             <div class="row">

@@ -28,14 +28,19 @@ class StoryService
 
     public function submitStory(Story $story)
     {
+        // remove previous thumbnail and upload new one if there thumbnail
         $uploaded_filename = $this->objFormFile->uploadFile($story->featured_image);
         $story->featured_image = $uploaded_filename;
+
+
+        // if file uploaded insert story into database
         if ($uploaded_filename) {
 
             $inserted  = $this->objStoryRepository->addStory($story);
             if ($inserted) {
                 if(!empty($story->tags)) {
                     foreach ($story->tags as $temp_tag) {
+                        echo $temp_tag;
                         $this->objStory->addPivotStoryTag($inserted, $temp_tag);
                     }
                 }
@@ -49,26 +54,26 @@ class StoryService
 
     public function updateStory(Story $story, $id)
     {
-        //validation
-        if (!$this->objValidation->isStoryEmpty($story)) {
-            if (unlink('../../../uploads/'.$story->previous_featured_image)) {
-                $uploaded_filename = $this->objFormFile->uploadFile($story->featured_image);
-                $story->featured_image = $uploaded_filename;
-                if ($uploaded_filename) {
+        if ($story->new_featured_image['name']) {
+            unlink('../../../uploads/'.$story->featured_image);
+            $uploaded_filename = $this->objFormFile->uploadFile($story->new_featured_image);
+            $story->featured_image = $uploaded_filename;
+        }
 
-                    $updated  = $this->objStoryRepository->updateStory($story, $id);
+        $updated  = $this->objStoryRepository->updateStory($story, $id);
 
-                    if ($updated) {
-                        $this->removeRelatedTags($id);
-                        foreach ($story->tags as $temp_tag) {
-                            $this->objStory->addPivotStoryTag($updated, $temp_tag);
-                        }
-                    }
+        if ($updated) {
+            $this->removeRelatedTags($id);
 
-                    return $updated;
+            if(!empty($story->tags)) {
+                foreach ($story->tags as $temp_tag) {
+                    $this->objStory->addPivotStoryTag($id, $temp_tag);
                 }
             }
+
+            return $updated;
         }
+
 
         return false;
     }
