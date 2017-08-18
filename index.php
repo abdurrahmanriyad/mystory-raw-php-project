@@ -9,9 +9,6 @@
 <?php  require_once "views/includes/header.php" ?>
 <?php
     $objMembershipService = new MembershipService();
-    if ($objMembershipService->isLoggedIn()) {
-        echo "logged in";
-    }
 ?>
 <div class="content_area">
     <div class="container">
@@ -35,7 +32,7 @@
                                 <span class="card-title author">by <span>Riyad Uddin</span></span>
                             </div>
                             <div class="card-content">
-                                <h4 class="card-title"><strong><a href="<?php ?>"><?php echo $story->title; ?></a></strong></h4>
+                                <h4 class="card-title"><strong><a href="<?php echo 'single-story.php?id='.$story->id ?>"><?php echo $story->title; ?></a></strong></h4>
                                 <div><?php echo string_limit($story->body); ?></div>
                             </div>
                             <div class="card-action">

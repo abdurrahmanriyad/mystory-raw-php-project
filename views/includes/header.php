@@ -28,20 +28,26 @@
                         <li><a href="index.php">Home</a></li>
                         <li><a href="#">Write Your Story</a></li>
                         <li><a href="#">Contact</a></li>
-                        <li><a href="login.php" class="btn btn-login">Login</a></li>
-                        <li>
-                            <a class='dropdown-button btn' data-beloworigin="true" data-activates='profile_dropdown'>
-                                <img src="assets/img/user.jpg" alt="" class="profile_img_icon">
-                            </a>
+                        <?php
+                            $objMembershipService = new \Classes\Member\MembershipService();
+                            if ($objMembershipService->isLoggedIn()) :
+                        ?>
+                                <li>
+                                    <a class='dropdown-button btn' data-beloworigin="true" data-activates='profile_dropdown'>
+                                        <img src="assets/img/user.jpg" alt="" class="profile_img_icon">
+                                    </a>
 
-                            <!-- Dropdown Structure -->
-                            <ul id='profile_dropdown' class='dropdown-content'>
-                                <li><a href="#">one two adsfsdf dsf adsf s</a></li>
-                                <li><a href="#">two</a></li>
-                                <li class="divider"></li>
-                                <li><a href="logout.php">Logout</a></li>
-                            </ul>
-                        </li>
+                                    <!-- Dropdown Structure -->
+                                    <ul id='profile_dropdown' class='dropdown-content'>
+                                        <li><a href="<?php echo base_url('user/member/dashboard/profile/index.php?id='.\Classes\Util\Session::get('user')) ?>">Dashboard</a></li>
+                                        <li class="divider"></li>
+                                        <li><a href="logout.php">Logout</a></li>
+                                    </ul>
+                                </li>
+                        <?php else : ?>
+                                <li><a href="register.php">Register</a></li>
+                                <li><a href="login.php" class="btn btn-login">Login</a></li>
+                        <?php endif; ?>
                     </ul>
 
                 </div>

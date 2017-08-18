@@ -1,5 +1,7 @@
-<?php require_once "../views/includes/header.php" ?>
-<?php require_once "../views/includes/sidebar.php" ?>
+<?php require_once $_SERVER['DOCUMENT_ROOT']."/mystory/vendor/autoload.php"; ?>
+
+<?php require_once "../../views/includes/header.php" ?>
+<?php require_once "../../views/includes/sidebar.php" ?>
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
@@ -99,4 +101,4 @@
         <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
-<?php require_once "../views/includes/footer.php" ?>
+<?php require_once "../../views/includes/footer.php" ?>

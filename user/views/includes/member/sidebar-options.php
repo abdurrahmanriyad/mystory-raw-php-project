@@ -1,4 +1,4 @@
-<?php require_once "../../../vendor/autoload.php"; ?>
+<?php require_once $_SERVER['DOCUMENT_ROOT']."/mystory/vendor/autoload.php"; ?>
 
 <li class="treeview">
     <a href="#">

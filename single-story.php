@@ -1,3 +1,10 @@
+<?php
+    require_once "vendor/autoload.php";
+    use \Classes\Validation\Input;
+    use \Classes\Story\StoryRepository;
+?>
+
+
 <?php  require_once "views/includes/header.php" ?>
 
 <div class="content_area">
@@ -6,34 +13,24 @@
             <div class="col m9">
                 <div class="content">
                     <div class="story_block">
+                        <?php
+                            if (Input::exists('get')) {
+                                $id = Input::get('id');
+
+                                $objStoryRepository = new StoryRepository();
+                                $story = $objStoryRepository->get($id);
+                            }
+                        ?>
+
                         <div class="card">
                             <div class="card-image">
-                                <img src="https://images.unsplash.com/photo-1462204215829-29407c570832?dpr=2&auto=format&fit=crop&w=1500&h=1000&q=80&cs=tinysrgb&crop=">
+                                <img src="<?php echo base_url('uploads/'.$story->featured_image) ?>">
                                 <span class="card-title author">by <span>Abdur Rahman</span></span>
                             </div>
                             <div class="card-content">
-                                <h4 class="card-title"><strong>Naiyya Saggi’s 5-year plan: to see BabyChakra as the trusted companion to every young parent</strong></h4>
+                                <h4 class="card-title"><strong><?php echo $story->title; ?></strong></h4>
                                 <div>
-                                    Naiyya started her entrepreneurial journey in 2014 after watching her sister, a smart and independent corporate lawyer, having a hard time as a new mother—spending copious amounts of time listening to random advice, browsing on Google, and experimenting with different doctors and daycares. <p>In an age where we find all the answers online, she realised that there simply wasn’t enough reliable information out there.</p>
-                                    <br>
-
-                                    Naiyya’s realisation that there was an immediate need for a childcare platform in India led to the birth of BabyChakra.
-
-                                    <p>There has been no looking back since then; not only has she managed to scale up BabyChakra but also raised funds from investors like Mumbai Angels, Arihant Patni’s family office, and Singapore Angel Network.</p>
-
-                                    This week’s fixture on the Conversations at YourStory platform, Naiyya spoke about the challenges she faced while starting up, her advice to budding entrepreneurs, and future plans for BabyChakra.
-                                    Why BabyChakra?<br><br>
-
-                                    People these days prefer to have fewer children so that their care and concern is concentrated on one or two children. In today’s nuclear families, parents feel what they can offer to their children is limited, and therefore want to be sure that they’re providing the best they can.
-
-                                    <br><br><p>All this gives rise to the need for a one-stop discovery platform for parents, especially for new mothers, to help them provide the best all-round experience to their babies.</p>
-
-                                    By building an online community of mothers so that they can offer each other advice, recommendations, and support, BabyChakra has managed to win the trust of parents.
-
-                                    <p>“We, at BabyChakra, are absolutely committed to ensuring that we help parents be the best parents they can be.”
-                                        Building the BabyChakra brand</p>
-
-                                    Building a brand is not an easy task and you need to keep up with market demands, changes in technology, and offer a better customer experience. Naiyya shared what’s been happening at BabyChakra and how they have been introducing new tools for parents.
+                                    <?php echo $story->body; ?>
                                 </div>
                             </div>
                             <div class="card-action">
