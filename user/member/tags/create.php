@@ -4,29 +4,39 @@
     use \Classes\Story\TagRepository;
     use \Classes\Validation\Validation;
     use \Classes\ErrorMessage\ErrorMessage;
+    use \Classes\Validation\Input;
+    use \Classes\Util\Token;
 ?>
 <?php
-    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-        if (isset($_POST['submit'])) {
-            $validation = new Validation();
-            $objErrMessage = new ErrorMessage();
-            $objTagRepository = new TagRepository();
+    if (Input::exists()) {
+        if (Token::check(Input::get('token'))) {
+            $objValidation = new Validation();
+            $objValidation->validate($_POST,
+                array(
+                    'tag' => array(
+                        'required' => true,
+                    )
+                )
+            );
 
-            $objTag = new Tag();
-            $objTag->title = $_POST['tag'];
-
-            if ($objTagRepository->addTag($objTag)) {
-
+            if ($objValidation->passed()) {
                 $objErrMessage = new ErrorMessage();
-                $message = $objErrMessage->getSuccessMessage("Succesfully created!");
+                $objTagRepository = new TagRepository();
 
-            } else {
-                $message = $objErrMessage->getAlertMessage("Failed to create category");
+                $objTag = new Tag();
+                $objTag->title = Input::get('tag');
+
+                if ($objTagRepository->addTag($objTag)) {
+
+                    $objErrMessage = new ErrorMessage();
+                    $message = $objErrMessage->getSuccessMessage("Succesfully created!");
+
+                } else {
+                    $message = $objErrMessage->getAlertMessage("Failed to create category");
+                }
             }
-
         }
-
     }
 ?>
 
@@ -80,6 +90,7 @@
                         <div class="box box-primary">
                             <div class="box-body">
                                 <div class="box-footer text-right">
+                                    <input type="hidden" name="token" value="<?php echo Token::generate(); ?>">
                                     <input class="btn btn-primary btn-md btn-block" name="submit" type="submit" value="Save">
                                 </div>
                             </div>

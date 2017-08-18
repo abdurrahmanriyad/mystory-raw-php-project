@@ -5,34 +5,34 @@
     use \Classes\Story\CategoryRepository;
     use \Classes\ErrorMessage\ErrorMessage;
     use \Classes\Validation\Input;
+    use \Classes\Util\Token;
 
     $objCategoryRepository = new CategoryRepository();
 ?>
 
 <?php
-    if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-        if (isset($_GET['id']) ) {
-            $id = $_GET['id'];
-            $single_category = $objCategoryRepository->getCategoryById($id);
-        }
+
+    if (Input::exists('get')) {
+        $id = Input::get('id');
+        $single_category = $objCategoryRepository->getCategoryById($id);
     }
 
-
-
     if (Input::exists()) {
-        $objCategory = new Category();
-        $objCategory->id = Input::get('id');
-        $objCategory->title = Input::get('category');
+        if (Token::check(Input::get('token'))) {
+            $objCategory = new Category();
+            $objCategory->id = Input::get('id');
+            $objCategory->title = Input::get('category');
 
 
-        if ($objCategoryRepository->editCategory($objCategory)) {
+            if ($objCategoryRepository->editCategory($objCategory)) {
 
-            $objErrMessage = new ErrorMessage();
-            $message = $objErrMessage->getSuccessMessage("Successfully updated!");
-            $single_category = $objCategoryRepository->getCategoryById($objCategory->id);
+                $objErrMessage = new ErrorMessage();
+                $message = $objErrMessage->getSuccessMessage("Successfully updated!");
+                $single_category = $objCategoryRepository->getCategoryById($objCategory->id);
 
-        } else {
-            $message = $objErrMessage->getAlertMessage("Failed to update category");
+            } else {
+                $message = $objErrMessage->getAlertMessage("Failed to update category");
+            }
         }
     }
 
@@ -89,6 +89,7 @@
                         <div class="box box-primary">
                             <div class="box-body">
                                 <div class="box-footer text-right">
+                                    <input type="hidden" name="token" value="<?php echo Token::generate(); ?>">
                                     <input class="btn btn-primary btn-md btn-block" name="submit" type="submit" value="Save">
                                 </div>
                             </div>

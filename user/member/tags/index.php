@@ -2,7 +2,7 @@
     require_once "../../../vendor/autoload.php";
 
     use \Classes\Story\TagRepository;
-    use \Classes\Session\Session;
+    use \Classes\Util\Session;
 
     $objSession = new Session();
 

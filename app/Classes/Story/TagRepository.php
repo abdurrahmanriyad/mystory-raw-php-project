@@ -8,6 +8,7 @@
 
 namespace Classes\Story;
 use Classes\Database\DbHelper;
+use Classes\Database\DB;
 use Classes\Validation\Validation;
 
 require_once "../../../vendor/autoload.php";
@@ -15,18 +16,18 @@ require_once "../../../vendor/autoload.php";
 class TagRepository
 {
 
-    private $db_helper;
+    private $db;
 
     public function __construct()
     {
-        $this->db_helper = new DbHelper();
+        $this->db = DB::getInstance();
     }
 
     public function addTag(Tag $tag)
     {
         $validation = new Validation();
         if (! $validation->isEmptyString($tag->title)) {
-            $inserted  = $this->db_helper->insert('tag',[
+            $inserted  = $this->db->insert('tag',[
                 'tag' => $tag->title,
                 'created_at' => date("Y-m-d h:i:s"),
                 'updated_at' => date("Y-m-d h:i:s")
@@ -38,23 +39,24 @@ class TagRepository
         return false;
     }
 
-    public function removeTag(Tag $tag)
+    public function removeTag($id)
     {
-        return $this->db_helper->delete('tag', 'id ='.$tag->id);
+        return $this->db->delete('tag', ['id', '=', $id]);
     }
 
     public function editTag($id, $tag)
     {
-        return $this->db_helper->update('tag', ["tag" => $tag, "updated_at" => date("Y-m-d h:i:s")], 'id ='.$id);
+        return $this->db->update('tag',$id, ["tag" => $tag, "updated_at" => date("Y-m-d h:i:s")]);
     }
 
     public function getTagById($id)
     {
-        return $this->db_helper->select('tag', [], ' WHERE id ='.$id);
+        $result = $this->db->get('tag', ['id', '=', $id]);
+        return $result->first();
     }
 
     public function getTags()
     {
-        return $this->db_helper->select('tag', []);
+        return $this->db->all('tag');
     }
 }
