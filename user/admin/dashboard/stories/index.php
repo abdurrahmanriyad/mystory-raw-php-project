@@ -1,10 +1,23 @@
 <?php
     require_once $_SERVER['DOCUMENT_ROOT']."/mystory/vendor/autoload.php";
 
+    use \Classes\Story\StoryService;
     use \Classes\Story\StoryRepository;
+    use \Classes\Story\Story;
     use \Classes\Util\Session;
+    use \Classes\Validation\Input;
 
     $objSession = new Session();
+    $objStoryService = new StoryService();
+    $objStory= new Story();
+
+
+    if (Input::exists()) {
+        $story_id = Input::get('story_id');
+        $objStory->active = 1;
+        $objStoryService->updateStoryActivation($objStory,$story_id);
+
+    }
 
 ?>
 
@@ -28,10 +41,6 @@
 
         <!-- Main content -->
         <section class="content">
-
-            <ul class="list-inline">
-                <li><a href="<?php echo base_url("user/member/dashboard/stories/create.php") ?>"><button class="btn btn-success"><i class="fa fa-plus"></i> &nbsp New Story</button></a></li>
-            </ul>
 
             <!-- Main row -->
             <div class="row">
@@ -80,11 +89,20 @@
                                     <td>
 
                                         <div class="btn-group">
-                                            <a class="btn btn-primary btn-sm" href="<?php echo base_url("user/member/stories/edit.php?id=".$single_story->id) ?>"><i class="fa fa-pencil-square-o"></i></a>
 
-                                            <form style="display: inline-block" action="<?php echo base_url("user/member/stories/delete.php?id=".$single_story->id) ?>" method="POST">
-                                                <button class="btn btn-sm btn-default" type="submit" name="delete"><i class="fa fa-trash-o"></i></button>
+                                            <form style="display: inline-block" action="" method="POST">
+                                                <input type="hidden" name="story_id" value="<?php echo $single_story->id ?>">
+                                                <button class="btn btn-sm btn-success" title="Approve story" type="submit" name="check"><i class="fa fa-check"></i></button>
                                             </form>
+
+                                            <form style="display: inline-block" action="<?php echo base_url("user/admin/dashboard/stories/delete.php?id=".$single_story->id) ?>" method="POST">
+                                                <input type="hidden" name="story_id" value="<?php echo $single_story->id ?>">
+                                                <button class="btn btn-sm btn-default" title="Delete story" type="submit" name="delete"><i class="fa fa-trash-o"></i></button>
+                                            </form>
+
+
+
+
                                         </div>
 
 

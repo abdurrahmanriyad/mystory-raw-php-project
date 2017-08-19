@@ -1,4 +1,4 @@
-<?php require_once "../../../vendor/autoload.php"; ?>
+<?php require_once $_SERVER['DOCUMENT_ROOT']."/mystory/vendor/autoload.php"; ?>
 <?php
     use \Classes\Story\Tag;
     use \Classes\Story\TagRepository;
@@ -84,8 +84,8 @@
 ?>
 
 
-<?php require_once "../../views/includes/header.php" ?>
-<?php require_once "../../views/includes/sidebar.php" ?>
+<?php require_once "../../../views/includes/header.php" ?>
+<?php require_once "../../../views/includes/sidebar.php" ?>
 
 
     <!-- Content Wrapper. Contains page content -->
@@ -210,4 +210,4 @@
     <!-- /.content-wrapper -->
 
 
-<?php require_once "../../views/includes/footer.php" ?>
+<?php require_once "../../../views/includes/footer.php" ?>

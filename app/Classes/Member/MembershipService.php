@@ -9,6 +9,7 @@
 namespace Classes\Member;
 
 use Classes\Config\Config;
+use Classes\Database\DB;
 use Classes\Form\FormFile;
 use Classes\Util\Cookie;
 use Classes\Util\CookieRepository;
@@ -25,6 +26,7 @@ class MembershipService
     private $cookiesRepository;
     private $user_id;
     private $objFormFile;
+    private $db;
 
     public function __construct($user = null)
     {
@@ -33,6 +35,7 @@ class MembershipService
         $this->cookieName = Config::get('remember/cookie_name');
         $this->cookiesRepository = new CookieRepository();
         $this->objFormFile =  new FormFile();
+        $this->db = DB::getInstance();
     }
     
     public function register(Member $member)
@@ -141,5 +144,19 @@ class MembershipService
 
         return false;
 
+    }
+
+    public function hasPermission($key = '', $group_id)
+    {
+        $group = $this->db->get('user_group', ['id', '=', $group_id])->first();
+
+        if (count($group)) {
+            $permission = json_decode($group->permissions, true);
+            if ($permission[$key] == true) {
+                return true;
+            }
+        }
+
+        return false;
     }
 }

@@ -53,10 +53,12 @@ class StoryService
 
     public function updateStory(Story $story, $storyId)
     {
-        if ($story->new_featured_image['name']) {
-            unlink('../../../uploads/'.$story->featured_image);
-            $uploaded_filename = $this->objFormFile->uploadFile($story->new_featured_image);
-            $story->featured_image = $uploaded_filename;
+        if (isset($story->new_featured_image['name'])) {
+            if ($story->new_featured_image['name']) {
+                unlink('../../../uploads/'.$story->featured_image);
+                $uploaded_filename = $this->objFormFile->uploadFile($story->new_featured_image);
+                $story->featured_image = $uploaded_filename;
+            }
         }
 
         $updated  = $this->objStoryRepository->updateStory($story, $storyId);
@@ -75,6 +77,11 @@ class StoryService
         return false;
     }
 
+
+    public function updateStoryActivation(Story $story, $storyId)
+    {
+        return $this->objStoryRepository->updateStoryActivation($story, $storyId);
+    }
 
     public function deleteStory($id)
     {

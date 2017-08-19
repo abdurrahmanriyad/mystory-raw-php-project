@@ -9,7 +9,6 @@
 namespace Classes\Database;
 use Classes\ErrorMessage\ErrorMessage;
 
-require_once "../../../vendor/autoload.php";
 
 class DbHelper
 {

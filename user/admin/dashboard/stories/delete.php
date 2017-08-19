@@ -18,5 +18,5 @@
         $objectStoryService->deleteStory($storyId);
     }
 
-    Redirect::to(base_url("user/member/dashboard/stories"));
+    Redirect::to(base_url("user/admin/dashboard/stories"));
 

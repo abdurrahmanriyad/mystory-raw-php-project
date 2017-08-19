@@ -13,6 +13,7 @@ class Story
     public $rating;
     public $featured_image;
     public $category_id;
+    public $active;
     public $tags;
     public $db;
 

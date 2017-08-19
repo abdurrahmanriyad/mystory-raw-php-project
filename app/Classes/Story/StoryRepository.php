@@ -52,6 +52,14 @@ class StoryRepository
         ]);
     }
 
+    public function updateStoryActivation(Story $story, $storyId)
+    {
+        return $this->db->update('story', $storyId, [
+            'active' => $story->active,
+            'updated_at' => date("Y-m-d h:i:s")
+        ]);
+    }
+    
     public function get($id)
     {
         $objStory = new Story();
