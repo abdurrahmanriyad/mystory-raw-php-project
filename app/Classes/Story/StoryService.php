@@ -51,7 +51,7 @@ class StoryService
         return false;
     }
 
-    public function updateStory(Story $story, $id)
+    public function updateStory(Story $story, $storyId)
     {
         if ($story->new_featured_image['name']) {
             unlink('../../../uploads/'.$story->featured_image);
@@ -59,14 +59,14 @@ class StoryService
             $story->featured_image = $uploaded_filename;
         }
 
-        $updated  = $this->objStoryRepository->updateStory($story, $id);
+        $updated  = $this->objStoryRepository->updateStory($story, $storyId);
 
         if ($updated) {
-            $this->removeRelatedTags($id);
+            $this->removeRelatedTags($storyId);
 
             if(!empty($story->tags)) {
                 foreach ($story->tags as $temp_tag) {
-                    $this->objStory->addPivotStoryTag($id, $temp_tag);
+                    $this->objStory->addPivotStoryTag($storyId, $temp_tag);
                 }
             }
 

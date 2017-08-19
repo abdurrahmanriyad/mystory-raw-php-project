@@ -6,6 +6,7 @@ class Member{
     
     public  $name;
     private $username;
+    public $photo_url;
     public  $profession;
     private $dateOfBirth;
     private  $email;
@@ -87,4 +88,5 @@ class Member{
     {
         
     }
+
 }

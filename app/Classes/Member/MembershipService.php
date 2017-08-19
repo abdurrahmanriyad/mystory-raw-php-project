@@ -9,10 +9,12 @@
 namespace Classes\Member;
 
 use Classes\Config\Config;
+use Classes\Form\FormFile;
 use Classes\Util\Cookie;
 use Classes\Util\CookieRepository;
 use Classes\Util\Hash;
 use Classes\Util\Session;
+
 
 class MembershipService
 {
@@ -22,6 +24,7 @@ class MembershipService
     private $loggedIn;
     private $cookiesRepository;
     private $user_id;
+    private $objFormFile;
 
     public function __construct($user = null)
     {
@@ -29,6 +32,7 @@ class MembershipService
         $this->sessionName = Config::get('session/session_name');
         $this->cookieName = Config::get('remember/cookie_name');
         $this->cookiesRepository = new CookieRepository();
+        $this->objFormFile =  new FormFile();
     }
     
     public function register(Member $member)
@@ -114,5 +118,28 @@ class MembershipService
                 $this->login();
             }
         }
+    }
+
+
+    public function updateMember(Member $member, $memberId)
+    {
+
+        if ($member->new_photo_url['name']) {
+            if (file_exists('../../../../user/uploads/'.$member->photo_url)) {
+                unlink('../../../../user/uploads/'.$member->photo_url);
+            }
+
+            $uploaded_filename = $this->objFormFile->uploadFile($member->new_photo_url, '../../../../user/uploads/');
+            $member->photo_url = $uploaded_filename;
+        }
+
+        $updated  = $this->objMemberRepository->updateMember($member, $memberId);
+
+        if ($updated) {
+            return $updated;
+        }
+
+        return false;
+
     }
 }

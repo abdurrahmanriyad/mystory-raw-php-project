@@ -1,3 +1,8 @@
+<?php
+    $objMemberRepository = new \Classes\Member\MemberRepository();
+    $member = $objMemberRepository->get(\Classes\Util\Session::get('user'));
+
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,11 +17,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
 
     <link rel="stylesheet" href="../../../plugins/select2/select2.min.css">
+    <link rel="stylesheet" href="../../../plugins/datepicker/datepicker3.css">
 
     <link rel="stylesheet" href="../../../dist/css/AdminLTE.min.css">
     <!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->
     <link rel="stylesheet" href="../../../dist/css/skins/_all-skins.min.css">
+    <link rel="stylesheet" href="../../../dist/css/admin.css">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -35,7 +42,7 @@
             <!-- mini logo for sidebar mini 50x50 pixels -->
             <span class="logo-mini"><b>A</b>LT</span>
             <!-- logo for regular state and mobile devices -->
-            <span class="logo-lg"><strong>Dashboard</strong> </span>
+            <span class="logo-lg"><strong><i class="fa fa-tachometer"></i> Dashboard</strong> </span>
         </a>
 
         <!-- Header Navbar: style can be found in header.less -->
@@ -48,6 +55,11 @@
             <div class="navbar-custom-menu">
                 <ul class="nav navbar-nav">
                     <!-- Messages: style can be found in dropdown.less-->
+                    <li>
+                        <a href="<?php echo base_url('') ?>">
+                            <strong><span><i class="fa fa-home"></i> Home</span></strong>
+                        </a>
+                    </li>
                     <li class="dropdown messages-menu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                             <i class="fa fa-envelope-o"></i>
@@ -61,7 +73,11 @@
                                     <li><!-- start message -->
                                         <a href="#">
                                             <div class="pull-left">
-                                                <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                                                <img src="
+                                                <?php echo empty($member->photo_url) ?
+                                                    base_url('user/dist/img/'.\Classes\Config\Config::get('defaults/profile_pic')) :
+                                                    base_url('user/uploads/'.$member->photo_url);
+                                                ?>" class="img-circle" alt="User Image">
                                             </div>
                                             <h4>
                                                 Support Team
@@ -74,7 +90,11 @@
                                     <li>
                                         <a href="#">
                                             <div class="pull-left">
-                                                <img src="dist/img/user3-128x128.jpg" class="img-circle" alt="User Image">
+                                                <img src="
+                                                <?php echo empty($member->photo_url) ?
+                                                    base_url('user/dist/img/'.\Classes\Config\Config::get('defaults/profile_pic')) :
+                                                    base_url('user/uploads/'.$member->photo_url);
+                                                ?>" class="img-circle" alt="User Image">
                                             </div>
                                             <h4>
                                                 AdminLTE Design Team
@@ -127,23 +147,32 @@
 
                     <li class="dropdown user user-menu">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-<!--                            <img src="dist/img/user2-160x160.jpg" class="user-image" alt="User Image">-->
-                            <span class="hidden-xs">Riyad Uddin</span>
+                            <img src="
+                            <?php echo empty($member->photo_url) ?
+                                base_url('user/dist/img/'.\Classes\Config\Config::get('defaults/profile_pic')) :
+                                base_url('user/uploads/'.$member->photo_url);
+                            ?>" class="user-image" alt="User Image">
+
+                            <span class="hidden-xs"><?php echo $member->name; ?></span>
                         </a>
                         <ul class="dropdown-menu">
                             <!-- User image -->
                             <li class="user-header">
-                                <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                                <img src="
+                                <?php echo empty($member->photo_url) ?
+                                    base_url('user/dist/img/'.\Classes\Config\Config::get('defaults/profile_pic')) :
+                                    base_url('user/uploads/'.$member->photo_url);
+                                ?>" class="img-circle" alt="User Image">
 
                                 <p>
-                                    Abdur Rahman - Web Developer
-                                    <small>Member since Nov. 2012</small>
+                                    <?php echo $member->name; ?> - <?php echo $member->profession_id; ?>
+                                    <small>Member since <?php echo $member->created_at; ?></small>
                                 </p>
                             </li>
                             <!-- Menu Footer-->
                             <li class="user-footer">
                                 <div class="text-center">
-                                    <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                                    <a href="<?php echo base_url('logout.php'); ?>" class="btn btn-default btn-flat">Sign out</a>
                                 </div>
                             </li>
                         </ul>

@@ -9,11 +9,8 @@
 </span>
     </a>
     <ul class="treeview-menu">
-        <li><a href="pages/charts/chartjs.html"><i class="fa fa-circle-o"></i> Profile </a></li>
-        <li><a href="pages/charts/morris.html"><i class="fa fa-circle-o"></i> Portfolios</a></li>
-        <li><a href="pages/charts/flot.html"><i class="fa fa-circle-o"></i> Gallery</a></li>
-        <li><a href="pages/charts/flot.html"><i class="fa fa-circle-o"></i> Quotes</a></li>
-        <li><a href="pages/charts/flot.html"><i class="fa fa-circle-o"></i> Social</a></li>
+        <li><a href="<?php echo base_url('user/member/dashboard/profile/') ?>"><i class="fa fa-circle-o"></i> profile </a></li>
+        <li><a href="<?php echo base_url('user/member/dashboard/profile/edit.php') ?>"><i class="fa fa-circle-o"></i> Edit </a></li>
     </ul>
 </li>
 

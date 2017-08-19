@@ -1,10 +1,18 @@
 <?php
+
     require_once $_SERVER['DOCUMENT_ROOT']."/mystory/vendor/autoload.php";
 
-    use \Classes\Story\StoryRepository;
+    use \Classes\Member\MembershipService;
+    use \Classes\Member\MemberRepository;
     use \Classes\Util\Session;
 
-    $objSession = new Session();
+    $objMembershipService = new MembershipService();
+    $member = $objMemberRepository->get(\Classes\Util\Session::get('user'));
+
+    if (!$objMembershipService->isLoggedIn()) {
+
+    }
+
 
 ?>
 
@@ -29,10 +37,6 @@
         <!-- Main content -->
         <section class="content">
 
-            <ul class="list-inline">
-                <li><a href="<?php echo base_url("user/member/stories/create.php") ?>"><button class="btn btn-success"><i class="fa fa-plus"></i> &nbsp New Story</button></a></li>
-            </ul>
-
             <!-- Main row -->
             <div class="row">
                 <!-- Left col -->
@@ -42,71 +46,57 @@
                     <div class="box">
                         <div class="box-body">
 
-                            <?php
+                            <div class="profile_area">
+                                <div class="profile_thumbnail">
+                                    <img src="
+                                    <?php echo empty($member->photo_url) ?
+                                        base_url('user/dist/img/'.\Classes\Config\Config::get('defaults/profile_pic')) :
+                                        base_url('user/uploads/'.$member->photo_url);
+                                    ?>" alt="">
+                                </div>
 
-                                $session_message = $objSession->get('session_message');
+                                <table id="data_table" class="table table-bordered table-striped">
+                                    <thead>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <th>Name</th>
+                                            <td><?php echo $member->name; ?></td>
+                                        </tr>
 
-                                if (isset($session_message)) {
-                                    echo $session_message;
-                                    $objSession->unsetSession('session_message');
-                                }
-                            ?>
+                                        <tr>
+                                            <th>Username</th>
+                                            <td><?php echo $member->username; ?></td>
+                                        </tr>
 
-                            <table id="data_table" class="table table-bordered table-striped">
-                                <thead>
-                                <tr>
-                                    <th>SL</th>
-                                    <th>Title</th>
-                                    <th>Created at</th>
-                                    <th>Action</th>
-                                </tr>
-                                </thead>
-                                <tbody>
+                                        <tr>
+                                            <th>Email</th>
+                                            <td><?php echo $member->email; ?></td>
+                                        </tr>
 
-                                <?php
-                                    $objStoryRepository = new StoryRepository();
-                                    $stories = $objStoryRepository->getAllStories();
+                                        <tr>
+                                            <th>Profession</th>
+                                            <td><?php echo $member->profession_id; ?></td>
+                                        </tr>
 
-                                    if($stories) :
-                                            $count = 1;
+                                        <tr>
+                                            <th>Date of Birth</th>
+                                            <td><?php echo $member->dateofbirth; ?></td>
+                                        </tr>
 
-                                        foreach ($stories as $single_story) :
-                                ?>
-
-                                <tr>
-                                    <td> <?php echo $count++; ?> </td>
-                                    <td> <?php echo $single_story->title; ?>  </td>
-                                    <td> <?php echo $single_story->created_at; ?> </td>
-                                    <td>
-
-                                        <div class="btn-group">
-                                            <a class="btn btn-primary btn-sm" href="<?php echo base_url("user/member/stories/edit.php?id=".$single_story->id) ?>"><i class="fa fa-pencil-square-o"></i></a>
-
-                                            <form style="display: inline-block" action="<?php echo base_url("user/member/stories/delete.php?id=".$single_story->id) ?>" method="POST">
-                                                <button class="btn btn-sm btn-default" type="submit" name="delete"><i class="fa fa-trash-o"></i></button>
-                                            </form>
-                                        </div>
+                                        <tr>
+                                            <th>Member since</th>
+                                            <td><?php echo $member->created_at; ?></td>
+                                        </tr>
 
 
-                                    </td>
-                                </tr>
 
-                                <?php
-                                        endforeach;
 
-                                    endif;
-                                ?>
 
-                                </tbody>
-                                <tfoot>
-                                <tr>
-                                    <th>SL</th>
-                                    <th>Title</th>
-                                    <th>Action</th>
-                                    <th>Created at</th>
-                                </tr>
-                                </tfoot>
-                            </table>
+                                    </tbody>
+                                </table>
+
+                            </div>
 
                             <!--data table finished-->
 

@@ -11,7 +11,7 @@ namespace Classes\Form;
 class FormFile
 {
 
-    public function uploadFile($file)
+    public function uploadFile($file, $path_to_upload = "../../../uploads/")
     {
         if ($file['name']) {
 
@@ -28,11 +28,11 @@ class FormFile
                     && ($file["size"] < 2048000)
                     && in_array($file_extension, $valid_extensions)){
 
-                    if (file_exists("../../../uploads/" . $file["name"])) {
+                    if (file_exists($path_to_upload . $file["name"])) {
                         return false;
                     } else {
                         $filename = $temporary[0].rand(0,15234562233).'.'.$temporary[1];
-                        move_uploaded_file($file["tmp_name"],'../../../uploads/'.$filename);
+                        move_uploaded_file($file["tmp_name"],$path_to_upload.$filename);
                         return $filename;
                     }
 

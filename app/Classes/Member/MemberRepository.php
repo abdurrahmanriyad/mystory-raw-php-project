@@ -8,6 +8,7 @@
 
 namespace Classes\Member;
 
+use Classes\Config\Config;
 use Classes\Database\DB;
 
 class MemberRepository
@@ -50,5 +51,18 @@ class MemberRepository
 
         return '';
     }
+
+
+    public function updateMember(Member $member, $memberId)
+    {
+        return $this->db->update('user', $memberId, [
+            'name' => $member->name,
+            'photo_url' => $member->photo_url,
+            'profession_id' => $member->profession,
+            'dateofbirth' => $member->getDateOfBirth(),
+            'updated_at' => date("Y-m-d h:i:s")
+        ]);
+    }
+
 
 }

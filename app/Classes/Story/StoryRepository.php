@@ -40,9 +40,9 @@ class StoryRepository
         return $this->db->lastInsertedId();
     }
 
-    public function updateStory(Story $story, $id)
+    public function updateStory(Story $story, $storyId)
     {
-        return $this->db->update('story', $id, [
+        return $this->db->update('story', $storyId, [
             'title' => $story->title,
             'body' => $story->body,
             'featured_image' => $story->featured_image,

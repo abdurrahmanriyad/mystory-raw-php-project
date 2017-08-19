@@ -16,6 +16,7 @@
 <!-- Select2 -->
 <!--<script src="plugins/ckeditor/ckeditor.js"></script>-->
 <script src="../../../plugins/select2/select2.full.min.js"></script>
+<script src="../../../plugins/datepicker/bootstrap-datepicker.js"></script>
 
 <script src="../../../dist/js/app.min.js"></script>
 
@@ -29,6 +30,9 @@
         }
     });
     $(".select2").select2();
+    $('#datepicker').datepicker({
+        autoclose: true
+    });
 </script>
 </body>
 </html>
