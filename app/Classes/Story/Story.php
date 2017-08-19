@@ -21,9 +21,15 @@ class Story
         $this->db = DB::getInstance();
     }
 
-    public function addComment(Comment $comment)
+    public function addComment(Comment $comment, $user_id, $story_id)
     {
-
+        return $this->db->insert('comment', [
+            'comment' => $comment->getComment(),
+            'user_id' => $user_id,
+            'story_id' => $story_id,
+            'created_at' => date("Y-m-d h:i:s"),
+            'updated_at' => date("Y-m-d h:i:s")
+        ]);
     }
 
     public function deleteComment(Comment $comment)
@@ -48,6 +54,12 @@ class Story
             'story_id' => $story_id
         ]);
         return $inserted;
+    }
+
+    public function getComments()
+    {
+        $result = $this->db->query('SELECT COMMENT.*, user.name, user.photo_url from comment INNER JOIN user on comment.user_id = user.id');
+        return $result->results();
     }
 
 }

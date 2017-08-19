@@ -2,8 +2,49 @@
     require_once "vendor/autoload.php";
     use \Classes\Validation\Input;
     use \Classes\Story\StoryRepository;
+    use \Classes\Util\Token;
+    use \Classes\Validation\Validation;
+    use \Classes\Story\Story;
+    use \Classes\Story\Comment;
+    use \Classes\Util\Session;
+
+    $objStory = new Story();
 ?>
 
+<?php
+
+    if (Input::exists('get')) {
+        $id = Input::get('id');
+    }
+
+    if (Input::exists()) {
+        if (Token::check(Input::get('token'))) {
+            if (Input::get('comment_form')) {
+
+                $objValidation = new Validation();
+                $objValidation->validate($_POST,
+                    array(
+                        'comment' => array(
+                            'required' => true,
+                        )
+                    )
+                );
+
+                if ($objValidation->passed()) {
+                    $objComment = new Comment(Input::get('comment'));
+
+                    $inserted = $objStory->addComment($objComment, Session::get('user'), $id);
+
+                    if ($inserted) {
+                        // do something
+                    }
+                }
+
+            }
+        }
+    }
+
+?>
 
 <?php  require_once "views/includes/header.php" ?>
 
@@ -15,8 +56,6 @@
                     <div class="story_block">
                         <?php
                             if (Input::exists('get')) {
-                                $id = Input::get('id');
-
                                 $objStoryRepository = new StoryRepository();
                                 $story = $objStoryRepository->get($id);
                             }
@@ -63,15 +102,17 @@
                     <!--answer area begin-->
                     <div class="answer_area"> <!-- answer area begin -->
                         <div class="post_an_answer clearfix">
-                            <form class="col s12">
+                            <form class="col s12" method="post" action="">
 
                                 <div class="row">
                                     <div class="input-field col s12">
-                                        <textarea id="textarea1" class="materialize-textarea"></textarea>
-                                        <label for="textarea1">Post a reply</label>
+                                        <textarea id="textarea1" class="materialize-textarea" name="comment"></textarea>
+                                        <label for="textarea1">Post a comment</label>
                                     </div>
                                     <div class="input-field col s12 right-align">
-                                        <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+                                        <input type="hidden" name="comment_form" value="comment">
+                                        <input type="hidden" name="token" value="<?php echo Token::generate(); ?>">
+                                        <button class="btn waves-effect waves-light" type="submit" name="comment_btn">Comment
                                             <i class="fa fa-message"></i>
                                         </button>
                                     </div>
@@ -81,6 +122,78 @@
                         </div>
 
                         <div class="answers">
+                            <?php
+                                $comments = $objStory->getComments();
+                              if ($comments) :
+                                  foreach ($comments as $comment) :
+                            ?>
+
+                              <div class="single_answer">
+                                  <div class="single_answer_content">
+                                      <div class="single_answer_text">
+                                          <div class="userinfo">
+                                              <div class="avatar">
+                                                  <img src="
+                                                  <?php echo empty($comment->photo_url) ?
+                                                      base_url('user/dist/img/'.\Classes\Config\Config::get('defaults/profile_pic')) :
+                                                      base_url('user/uploads/'.$comment->photo_url);
+                                                  ?>" alt="" class="img-circle">
+                                              </div>
+                                          </div>
+                                          <div class="posttext">
+                                              <h6><strong><?php echo $comment->name ?></strong> says:</h6>
+                                              <p><?php echo $comment->comment ?></p>
+                                          </div>
+                                          <div class="clearfix"></div>
+                                      </div>
+
+                                      <div class="question_info_bottom center-align">
+                                          <ul>
+                                              <li><a href="#"> <i class="fa fa-thumbs-o-up"></i>28</a></li>
+                                              <li><a href="#"> <i class="fa fa-thumbs-o-down"></i>30</a></li>
+                                              <li><a href="#"> <i class="fa fa-mail-reply"></i></a></li>
+                                              <li><a href="#"> <i class="fa fa-clock-o"></i>Posted on : 20 Nov @ 9:30am</a></li>
+                                          </ul>
+                                      </div>
+                                  </div>
+
+                                  <div class="replies"><!-- replies begin -->
+
+                                      <div class="reply"><!-- single reply begin -->
+                                          <div class="single_answer_text">
+                                              <div class="post_an_answer clearfix">
+                                                  <form class="col s12">
+
+                                                      <div class="row">
+                                                          <div class="input-field col s12">
+                                                              <textarea id="textarea2" class="materialize-textarea"></textarea>
+                                                              <label for="textarea1">Reply to this comment</label>
+                                                          </div>
+                                                          <div class="input-field col s12 right-align">
+                                                              <input type="hidden" name="reply_form" value="comment">
+                                                              <input type="hidden" name="token" value="<?php echo Token::generate(); ?>">
+                                                              <button class="btn waves-effect waves-light" type="submit" name="action">Reply
+                                                                  <i class="fa fa-message"></i>
+                                                              </button>
+                                                          </div>
+
+                                                      </div>
+                                                  </form>
+                                              </div>
+                                          </div>
+                                      </div><!-- single reply finish -->
+
+                                  </div> <!-- replies finished -->
+                              </div>
+                              <!--single answer finish-->
+
+
+                            <?php
+                                endforeach;
+                              endif;
+                            ?>
+
+
                             <div class="single_answer">
                                 <div class="single_answer_content">
                                     <div class="single_answer_text">
@@ -246,34 +359,6 @@
                             </div>
                             <!--single answer finish-->
 
-
-                            <div class="single_answer">
-                                <div class="single_answer_content">
-                                    <div class="single_answer_text">
-                                        <div class="userinfo">
-                                            <div class="avatar">
-                                                <img src="assets/img/user.jpg" alt="" class="img-circle">
-                                            </div>
-                                        </div>
-                                        <div class="posttext">
-                                            <p>I have never seen a website as helpful as this one. I am very <em>lucky</em> being a developer of this awesome website
-                                                I personally thank mr.x for asking this question .
-                                            </p>
-                                        </div>
-                                        <div class="clearfix"></div>
-                                    </div>
-
-                                    <div class="question_info_bottom center-align">
-                                        <ul>
-                                            <li><a href="#"> <i class="fa fa-thumbs-o-up"></i>28</a></li>
-                                            <li><a href="#"> <i class="fa fa-thumbs-o-down"></i>30</a></li>
-                                            <li><a href="#"> <i class="fa fa-mail-reply"></i></a></li>
-                                            <li><a href="#"> <i class="fa fa-clock-o"></i>Posted on : 20 Nov @ 9:30am</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <!--single answer finish-->
                         </div>
                         <!--answers finish-->
                     </div> <!-- answer area finished -->
