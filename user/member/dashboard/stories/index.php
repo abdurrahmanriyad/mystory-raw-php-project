@@ -1,5 +1,5 @@
 <?php
-    require_once "../../../vendor/autoload.php";
+    require_once $_SERVER['DOCUMENT_ROOT']."/mystory/vendor/autoload.php";
 
     use \Classes\Story\StoryRepository;
     use \Classes\Util\Session;
@@ -8,8 +8,8 @@
 
 ?>
 
-<?php require_once "../../views/includes/header.php" ?>
-<?php require_once "../../views/includes/sidebar.php" ?>
+<?php require_once "../../../views/includes/header.php" ?>
+<?php require_once "../../../views/includes/sidebar.php" ?>
 
 
 
@@ -122,4 +122,4 @@
         <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
-<?php require_once "../../views/includes/footer.php" ?>
+<?php require_once "../../../views/includes/footer.php" ?>

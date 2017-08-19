@@ -1,5 +1,5 @@
 <?php
-    require_once "../../../vendor/autoload.php";
+    require_once $_SERVER['DOCUMENT_ROOT']."/mystory/vendor/autoload.php";
     use \Classes\Story\CategoryRepository;
     use \Classes\Util\Session;
 

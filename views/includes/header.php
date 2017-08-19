@@ -39,7 +39,7 @@
 
                                     <!-- Dropdown Structure -->
                                     <ul id='profile_dropdown' class='dropdown-content'>
-                                        <li><a href="<?php echo base_url('user/member/dashboard/profile/index.php?id='.\Classes\Util\Session::get('user')) ?>">Dashboard</a></li>
+                                        <li><a href="<?php echo base_url('user/member/dashboard/profile/index.php') ?>">Dashboard</a></li>
                                         <li class="divider"></li>
                                         <li><a href="logout.php">Logout</a></li>
                                     </ul>

@@ -27,8 +27,8 @@
 </span>
     </a>
     <ul class="treeview-menu">
-        <li><a href="<?php echo base_url('user/member/stories/')  ?>"><i class="fa fa-circle-o"></i> Stories</a></li>
-        <li><a href="<?php echo base_url('user/member/stories/create.php')  ?>"><i class="fa fa-circle-o"></i> Create </a></li>
+        <li><a href="<?php echo base_url('user/member/dashboard/stories/')  ?>"><i class="fa fa-circle-o"></i> Stories</a></li>
+        <li><a href="<?php echo base_url('user/member/dashboard/stories/create.php')  ?>"><i class="fa fa-circle-o"></i> Create </a></li>
     </ul>
 </li>
 
@@ -42,8 +42,8 @@
 </span>
     </a>
     <ul class="treeview-menu">
-        <li><a href="<?php echo base_url('user/member/categories'); ?>"><i class="fa fa-circle-o"></i> Categories </a></li>
-        <li><a href="<?php echo base_url('user/member/categories/create.php'); ?>"><i class="fa fa-circle-o"></i> Create</a></li>
+        <li><a href="<?php echo base_url('user/member/dashboard/categories'); ?>"><i class="fa fa-circle-o"></i> Categories </a></li>
+        <li><a href="<?php echo base_url('user/member/dashboard/categories/create.php'); ?>"><i class="fa fa-circle-o"></i> Create</a></li>
     </ul>
 </li>
 
@@ -57,7 +57,7 @@
 </span>
     </a>
     <ul class="treeview-menu">
-        <li><a href="<?php echo base_url('user/member/tags'); ?>"><i class="fa fa-circle-o"></i> Tags </a></li>
-        <li><a href="<?php echo base_url('user/member/tags/create.php'); ?>"><i class="fa fa-circle-o"></i> Create</a></li>
+        <li><a href="<?php echo base_url('user/member/dashboard/tags'); ?>"><i class="fa fa-circle-o"></i> Tags </a></li>
+        <li><a href="<?php echo base_url('user/member/dashboard/tags/create.php'); ?>"><i class="fa fa-circle-o"></i> Create</a></li>
     </ul>
 </li>
