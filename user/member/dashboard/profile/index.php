@@ -7,6 +7,7 @@
     use \Classes\Util\Session;
 
     $objMembershipService = new MembershipService();
+    $objMemberRepository = new MemberRepository();
     $member = $objMemberRepository->get(\Classes\Util\Session::get('user'));
 
     if (!$objMembershipService->isLoggedIn()) {
@@ -52,7 +53,7 @@
                                     <?php echo empty($member->photo_url) ?
                                         base_url('user/dist/img/'.\Classes\Config\Config::get('defaults/profile_pic')) :
                                         base_url('user/uploads/'.$member->photo_url);
-                                    ?>" alt="">
+                                    ?>" alt="" class="img-circle">
                                 </div>
 
                                 <table id="data_table" class="table table-bordered table-striped">

@@ -1,53 +1,57 @@
 <?php
-require_once "vendor/autoload.php";
-use \Classes\Validation\Input;
-use \Classes\Member\Member;
-use \Classes\Member\MembershipService;
-use \Classes\Validation\Validation;
-use \Classes\Util\Token;
-use \Classes\Util\Session;
-use \Classes\Util\Redirect;
+    require_once "vendor/autoload.php";
+    use \Classes\Validation\Input;
+    use \Classes\Member\Member;
+    use \Classes\Member\MembershipService;
+    use \Classes\Validation\Validation;
+    use \Classes\Util\Token;
+    use \Classes\Util\Session;
+    use \Classes\Util\Redirect;
 ?>
 <?php
 
-$objMembershipService = new MembershipService();
-$objMembershipService->checkIfRemembered();
+    $objMembershipService = new MembershipService();
 
+    if ($objMembershipService->isLoggedIn()) {
+        Redirect::to('index.php');
+    }
 
-if (Input::exists()) {
-    if (Token::check(Input::get('token'))) {
+    $objMembershipService->checkIfRemembered();
 
-        $objValidation = new Validation();
-        $objValidation->validate($_POST,
-            array(
-                'username' => array(
-                    'required' => true,
-                    'min' => 5
-                ),
-                'password' => array(
-                    'required' => true
+    if (Input::exists()) {
+        if (Token::check(Input::get('token'))) {
+
+            $objValidation = new Validation();
+            $objValidation->validate($_POST,
+                array(
+                    'username' => array(
+                        'required' => true,
+                        'min' => 5
+                    ),
+                    'password' => array(
+                        'required' => true
+                    )
                 )
-            )
-        );
+            );
 
-        if ($objValidation->passed()) {
-            $username = Input::get('username');
-            $password = Input::get('password');
+            if ($objValidation->passed()) {
+                $username = Input::get('username');
+                $password = Input::get('password');
 
-            $remember = (Input::get('remember') === 'on') ? true : false;
-            $loggedIn = $objMembershipService->login($username, $password, $remember);
+                $remember = (Input::get('remember') === 'on') ? true : false;
+                $loggedIn = $objMembershipService->login($username, $password, $remember);
 
-            if ($loggedIn) {
-                Redirect::to('index.php');
+                if ($loggedIn) {
+                    Redirect::to('index.php');
+                }
+
+            } else {
+                print_r($objValidation->errors());
             }
 
-        } else {
-            print_r($objValidation->errors());
+
         }
-
-
     }
-}
 ?>
 
 <?php  require_once "views/includes/header.php" ?>
