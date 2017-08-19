@@ -40,9 +40,50 @@ body{
     top: 0;
 
 }
+
+/*search area*/
+.search-wrapper{
+    margin: 0 5px;
+    transition: margin 0.25s ease 0s;
+    background-color: #ddd;
+    margin-top: -8px;;
+}
+
+.search-wrapper input{
+    box-sizing: border-box;
+    display: block;
+    font-size: 16px;
+    font-weight: 300;
+    height: 45px;
+    margin: 0;
+    padding: 0 45px 0 15px;
+    width: 100%;
+}
+.search-wrapper input::placeholder {
+    color: #222;
+}
+.search-wrapper input, .search-wrapper input:focus, .search-wrapper input:active, .search-wrapper.card  {
+    border: 0 !important;
+    box-shadow: none !important;
+}
+
+.search-wrapper button{
+    cursor: pointer;
+    position: absolute;
+    right: 5px;
+    top: 10px;
+    background: none;
+    border: none;
+    box-shadow: none;
+}
+
 .main_nav{
     list-style: none;
     text-align: right;
+}
+.main_nav .profile_pic img{
+    width: 37px;
+    height: 37px;
 }
 .main_nav .modal-trigger {
     margin-left: 27px;
@@ -288,6 +329,7 @@ textarea.materialize-textarea {
 .post_an_answer .row {
     margin-bottom: 0;
 }
+
 
 
 /*header login btn*/

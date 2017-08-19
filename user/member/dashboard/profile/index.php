@@ -4,10 +4,12 @@
 
     use \Classes\Member\MembershipService;
     use \Classes\Member\MemberRepository;
+    use \Classes\Story\Story;
     use \Classes\Util\Session;
 
     $objMembershipService = new MembershipService();
     $objMemberRepository = new MemberRepository();
+
     $member = $objMemberRepository->get(\Classes\Util\Session::get('user'));
 
     if (!$objMembershipService->isLoggedIn()) {

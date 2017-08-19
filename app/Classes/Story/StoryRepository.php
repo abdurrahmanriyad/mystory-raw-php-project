@@ -96,9 +96,21 @@ class StoryRepository
         return $this->db->all('story');
     }
 
-    public function getStoryByCategory()
+    public function getStoriesByCategory($category = '')
     {
-        
+        $objCategory = $this->db->get('category', ['category', '=', $category])->first();
+        return $this->db->get('story', ['category_id', '=', $objCategory->id])->results();
+    }
+
+    public function getStoriesByTag($tag = '')
+    {
+        $objTag = $this->db->get('tag', ['tag', '=', $tag])->results();
+        return $this->db->query('SELECT story.*, story_has_tag.tag_id FROM story INNER JOIN story_has_tag on story.id = story_has_tag.story_id WHERE tag_id ='.$objTag->id)->results();
+    }
+
+    public function getStoryBySearch($search = '')
+    {
+        return $this->db->query("SELECT * FROM story WHERE title LIKE '%".$search."%'")->results();
     }
 
     public function getTagsArrayOfStory(array $tags)

@@ -1,3 +1,7 @@
+<?php
+    $objMemberRepository = new \Classes\Member\MemberRepository();
+    $member = $objMemberRepository->get(\Classes\Util\Session::get('user'));
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,6 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Boogaloo">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500,500i,700,900">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.1/css/materialize.min.css">
     <link rel="stylesheet" href="assets/css/main.css">
@@ -32,9 +37,13 @@
                             $objMembershipService = new \Classes\Member\MembershipService();
                             if ($objMembershipService->isLoggedIn()) :
                         ?>
-                                <li>
+                                <li class="profile_pic">
                                     <a class='dropdown-button btn' data-beloworigin="true" data-activates='profile_dropdown'>
-                                        <img src="assets/img/user.jpg" alt="" class="profile_img_icon">
+                                        <img src="
+                                        <?php echo empty($member->photo_url) ?
+                                            base_url('user/dist/img/'.\Classes\Config\Config::get('defaults/profile_pic')) :
+                                            base_url('user/uploads/'.$member->photo_url);
+                                        ?>" alt="" class="profile_img_icon">
                                     </a>
 
                                     <!-- Dropdown Structure -->

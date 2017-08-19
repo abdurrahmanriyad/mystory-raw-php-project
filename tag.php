@@ -4,6 +4,7 @@
     use \Classes\Util\Session;
     use \Classes\Member\MembershipService;
     use \Classes\Story\StoryRepository;
+    use \Classes\Validation\Input;
     use \Classes\Story\Story;
 ?>
 
@@ -20,11 +21,12 @@
                     <div class="story_block">
                         <?php
                             $objStoryRepository = new StoryRepository();
-                            $stories = $objStoryRepository->getAllStories();
-                        ?>
 
+                            if (Input::exists('get')) {
+                                $tag = Input::get('tag');
+                            }
+                            $stories = $objStoryRepository->getStoriesByTag($tag);
 
-                        <?php
                             if ($stories) :
                                 foreach ($stories as $story) :
                         ?>
