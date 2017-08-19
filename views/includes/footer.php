@@ -1,7 +1,7 @@
 <footer class="page-footer">
     <div class="footer-copyright">
         <div class="container">
-            © 2017 My Story all right reserved
+            © 2017 <strong>My Story</strong> all right reserved
         </div>
     </div>
 </footer>

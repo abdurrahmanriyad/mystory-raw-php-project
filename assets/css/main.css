@@ -246,6 +246,22 @@ h5.title {
     border-radius: 50%;
     width: 42px;
 }
+
+.single_answer .reply .userinfo img {
+    border-radius: 0;
+    width: 25px !important;
+}
+.single_answer .reply .posttext {
+    font-size: 0.9em;
+}
+.single_answer .reply .posttext h6 {
+    font-size: 13px;
+    font-style: italic;
+    margin-top: 0;
+}
+.reply .question_info_bottom {
+    font-size: 12px;
+}
 .question_info_bottom.center-align ul li {
     display: inline-block;
     padding: 0 9px;

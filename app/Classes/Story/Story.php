@@ -32,6 +32,20 @@ class Story
         ]);
     }
 
+    public function addReply(Reply $reply, $comment_id, $user_id, $story_id)
+    {
+        return $this->db->insert('reply', [
+            'reply' => $reply->getReply(),
+            'user_id' => $user_id,
+            'story_id' => $story_id,
+            'comment_id' => $comment_id,
+            'created_at' => date("Y-m-d h:i:s"),
+            'updated_at' => date("Y-m-d h:i:s")
+        ]);
+    }
+
+
+
     public function deleteComment(Comment $comment)
     {
 
@@ -58,8 +72,24 @@ class Story
 
     public function getComments()
     {
-        $result = $this->db->query('SELECT COMMENT.*, user.name, user.photo_url from comment INNER JOIN user on comment.user_id = user.id');
+        $result = $this->db->query('
+                  SELECT Comment.*, user.name, user.photo_url from comment
+                  INNER JOIN user on comment.user_id = user.id
+                  ORDER BY comment.id DESC
+                  ');
         return $result->results();
     }
+
+    public function getReplies($comment_id)
+    {
+        $result = $this->db->query('
+                SELECT Reply.*, user.name, user.photo_url from
+                Reply INNER JOIN user on reply.user_id = user.id
+                WHERE reply.comment_id = '.$comment_id.'
+                ');
+        return $result->results();
+    }
+
+
 
 }
