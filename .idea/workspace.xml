@@ -37,24 +37,9 @@
       <file leaf-file-name="header.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/user/views/includes/header.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-14.185185">
+            <state vertical-scroll-proportion="-18.851852">
               <caret line="79" column="50" selection-start-line="76" selection-start-column="48" selection-end-line="79" selection-end-column="50" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Story.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/Classes/Story/Story.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6093489">
-              <caret line="87" column="56" selection-start-line="87" selection-start-column="56" selection-end-line="87" selection-end-column="56" />
-              <folding>
-                <marker date="1503143494000" expanded="true" signature="1680:1842" placeholder="SELECT Comme..comment..." />
-                <marker date="1503143494000" expanded="true" signature="2010:2162" placeholder="SELECT Reply..Reply..." />
-                <marker date="1503143494000" expanded="true" signature="2010:2163" placeholder="SELECT Reply..Reply..." />
-                <marker date="1503143494000" expanded="true" signature="2010:2178" placeholder="SELECT Reply..Reply..." />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -69,15 +54,30 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="single-story.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="single-story.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/single-story.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-8.185185">
-              <caret line="181" column="69" selection-start-line="181" selection-start-column="69" selection-end-line="181" selection-end-column="69" />
+            <state vertical-scroll-proportion="0.4590985">
+              <caret line="101" column="50" selection-start-line="101" selection-start-column="50" selection-end-line="101" selection-end-column="50" />
               <folding>
                 <element signature="e#50#80#0#PHP" expanded="true" />
-                <marker date="1503143440000" expanded="true" signature="7252:7287" placeholder="..." />
-                <marker date="1503143440000" expanded="true" signature="7586:7645" placeholder="..." />
+                <marker date="1503144329000" expanded="true" signature="6657:6692" placeholder="..." />
+                <marker date="1503144329000" expanded="true" signature="6991:7050" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Story.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/Classes/Story/Story.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-15.518518">
+              <caret line="97" column="32" selection-start-line="97" selection-start-column="32" selection-end-line="97" selection-end-column="32" />
+              <folding>
+                <marker date="1503144262000" expanded="true" signature="1688:1832" placeholder="SELECT Comme..comment..." />
+                <marker date="1503144262000" expanded="true" signature="1688:1850" placeholder="SELECT Comme..comment..." />
+                <marker date="1503144262000" expanded="true" signature="1688:1906" placeholder="SELECT Comme..comment..." />
+                <marker date="1503144262000" expanded="true" signature="2074:2227" placeholder="SELECT Reply..Reply..." />
               </folding>
             </state>
           </provider>
@@ -194,8 +194,8 @@
         <option value="$PROJECT_DIR$/app/Classes/Story/Reply.php" />
         <option value="$PROJECT_DIR$/assets/css/main.css" />
         <option value="$PROJECT_DIR$/views/includes/footer.php" />
-        <option value="$PROJECT_DIR$/single-story.php" />
         <option value="$PROJECT_DIR$/app/Classes/Story/Story.php" />
+        <option value="$PROJECT_DIR$/single-story.php" />
       </list>
     </option>
   </component>
@@ -808,14 +808,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/user/views/includes/header.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-14.185185">
-          <caret line="79" column="50" selection-start-line="76" selection-start-column="48" selection-end-line="79" selection-end-column="50" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Classes/Story/StoryRepository.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-24.185184">
@@ -874,27 +866,35 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/single-story.php">
+    <entry file="file://$PROJECT_DIR$/user/views/includes/header.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-8.185185">
-          <caret line="181" column="69" selection-start-line="181" selection-start-column="69" selection-end-line="181" selection-end-column="69" />
-          <folding>
-            <element signature="e#50#80#0#PHP" expanded="true" />
-            <marker date="1503143440000" expanded="true" signature="7252:7287" placeholder="..." />
-            <marker date="1503143440000" expanded="true" signature="7586:7645" placeholder="..." />
-          </folding>
+        <state vertical-scroll-proportion="-18.851852">
+          <caret line="79" column="50" selection-start-line="76" selection-start-column="48" selection-end-line="79" selection-end-column="50" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Classes/Story/Story.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6093489">
-          <caret line="87" column="56" selection-start-line="87" selection-start-column="56" selection-end-line="87" selection-end-column="56" />
+        <state vertical-scroll-proportion="-15.518518">
+          <caret line="97" column="32" selection-start-line="97" selection-start-column="32" selection-end-line="97" selection-end-column="32" />
           <folding>
-            <marker date="1503143494000" expanded="true" signature="1680:1842" placeholder="SELECT Comme..comment..." />
-            <marker date="1503143494000" expanded="true" signature="2010:2162" placeholder="SELECT Reply..Reply..." />
-            <marker date="1503143494000" expanded="true" signature="2010:2163" placeholder="SELECT Reply..Reply..." />
-            <marker date="1503143494000" expanded="true" signature="2010:2178" placeholder="SELECT Reply..Reply..." />
+            <marker date="1503144262000" expanded="true" signature="1688:1832" placeholder="SELECT Comme..comment..." />
+            <marker date="1503144262000" expanded="true" signature="1688:1850" placeholder="SELECT Comme..comment..." />
+            <marker date="1503144262000" expanded="true" signature="1688:1906" placeholder="SELECT Comme..comment..." />
+            <marker date="1503144262000" expanded="true" signature="2074:2227" placeholder="SELECT Reply..Reply..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/single-story.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4590985">
+          <caret line="101" column="50" selection-start-line="101" selection-start-column="50" selection-end-line="101" selection-end-column="50" />
+          <folding>
+            <element signature="e#50#80#0#PHP" expanded="true" />
+            <marker date="1503144329000" expanded="true" signature="6657:6692" placeholder="..." />
+            <marker date="1503144329000" expanded="true" signature="6991:7050" placeholder="..." />
           </folding>
         </state>
       </provider>

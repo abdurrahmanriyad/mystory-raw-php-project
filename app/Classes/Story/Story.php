@@ -70,11 +70,12 @@ class Story
         return $inserted;
     }
 
-    public function getComments()
+    public function getComments($storyId)
     {
         $result = $this->db->query('
                   SELECT Comment.*, user.name, user.photo_url from comment
                   INNER JOIN user on comment.user_id = user.id
+                  WHERE comment.story_id = '.$storyId.'
                   ORDER BY comment.id DESC
                   ');
         return $result->results();
@@ -90,6 +91,12 @@ class Story
         return $result->results();
     }
 
+
+    public function countComments($storyId)
+    {
+        $result = $this->db->get('comment', ['story_id', '=', $storyId]);
+        return $result->count();
+    }
 
 
 }
