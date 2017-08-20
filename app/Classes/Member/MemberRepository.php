@@ -64,5 +64,31 @@ class MemberRepository
         ]);
     }
 
+    public function updateMemberPermission($permission, $memberId)
+    {
+        return $this->db->update('user', $memberId, [
+            'group_id' => $permission,
+            'updated_at' => date("Y-m-d h:i:s")
+        ]);
+    }
+
+    public function updateMemberActivation($active, $memberId)
+    {
+        return $this->db->update('user', $memberId, [
+            'active' => $active,
+            'updated_at' => date("Y-m-d h:i:s")
+        ]);
+    }
+
+
+    public function getAllMembers($orderby = null, $order = 'ASC')
+    {
+        return $this->db->all('user', $orderby, $order);
+    }
+
+    public function getAllPermissionGroups()
+    {
+        return $this->db->all('user_group');
+    }
 
 }

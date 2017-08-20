@@ -20,6 +20,19 @@
         </ul>
     </li>
 
+    <li class="treeview">
+        <a href="#">
+            <i class="fa fa-pie-chart"></i>
+            <span>User</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+        </a>
+        <ul class="treeview-menu">
+            <li><a href="<?php echo base_url('user/admin/dashboard/users/') ?>"><i class="fa fa-circle-o"></i> Users </a></li>
+        </ul>
+    </li>
+
 <?php else: ?>
 
     <li class="treeview">

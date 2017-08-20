@@ -99,9 +99,9 @@ class StoryRepository
         return  $this->db->delete('story_has_tag',['story_id', '=', $id]);
     }
 
-    public function getAllStories()
+    public function getAllStories($orderby = null, $order = 'ASC')
     {
-        return $this->db->all('story');
+        return $this->db->all('story', $orderby, $order);
     }
 
     public function getStoriesByCategory($category = '')

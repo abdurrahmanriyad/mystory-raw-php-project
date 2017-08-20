@@ -55,8 +55,8 @@ class StoryService
     {
         if (isset($story->new_featured_image['name'])) {
             if ($story->new_featured_image['name']) {
-                unlink('../../../uploads/'.$story->featured_image);
-                $uploaded_filename = $this->objFormFile->uploadFile($story->new_featured_image);
+                unlink('../../../../uploads/'.$story->featured_image);
+                $uploaded_filename = $this->objFormFile->uploadFile($story->new_featured_image, '../../../../uploads/');
                 $story->featured_image = $uploaded_filename;
             }
         }

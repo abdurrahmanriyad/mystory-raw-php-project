@@ -3,28 +3,38 @@
 
     use \Classes\Story\StoryService;
     use \Classes\Story\StoryRepository;
+    use \Classes\Member\Member;
+    use \Classes\Member\MemberRepository;
+    use \Classes\Member\MembershipService;
     use \Classes\Story\Story;
     use \Classes\Util\Session;
     use \Classes\Validation\Input;
 
     $objSession = new Session();
     $objStoryService = new StoryService();
-    $objStory= new Story();
+    $objMembershipService = new MembershipService();
 
 
     if (Input::exists()) {
         if (Input::issetInput('check')) {
-            $story_id = Input::get('story_id');
-            $objStory->active = 1;
-            $objStoryService->updateStoryActivation($objStory,$story_id);
+            $memberId = Input::get('member_id');
+            $objMembershipService->updateMemberActivation(1,$memberId);
         }
 
         if (Input::issetInput('cross')) {
-            $story_id = Input::get('story_id');
-            $objStory->active = 0;
-            $objStoryService->updateStoryActivation($objStory,$story_id);
+            $memberId = Input::get('member_id');
+            $objMembershipService->updateMemberActivation(0,$memberId);
+        }
+
+        if (Input::issetInput('change_role')) {
+            $input_count = Input::get('input_count');
+            $user_id = Input::get('user_id');
+            $user_group = Input::get('user_group'.$input_count);
+
+            $objMembershipService->updateMemberPermission($user_group, $user_id);
         }
     }
+
 
 ?>
 
@@ -72,48 +82,76 @@
                                 <thead>
                                 <tr>
                                     <th>SL</th>
-                                    <th>Title</th>
+                                    <th>Name</th>
                                     <th>Active</th>
-                                    <th>Created at</th>
+                                    <th>Type</th>
                                     <th>Action</th>
                                 </tr>
                                 </thead>
                                 <tbody>
 
                                 <?php
-                                    $objStoryRepository = new StoryRepository();
-                                    $stories = $objStoryRepository->getAllStories('active');
+                                    $objMemberRepository = new MemberRepository();
+                                    $members = $objMemberRepository->getAllMembers();
 
-                                    if($stories) :
+                                    if($members) :
+                                            $groups = $objMemberRepository->getAllPermissionGroups();
                                             $count = 1;
-                                        foreach ($stories as $single_story) :
+                                        foreach ($members as $single_member) :
                                             $checkDisabled = $crossDisabled = '';
-                                            $single_story->active == 1 ? $checkDisabled = 'disabled' : $crossDisabled = 'disabled';
+                                            $single_member->active == 1 ? $checkDisabled = 'disabled' : $crossDisabled = 'disabled';
                                 ?>
 
                                 <tr>
                                     <td> <?php echo $count++; ?> </td>
-                                    <td> <?php echo $single_story->title; ?>  </td>
-                                    <td> <?php echo $single_story->active; ?>  </td>
-                                    <td> <?php echo $single_story->created_at; ?> </td>
+                                    <td> <?php echo $single_member->name; ?>  </td>
+                                    <td> <?php echo $single_member->active; ?>  </td>
+                                    <td>
+                                        <form action="" method="post">
+                                            <div class="form-group">
+                                                <?php
+                                                if ($groups) :
+                                                    $permission_checked = "";
+                                                    foreach ($groups as $group):
+                                                        $single_member->group_id === $group->id ? $permission_checked = "checked" : $permission_checked = "";
+                                                        ?>
+
+                                                        <div class="radio">
+                                                            <label>
+                                                                <input type="hidden" name="input_count" value="<?php echo $count ?>">
+                                                                <input type="hidden" name="user_id" value="<?php echo $single_member->id; ?>">
+                                                                <input name="user_group<?php echo $count; ?>"  value="<?php echo $group->id ?>" <?php echo $permission_checked; ?> type="radio">
+                                                                <?php echo $group->name; ?>
+                                                            </label>
+                                                        </div>
+
+                                                        <?php
+                                                    endforeach;
+                                                endif;
+                                                ?>
+
+                                                <button class="btn btn-sm btn-success" type="submit" name="change_role">Change Role</button>
+                                            </div>
+                                        </form>
+                                    </td>
                                     <td>
 
                                         <div class="btn-group">
 
                                             <form style="display: inline-block" action="" method="POST">
-                                                <input type="hidden" name="story_id" value="<?php echo $single_story->id ?>">
+                                                <input type="hidden" name="member_id" value="<?php echo $single_member->id ?>">
                                                 <button class="btn btn-sm btn-success" title="Approve story" type="submit" <?php echo $checkDisabled ?> name="check"><i class="fa fa-check"></i></button>
                                             </form>
 
                                             <form style="display: inline-block" action="" method="POST">
-                                                <input type="hidden" name="story_id" value="<?php echo $single_story->id ?>">
+                                                <input type="hidden" name="member_id" value="<?php echo $single_member->id ?>">
                                                 <button class="btn btn-sm btn-danger" title="Reject story" type="submit" <?php echo $crossDisabled ?> name="cross"><i class="fa fa-times"></i></button>
                                             </form>
 
-                                            <form style="display: inline-block;" action="<?php echo base_url("user/admin/dashboard/stories/delete.php?id=".$single_story->id) ?>" method="POST">
-                                                <input type="hidden" name="story_id" value="<?php echo $single_story->id ?>">
-                                                <button class="btn btn-sm btn-default" title="Delete story" type="submit" name="delete"><i class="fa fa-trash-o"></i></button>
-                                            </form>
+<!--                                            <form style="display: inline-block;" action="--><?php //echo base_url("user/admin/dashboard/users/delete.php?id=".$single_member->id) ?><!--" method="POST">-->
+<!--                                                <input type="hidden" name="member_id" value="--><?php //echo $single_member->id ?><!--">-->
+<!--                                                <button class="btn btn-sm btn-default" title="Delete story" type="submit" name="delete"><i class="fa fa-trash-o"></i></button>-->
+<!--                                            </form>-->
 
 
 
@@ -134,9 +172,9 @@
                                 <tfoot>
                                 <tr>
                                     <th>SL</th>
-                                    <th>Title</th>
+                                    <th>Name</th>
                                     <th>Active</th>
-                                    <th>Created at</th>
+                                    <th>Type</th>
                                     <th>Action</th>
                                 </tr>
                                 </tfoot>

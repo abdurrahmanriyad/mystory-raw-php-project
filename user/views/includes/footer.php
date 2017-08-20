@@ -2,7 +2,7 @@
 <footer class="main-footer">
     <div class="pull-right hidden-xs">
     </div>
-    <strong>© 2017 My Story all right reserved reserved. </strong>
+    © 2017 <strong>My Story</strong> all right reserved.
 </footer>
 
 </div>

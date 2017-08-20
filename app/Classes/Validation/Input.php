@@ -33,6 +33,18 @@ class Input {
         }
     }
 
+    public static function issetInput($item)
+    {
+        if (isset($_POST[$item])) {
+            return true;
+
+        } elseif (isset($_GET[$item])){
+            return true;
+        }
+
+        return false;
+    }
+
     public static function file($item)
     {
         if (isset($_FILES[$item])) {

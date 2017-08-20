@@ -82,8 +82,11 @@ class DB
         return $this->action('SELECT *', $table, $where);
     }
 
-    public function all($table)
+    public function all($table, $orderBy =  null, $order = "ASC")
     {
+        if ($orderBy) {
+            return $this->query("SELECT * from $table ORDER BY {$orderBy} {$order}", [])->results();
+        }
         return $this->query("SELECT * from $table", [])->results();
     }
 

@@ -146,6 +146,26 @@ class MembershipService
 
     }
 
+    public function updateMemberPermission($permission, $memberId)
+    {
+        $updated  = $this->objMemberRepository->updateMemberPermission($permission, $memberId);
+        if ($updated) {
+            return $updated;
+        }
+
+        return false;
+    }
+
+    public function updateMemberActivation($active, $memberId)
+    {
+        $updated  = $this->objMemberRepository->updateMemberActivation($active, $memberId);
+        if ($updated) {
+            return $updated;
+        }
+
+        return false;
+    }
+
     public function hasPermission($key = '', $group_id)
     {
         $group = $this->db->get('user_group', ['id', '=', $group_id])->first();
@@ -159,4 +179,5 @@ class MembershipService
 
         return false;
     }
+
 }
