@@ -115,9 +115,9 @@ class MembershipService
         if (Cookie::exists(Config::get('remember/cookie_name')) && !Session::exists(Config::get('session/session_name'))) {
             $hash = Cookie::get(Config::get('remember/cookie_name'));
             $hashCheck = $this->cookiesRepository->get('users_session', ['hash', '=', $hash]);
-            $this->user_id = $hashCheck->first()->user_id;
 
             if ($hashCheck->count()) {
+                $this->user_id = $hashCheck->first()->user_id;
                 $this->login();
             }
         }

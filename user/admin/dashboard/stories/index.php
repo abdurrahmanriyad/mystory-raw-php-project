@@ -126,7 +126,6 @@
 
                                 <?php
                                         endforeach;
-
                                     endif;
                                 ?>
 

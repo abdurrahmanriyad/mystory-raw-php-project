@@ -39,21 +39,12 @@
                             </div>
 
                             <div class="card-action">
-                                <div class="col s4">
+                                <div class="col s6">
                                     <div class="comments">
                                         <i class="fa fa-comments"></i> <?php echo $objStory->countComments($story->id); ?>
                                     </div>
                                 </div>
-                                <div class="col s4">
-                                    <ul class="rating">
-                                        <li class="fill"> <i class="fa fa-star"></i></li>
-                                        <li class="fill"> <i class="fa fa-star"></i></li>
-                                        <li class="fill"> <i class="fa fa-star"></i></li>
-                                        <li class="fill"> <i class="fa fa-star-o"></i></li>
-                                        <li class="fill"> <i class="fa fa-star-o"></i></li>
-                                    </ul>
-                                </div>
-                                <div class="col s4">
+                                <div class="col s6">
                                     <div class="like">
                                         <span class="upvote"><i class="fa fa-thumbs-up"></i> 14</span>
                                         <span class="downvote"><i class="fa fa-thumbs-down"></i> 2</span>

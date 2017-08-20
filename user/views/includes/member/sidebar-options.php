@@ -32,7 +32,6 @@
             <li><a href="<?php echo base_url('user/admin/dashboard/users/') ?>"><i class="fa fa-circle-o"></i> Users </a></li>
         </ul>
     </li>
-
 <?php else: ?>
 
     <li class="treeview">
