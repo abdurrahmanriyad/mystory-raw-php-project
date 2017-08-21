@@ -160,7 +160,6 @@ body{
 }
 .story_block .card-title.author {
     font-size: 18px;
-    font-style: italic;
     font-weight: 300;
 }
 .story_block .card-title.author > span {
@@ -172,6 +171,7 @@ body{
 }
 .story_block .comments {
     margin-top: -10px;
+    color: #4b4f56;
 }
 .story_block .comments > i {
     display: inline-block;
@@ -196,16 +196,28 @@ body{
     padding: 0;
     display: inline-block;
 }
-.story_block .like {
+.like {
     margin-top: -10px;
     text-align: right;
+    color: #4b4f56;
 }
-.story_block .like span {
+.like.liked {
+    color: #4080ff;
+}
+.like span {
     display: inline-block;
 }
+.like .upvote > button {
+    background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+    border: medium none;
+    box-shadow: none;
+    margin: 0;
+    padding: 0;
+}
+
 
 .story_block .like span:last-child {
-    margin-left: 12px;
+    /*margin-left: 0px;*/
 }
 .sidebar_block{
     margin-bottom: 35px;

@@ -5,12 +5,14 @@
     use \Classes\Util\Token;
     use \Classes\Validation\Validation;
     use \Classes\Story\Story;
+    use \Classes\Story\StoryService;
     use \Classes\Story\Comment;
     use \Classes\Story\Reply;
     use \Classes\Util\Session;
 
     $objStory = new Story();
     $objValidation = new Validation();
+    $objStoryService = new StoryService();
 ?>
 
 <?php
@@ -101,8 +103,7 @@
                                 </div>
                                 <div class="col s6">
                                     <div class="like">
-                                        <span class="upvote"><i class="fa fa-thumbs-up"></i> 35</span>
-                                        <span class="downvote"><i class="fa fa-thumbs-down"></i> 35</span>
+                                        <span class="upvote"><button data-storyId="<?php echo $storyId; ?>" data-userId="<?php echo Session::get('user'); ?>"><i class="fa fa-thumbs-up"></i></button> <span class="likeCount"><?php echo $objStoryService->countStoryLikes($storyId); ?></span></span>
                                     </div>
                                 </div>
                             </div>
@@ -161,9 +162,8 @@
 
                                       <div class="question_info_bottom center-align">
                                           <ul>
-                                              <li><a href="#"> <i class="fa fa-thumbs-o-up"></i>28</a></li>
-                                              <li><a href="#"> <i class="fa fa-thumbs-o-down"></i>30</a></li>
-                                              <li><a href="#"> <i class="fa fa-clock-o"></i>Posted on : 20 Nov @ 9:30am</a></li>
+                                              <li class="like"><span class="upvote"><button data-commentId="<?php echo $comment->id; ?>" data-storyId="<?php echo $storyId; ?>" data-userId="<?php echo Session::get('user'); ?>"><i class="fa fa-thumbs-up"></i></button> <span class="likeCount"><?php echo $objStoryService->countCommentLikes($storyId, $comment->id); ?></span></span></li>
+                                              <li><a href="#"> <i class="fa fa-clock-o"></i>Posted on : <?php echo $comment->created_at; ?></a></li>
                                           </ul>
                                       </div>
                                   </div>
@@ -197,9 +197,8 @@
 
                                                       <div class="question_info_bottom center-align">
                                                           <ul>
-                                                              <li><a href="#"> <i class="fa fa-thumbs-o-up"></i>28</a></li>
-                                                              <li><a href="#"> <i class="fa fa-thumbs-o-down"></i>30</a></li>
-                                                              <li><a href="#"> <i class="fa fa-clock-o"></i>Posted on : 20 Nov @ 9:30am</a></li>
+                                                              <li class="like"><span class="upvote"><button data-replyId="<?php echo $reply->id; ?>" data-commentId="<?php echo $comment->id; ?>" data-storyId="<?php echo $storyId; ?>" data-userId="<?php echo Session::get('user'); ?>"><i class="fa fa-thumbs-up"></i></button> <span class="likeCount"><?php echo $objStoryService->countStoryLikes($storyId); ?></span></span></li>
+                                                              <li><a href="#"> <i class="fa fa-clock-o"></i>Posted on : <?php echo $reply->created_at; ?></a></li>
                                                           </ul>
                                                       </div>
                                                   </div>

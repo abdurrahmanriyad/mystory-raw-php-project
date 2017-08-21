@@ -2,6 +2,7 @@
 
 namespace Classes\Story;
 
+use Classes\Database\DB;
 use Classes\Story\Story;
 use Classes\Story\TagRepository;
 use Classes\Story\StoryRepository;
@@ -12,7 +13,7 @@ class StoryService
 {
     private $objValidation;
     private $objFormFile;
-    private $db_helper;
+    private $db;
     private $objStory;
     private $objStoryRepository;
 
@@ -20,7 +21,7 @@ class StoryService
     {
         $this->objValidation = new Validation();
         $this->objFormFile = new FormFile();
-        $this->db_helper = new DbHelper();
+        $this->db = DB::getInstance();
         $this->objStory = new Story();
         $this->objStoryRepository = new StoryRepository();
 
@@ -115,5 +116,95 @@ class StoryService
     {
         
     }
+
+    public function countStoryLikes($storyId)
+    {
+        return $this->db->get('story_like', ['story_id', '=', $storyId])->count();
+    }
+
+    public function countCommentLikes($storyId, $commentId)
+    {
+        return $this->db->query('SELECT * FROM comment_like WHERE story_id ='.$storyId.' AND comment_id = '.$commentId)->count();
+    }
+
+    public function countReplyLikes($storyId, $commentId, $replyId)
+    {
+        return $this->db->query('SELECT * FROM reply_like WHERE story_id ='.$storyId.' AND comment_id = '.$commentId.' AND reply_id = '.$replyId)->count();
+    }
+
+
+    public function countStoryLikeByUser($storyId, $userId)
+    {
+        return $this->db->query('SELECT * FROM story_like WHERE story_id ='.$storyId.' AND user_id = '.$userId)->count();
+
+    }
+
+    public function countCommentLikeByUser($storyId, $userId, $commentId)
+    {
+        return $this->db->query('SELECT * FROM comment_like WHERE story_id ='.$storyId.' AND user_id = '.$userId. ' AND comment_id = '.$commentId )->count();
+    }
+
+    public function countReplyLikeByUser($storyId, $userId, $commentId, $replyId)
+    {
+        return $this->db->query('SELECT * FROM reply_like WHERE story_id ='.$storyId.' AND user_id = '.$userId. ' AND comment_id = '.$commentId.' AND reply_id = '.$replyId )->count();
+    }
+
+    public function removeStoryLikeOfUser($storyId, $userId)
+    {
+        return $this->db->query('DELETE FROM story_like WHERE story_id = '.$storyId. ' AND user_id = '.$userId);
+    }
+
+    public function removeCommentLikeOfUser($storyId, $userId, $commentId)
+    {
+        return $this->db->query('DELETE FROM comment_like WHERE story_id = '.$storyId. ' AND user_id = '.$userId.' AND comment_id = '.$commentId);
+    }
+
+    public function removeReplyLikeOfUser($storyId, $userId, $commentId, $replyId)
+    {
+        return $this->db->query('DELETE FROM reply_like WHERE story_id = '.$storyId. ' AND user_id = '.$userId.' AND comment_id = '.$commentId.' AND reply_id = '.$replyId);
+    }
+
+
+
+
+
+    public function likeStory($storyId, $userId)
+    {
+        return $this->db->insert('story_like', [
+            'liked' => 1,
+            'user_id' => $userId,
+            'story_id' => $storyId,
+            "created_at" => date('Y-m-d H:i:s'),
+            "updated_at" => date('Y-m-d H:i:s')
+        ]);
+    }
+
+
+    public function likeComment($storyId, $userId, $commentId)
+    {
+        return $this->db->insert('comment_like', [
+            'liked' => 1,
+            'user_id' => $userId,
+            'story_id' => $storyId,
+            'comment_id' => $commentId,
+            "created_at" => date('Y-m-d H:i:s'),
+            "updated_at" => date('Y-m-d H:i:s')
+        ]);
+    }
+
+
+    public function likeReply($storyId, $userId, $commentId, $replyId)
+    {
+        return $this->db->insert('reply_like', [
+            'liked' => 1,
+            'user_id' => $userId,
+            'story_id' => $storyId,
+            'comment_id' => $commentId,
+            'reply_id' => $replyId,
+            "created_at" => date('Y-m-d H:i:s'),
+            "updated_at" => date('Y-m-d H:i:s')
+        ]);
+    }
+
 
 }

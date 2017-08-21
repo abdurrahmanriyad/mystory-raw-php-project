@@ -2,6 +2,7 @@
     require_once "vendor/autoload.php";
     use \Classes\Config\Config;
     use \Classes\Util\Session;
+    use \Classes\Story\StoryService;
     use \Classes\Member\MembershipService;
     use \Classes\Story\StoryRepository;
     use \Classes\Story\Story;
@@ -11,6 +12,7 @@
 <?php
     $objMembershipService = new MembershipService();
     $objStory = new Story();
+    $objStoryService = new StoryService();
 ?>
 <div class="content_area">
     <div class="container">
@@ -46,8 +48,7 @@
                                 </div>
                                 <div class="col s6">
                                     <div class="like">
-                                        <span class="upvote"><i class="fa fa-thumbs-up"></i> 14</span>
-                                        <span class="downvote"><i class="fa fa-thumbs-down"></i> 2</span>
+                                        <span class="upvote"><i class="fa fa-thumbs-up"></i> <?php echo $objStoryService->countStoryLikes($story->id); ?></span>
                                     </div>
                                 </div>
                             </div>

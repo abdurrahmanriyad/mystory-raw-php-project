@@ -91,4 +91,16 @@ class MemberRepository
         return $this->db->all('user_group');
     }
 
+    public function isValidApiKey($key = '')
+    {
+        if (!empty($key)) {
+            $result = $this->db->get('user', ['apikey', '=', $key]);
+            if ($result->count()) {
+                return $result->first()->id;
+            }
+        }
+
+        return false;
+    }
+
 }

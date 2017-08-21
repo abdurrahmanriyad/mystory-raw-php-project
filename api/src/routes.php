@@ -1,132 +1,137 @@
 <?php
-use \Psr\Http\Message\ServerRequestInterface as Request;
-use \Psr\Http\Message\ResponseInterface as Response;
+require_once $_SERVER['DOCUMENT_ROOT']."/mystory/vendor/autoload.php";
 
-require_once "lib/DbFunctions.php";
-require_once "lib/Product.cls.php";
-require_once "middleware/Authentication.php";
-
+use \Classes\Member\MemberRepository;
+use \Classes\Story\StoryService;
+use \Classes\Validation\Input;
 $app = new \Slim\App;
 
-$app->get('/', function(Request $request, Response $response){
-    echo "hello world";
-});
 
+$app->post('/like/story/{storyId}', function ($request, $response, $args) {
 
+    if ($request->hasHeader('Authorization')) {
+        $apiKey = $request->getHeader('Authorization')[0];
+        $bodyData = $request->getParsedBody();
 
-/**
- * route for login user
- */
-$app->post('/api/v1/login', function(Request $request, Response $response){
-    $email = $request->getParam('email');
-    $pass  = $request->getParam('pass');
+        $objStoryService = new StoryService();
+        $objMemberRepository = new MemberRepository();
+        if ($user_id = $objMemberRepository->isValidApiKey($apiKey)) {
+            if (count($bodyData)) {
+                if ($objStoryService->countStoryLikeByUser($args['storyId'], $bodyData['userId'])) {
+                    $objStoryService->removeStoryLikeOfUser($args['storyId'], $bodyData['userId']);
 
-    $Dbfunctions =  new Dbfunctions();
-    $result = $Dbfunctions->getUserByEmailAndPassword($email, $pass);
+                    $count = $objStoryService->countStoryLikes($args['storyId']);
+                    $data = [
+                        'error' => false,
+                        'likeCount' => $count,
+                        'liked' => false
+                    ];
+                    return $response->withJson($data);
 
-    if($result) {
-        $data = array('error' => 'false', 'user' => $result);
-        return $response->withJson($data);
-    }else {
-        $data = array('error' => 'true', 'message' => 'No user found');
-        return $response->withJson($data);
+                }
+                $objStoryService->likeStory($args['storyId'], $bodyData['userId']);
+                $count = $objStoryService->countStoryLikes($args['storyId']);
+                $data = [
+                    'error' => false,
+                    'likeCount' => $count,
+                    'liked' => true
+                ];
+                return $response->withJson($data);
+            }
+        }
     }
 
+    $data = [
+        'error' => true,
+        'message' => 'Failed to like'
+    ];
+    return $response->withJson($data);
+
 });
 
 
-/**
- * route for register user
- */
-$app->post('/api/v1/register', function(Request $request, Response $response){
-    $name  = $request->getParam('name');
-    $father_name  = $request->getParam('father_name');
-    $mother_name  = $request->getParam('mother_name');
-    $mobile  = $request->getParam('mobile');
-    $address = $request->getParam('address');
-    $username = $request->getParam('username');
-    $pass  = $request->getParam('password');
 
-//    echo '<pre>' . var_dump($request, true) . '</pre>';
 
-    $Dbfunctions =  new Dbfunctions();
-    $result = $Dbfunctions->createStudent($name, $father_name, $mother_name, $mobile, $address, $username, $pass);
+$app->post('/like/comment/{commentId}', function ($request, $response, $args) {
+    if ($request->hasHeader('Authorization')) {
+        $apiKey = $request->getHeader('Authorization')[0];
+        $bodyData = $request->getParsedBody();
 
-    if($result) {
-        $data = array('error' => 'false', 'user' => $result);
-        return $response->withJson($data);
-    }else {
-        $data = array('error' => 'true', 'message' => 'Failed to create');
-        return $response->withJson($data);
+        $objStoryService = new StoryService();
+        $objMemberRepository = new MemberRepository();
+        if ($user_id = $objMemberRepository->isValidApiKey($apiKey)) {
+            if (count($bodyData)) {
+                if ($objStoryService->countCommentLikeByUser($bodyData['storyId'], $bodyData['userId'], $args['commentId'])) {
+                    $objStoryService->removeCommentLikeOfUser($bodyData['storyId'], $bodyData['userId'], $args['commentId']);
+
+                    $count = $objStoryService->countCommentLikes($bodyData['storyId'], $args['commentId']);
+                    $data = [
+                        'error' => false,
+                        'likeCount' => $count,
+                        'liked' => false
+                    ];
+                    return $response->withJson($data);
+
+                }
+                $objStoryService->likeComment($bodyData['storyId'], $bodyData['userId'], $args['commentId']);
+                $count = $objStoryService->countCommentLikes($bodyData['storyId'], $args['commentId']);
+                $data = [
+                    'error' => false,
+                    'likeCount' => $count,
+                    'liked' => true
+                ];
+                return $response->withJson($data);
+            }
+        }
     }
 
+    $data = [
+        'error' => true,
+        'message' => 'Failed to like'
+    ];
+    return $response->withJson($data);
+
 });
 
 
-/**
- * route for update user
- */
-$app->put('/api/v1/update', function(Request $request, Response $response){
-    $id  = $request->getParam('id');
-    $name = $request->getParam('name');
+$app->post('/like/reply/{replyId}', function ($request, $response, $args) {
+    if ($request->hasHeader('Authorization')) {
+        $apiKey = $request->getHeader('Authorization')[0];
+        $bodyData = $request->getParsedBody();
 
-    $Dbfunctions =  new Dbfunctions();
-    $result = $Dbfunctions->updateUser($id, $name);
-    if($result) {
-        $data = array('error' => 'false', 'user' => $result);
-        return $response->withJson($data);
-    }else {
-        $data = array('error' => 'true', 'message' => 'Failed to create');
-        return $response->withJson($data);
+        $objStoryService = new StoryService();
+        $objMemberRepository = new MemberRepository();
+        if ($user_id = $objMemberRepository->isValidApiKey($apiKey)) {
+            if (count($bodyData)) {
+                if ($objStoryService->countReplyLikeByUser($bodyData['storyId'], $bodyData['userId'], $bodyData['commentId'], $args['replyId'])) {
+                    $objStoryService->removeReplyLikeOfUser($bodyData['storyId'], $bodyData['userId'], $bodyData['commentId'], $args['replyId']);
+
+                    $count = $objStoryService->countReplyLikes($bodyData['storyId'], $bodyData['commentId'], $args['replyId']);
+                    $data = [
+                        'error' => false,
+                        'likeCount' => $count,
+                        'liked' => false
+                    ];
+                    return $response->withJson($data);
+
+                }
+                $objStoryService->likeReply($bodyData['storyId'], $bodyData['userId'], $bodyData['commentId'], $args['replyId']);
+                $count = $objStoryService->countReplyLikes($bodyData['storyId'], $bodyData['commentId'], $args['replyId']);
+                $data = [
+                    'error' => false,
+                    'likeCount' => $count,
+                    'liked' => true
+                ];
+                return $response->withJson($data);
+            }
+        }
     }
 
-});
-
-
-/**
- * route for update user
- */
-$app->delete('/api/v1/delete', function(Request $request, Response $response){
-    $id  = $request->getParam('id');
-
-    $Dbfunctions =  new Dbfunctions();
-    $result = $Dbfunctions->deleteUser($id);
-    if($result) {
-        $data = array('error' => 'false', 'message' => 'successfully deleted');
-        return $response->withJson($data);
-    }else {
-        $data = array('error' => 'true', 'message' => 'Failed to delete');
-        return $response->withJson($data);
-    }
+    $data = [
+        'error' => true,
+        'message' => 'Failed to like'
+    ];
+    return $response->withJson($data);
 
 });
-
-
-
-//$app->get('/api/v1/test', function(Request $request, Response $response){
-//
-//
-//
-//})->add(new ApiAuthMiddleware());
-//
-//
-//$app->post('/api/v1/test', function(Request $request, Response $response){
-//    echo $request->getAttribute('user_id');
-//})->add(new ApiAuthMiddleware());
-//
-
-
-$app->get('/api/v1/products', function(Request $request, Response $response){
-    $product =  new Product();
-    $result = $product->getAllProducts();
-    if($result) {
-        return $response->withJson($result);
-    }else {
-        $data = array('error' => 'true', 'message' => 'Failed to fetch products');
-        return $response->withJson($data);
-    }
-
-});
-
-
 
