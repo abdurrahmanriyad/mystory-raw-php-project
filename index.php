@@ -47,8 +47,18 @@
                                     </div>
                                 </div>
                                 <div class="col s6">
-                                    <div class="like">
-                                        <span class="upvote"><i class="fa fa-thumbs-up"></i> <?php echo $objStoryService->countStoryLikes($story->id); ?></span>
+                                    <div class="like <?php
+                                    if($member) {
+                                        if ($objStoryService->countStoryLikeByUser($story->id, Session::get('user'))) {
+                                            echo ' liked';
+                                        }
+                                    } ?>">
+                                        <span class="upvote">
+                                            <button data-storyId="<?php echo $story->id; ?>" data-userId="<?php echo Session::get('user'); ?>">
+                                                <i class="fa fa-thumbs-up"></i>
+                                            </button>
+                                            <span class="likeCount"><?php echo $objStoryService->countStoryLikes($story->id); ?></span>
+                                        </span>
                                     </div>
                                 </div>
                             </div>

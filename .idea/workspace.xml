@@ -54,11 +54,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="index.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="14" column="4" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="4" />
+            <state vertical-scroll-proportion="0.46">
+              <caret line="51" column="93" selection-start-line="51" selection-start-column="93" selection-end-line="51" selection-end-column="93" />
               <folding>
                 <element signature="e#50#77#0#PHP" expanded="true" />
               </folding>
@@ -66,11 +66,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="single-story.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="single-story.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/single-story.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.63">
-              <caret line="106" column="129" selection-start-line="106" selection-start-column="129" selection-end-line="106" selection-end-column="129" />
+            <state vertical-scroll-proportion="-9.333333">
+              <caret line="104" column="36" selection-start-line="104" selection-start-column="36" selection-end-line="116" selection-end-column="42" />
               <folding>
                 <element signature="e#50#80#0#PHP" expanded="true" />
               </folding>
@@ -195,13 +195,13 @@
         <option value="$PROJECT_DIR$/api/src/Classes/Api.php" />
         <option value="$PROJECT_DIR$/api/src/Classes/Api/ApiService.php" />
         <option value="$PROJECT_DIR$/api/src/Api/Api/ApiService.php" />
-        <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/app/Classes/Member/MemberRepository.php" />
         <option value="$PROJECT_DIR$/assets/css/main.css" />
         <option value="$PROJECT_DIR$/app/Classes/Story/StoryService.php" />
         <option value="$PROJECT_DIR$/api/src/routes.php" />
         <option value="$PROJECT_DIR$/assets/js/main.js" />
         <option value="$PROJECT_DIR$/single-story.php" />
+        <option value="$PROJECT_DIR$/index.php" />
       </list>
     </option>
   </component>
@@ -671,6 +671,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.415">
           <caret line="65" column="52" selection-start-line="65" selection-start-column="52" selection-end-line="65" selection-end-column="52" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -750,6 +751,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="1.42">
           <caret line="119" column="62" selection-start-line="119" selection-start-column="62" selection-end-line="119" selection-end-column="62" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -798,16 +800,6 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="18" column="37" selection-start-line="18" selection-start-column="37" selection-end-line="18" selection-end-column="37" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="14" column="4" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="4" />
-          <folding>
-            <element signature="e#50#77#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -884,10 +876,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/single-story.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.63">
-          <caret line="106" column="129" selection-start-line="106" selection-start-column="129" selection-end-line="106" selection-end-column="129" />
+        <state vertical-scroll-proportion="-9.333333">
+          <caret line="104" column="36" selection-start-line="104" selection-start-column="36" selection-end-line="116" selection-end-column="42" />
           <folding>
             <element signature="e#50#80#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.46">
+          <caret line="51" column="93" selection-start-line="51" selection-start-column="93" selection-end-line="51" selection-end-column="93" />
+          <folding>
+            <element signature="e#50#77#0#PHP" expanded="true" />
           </folding>
         </state>
       </provider>
