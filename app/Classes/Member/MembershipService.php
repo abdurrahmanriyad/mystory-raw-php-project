@@ -40,6 +40,7 @@ class MembershipService
     
     public function register(Member $member)
     {
+
         $inserted = $this->objMemberRepository->add($member);
 
         if ($inserted) {

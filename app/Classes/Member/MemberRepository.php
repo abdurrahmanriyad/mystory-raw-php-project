@@ -29,7 +29,7 @@ class MemberRepository
             "username" => $member->getUsername(),
             "email" => $member->getEmail(),
             "password" => $member->getPassword(),
-            "profession" => $member->profession,
+            "profession_id" => $member->profession,
             "dateofbirth" => date('Y-m-d H:i:s', strtotime(str_replace('-', '/', $member->getDateOfBirth()))),
             "created_at" => date('Y-m-d H:i:s')
 

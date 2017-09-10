@@ -51,6 +51,7 @@ class DB
                 $this->count = $this->query->rowCount();
 
             } else {
+                print_r($this->query->errorInfo());
                 $this->_error = true;
             }
         }
