@@ -46,11 +46,9 @@
                         'required' => true,
                         'matches' => 'password'
                     ),
-                    'profession' => array(
+                    'dateOfBirth' => array(
                         'required' => true
-                    ),
-
-
+                    )
                 )
             );
 
@@ -62,6 +60,7 @@
                 $objMember->setPassword(password_hash(Input::get('password'), PASSWORD_DEFAULT));
                 $objMember->setDateOfBirth(Input::get('dateOfBirth'));
                 $objMember->profession = Input::get('profession');
+
 
                 $objMembershipService = new MembershipService();
                 $inserted = $objMembershipService->register($objMember);

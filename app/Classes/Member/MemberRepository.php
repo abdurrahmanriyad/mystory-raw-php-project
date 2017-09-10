@@ -23,6 +23,7 @@ class MemberRepository
 
     public function add(Member $member)
     {
+
         $data = [
             "name" => $member->name,
             "username" => $member->getUsername(),
