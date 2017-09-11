@@ -112,7 +112,7 @@ class StoryRepository
 
     public function getStoriesByTag($tag = '')
     {
-        $objTag = $this->db->get('tag', ['tag', '=', $tag])->results();
+        $objTag = $this->db->get('tag', ['tag', '=', $tag])->first();
         return $this->db->query('SELECT story.*, story_has_tag.tag_id FROM story INNER JOIN story_has_tag on story.id = story_has_tag.story_id WHERE tag_id ='.$objTag->id)->results();
     }
 
