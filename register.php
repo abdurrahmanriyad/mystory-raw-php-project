@@ -58,6 +58,7 @@
             $objMember->setPassword(password_hash(Input::get('password'), PASSWORD_DEFAULT));
             $objMember->setDateOfBirth(Input::get('dateOfBirth'));
             $objMember->profession = Input::get('profession');
+            $objMember->group_id = 1;
 
 
             $objMembershipService = new MembershipService();

@@ -5,6 +5,7 @@
     $objMembershipService = new \Classes\Member\MembershipService();
 ?>
 
+
 <?php if ($objMembershipService->hasPermission('admin', $member->group_id)) : ?>
 
     <li class="treeview">

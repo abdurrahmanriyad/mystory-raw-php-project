@@ -170,7 +170,6 @@ class MembershipService
     public function hasPermission($key = '', $group_id)
     {
         $group = $this->db->get('user_group', ['id', '=', $group_id])->first();
-
         if (count($group)) {
             $permission = json_decode($group->permissions, true);
             if ($permission[$key] == true) {
