@@ -102,8 +102,7 @@
         <!-- Main content -->
         <section class="content">
             <ul class="list-inline text-left">
-                <li><a href="<?php echo base_url('user/member/
-                stories/') ?>"><button class="btn btn-success"><i class="fa fa-backward"></i> &nbsp; Back</button></a></li>
+                <li><a href="<?php echo base_url('user/member/dashboard/stories/') ?>"><button class="btn btn-success"><i class="fa fa-backward"></i> &nbsp; Back</button></a></li>
             </ul>
             <!-- Main row -->
             <div class="row">
