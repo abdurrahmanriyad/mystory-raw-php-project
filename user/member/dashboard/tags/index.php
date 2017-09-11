@@ -31,7 +31,7 @@
         <section class="content">
 
             <ul class="list-inline">
-                <li><a href="<?php echo base_url("user/member/tag/create.php") ?>"><button class="btn btn-success"><i class="fa fa-plus"></i> &nbsp New Category</button></a></li>
+                <li><a href="<?php echo base_url("user/member/dashboard/tags/create.php") ?>"><button class="btn btn-success"><i class="fa fa-plus"></i> &nbsp New Tag</button></a></li>
             </ul>
 
             <!-- Main row -->

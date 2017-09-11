@@ -20,56 +20,58 @@
     }
 
     if (Input::exists()) {
-        $objValidation = new Validation();
-        $objValidation->validate($_POST,
-            array(
-                'name' => array(
-                    'required' => true,
-                    'min' => 5
-                ),
-                'username' => array(
-                    'required' => true,
-                    'min' => 5,
-                    'unique' => 'user'
-                ),
-                'email' => array(
-                    'required' => true,
-                    'unique' => 'user'
-                ),
-                'password' => array(
-                    'required' => true,
-                    'min' => 5
-                ),
-                'password_again' => array(
-                    'required' => true,
-                    'matches' => 'password'
-                ),
-                'dateOfBirth' => array(
-                    'required' => true
+        if (Token::check(Input::get('token'))) {
+            $objValidation = new Validation();
+            $objValidation->validate($_POST,
+                array(
+                    'name' => array(
+                        'required' => true,
+                        'min' => 5
+                    ),
+                    'username' => array(
+                        'required' => true,
+                        'min' => 5,
+                        'unique' => 'user'
+                    ),
+                    'email' => array(
+                        'required' => true,
+                        'unique' => 'user'
+                    ),
+                    'password' => array(
+                        'required' => true,
+                        'min' => 5
+                    ),
+                    'password_again' => array(
+                        'required' => true,
+                        'matches' => 'password'
+                    ),
+                    'dateOfBirth' => array(
+                        'required' => true
+                    )
                 )
-            )
-        );
+            );
 
-        if ($objValidation->passed()) {
-            $objMember = new Member();
-            $objMember->name = Input::get('name');
-            $objMember->setUsername(Input::get('username'));
-            $objMember->setEmail(Input::get('email'));
-            $objMember->setPassword(password_hash(Input::get('password'), PASSWORD_DEFAULT));
-            $objMember->setDateOfBirth(Input::get('dateOfBirth'));
-            $objMember->profession = Input::get('profession');
-            $objMember->group_id = 1;
+            if ($objValidation->passed()) {
+                $objMember = new Member();
+                $objMember->name = Input::get('name');
+                $objMember->setUsername(Input::get('username'));
+                $objMember->setEmail(Input::get('email'));
+                $objMember->setPassword(password_hash(Input::get('password'), PASSWORD_DEFAULT));
+                $objMember->setDateOfBirth(Input::get('dateOfBirth'));
+                $objMember->profession = Input::get('profession');
+                $objMember->group_id = 1;
 
 
-            $objMembershipService = new MembershipService();
-            $inserted = $objMembershipService->register($objMember);
+                $objMembershipService = new MembershipService();
+                $inserted = $objMembershipService->register($objMember);
 
-            if ($inserted) {
-                Redirect::to('index.php');
+                if ($inserted) {
+                    Redirect::to('index.php');
+                }
+
+            } else {
+                print_r($objValidation->errors());
             }
-
-        } else {
-            print_r($objValidation->errors());
         }
     }
 ?>
