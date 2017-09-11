@@ -77,8 +77,8 @@ function storyLike(element, activateElem, userId, storyId) {
             }
         },
         error: function (xhr, ajaxOptions, thrownError) {
-            alert(xhr.status);
-            alert(thrownError);
+            //alert(xhr.status);
+            //alert(thrownError);
         }
 
     });
@@ -109,8 +109,8 @@ function commentLike(element, activateElem, userId, storyId, commentId) {
             }
         },
         error: function (xhr, ajaxOptions, thrownError) {
-            alert(xhr.status);
-            alert(thrownError);
+            //alert(xhr.status);
+            //alert(thrownError);
         }
 
     });
@@ -142,8 +142,8 @@ function replyLike(element, activateElem, userId, storyId, commentId, replyId) {
             }
         },
         error: function (xhr, ajaxOptions, thrownError) {
-            alert(xhr.status);
-            alert(thrownError);
+            //alert(xhr.status);
+            //alert(thrownError);
         }
 
     });
