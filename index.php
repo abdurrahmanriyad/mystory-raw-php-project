@@ -54,7 +54,7 @@
                                         }
                                     } ?>">
                                         <span class="upvote">
-                                            <button data-storyId="<?php echo $story->id; ?>" data-userId="<?php echo Session::get('user'); ?>">
+                                            <button data-storyId="<?php echo $story->id; ?>" data-userId="<?php echo Session::get('user'); ?>" data-baseurl="<?php echo base_url('api/') ?>">
                                                 <i class="fa fa-thumbs-up"></i>
                                             </button>
                                             <span class="likeCount"><?php echo $objStoryService->countStoryLikes($story->id); ?></span>

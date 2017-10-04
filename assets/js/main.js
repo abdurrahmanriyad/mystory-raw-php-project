@@ -23,8 +23,9 @@ $("document").ready(function () {
         $(this).on('click', function() {
            var userId = $(this).attr('data-userId');
            var storyId = $(this).attr('data-storyId');
+           var baseUrl = $(this).attr('data-baseurl');
            var activateElem = $(this).closest('div.like');
-           storyLike($(this).next(),activateElem ,userId,storyId);
+           storyLike($(this).next(),activateElem ,userId,storyId, baseUrl);
         });
     });
 
@@ -33,9 +34,10 @@ $("document").ready(function () {
         $(this).on('click', function() {
            var userId = $(this).attr('data-userId');
            var storyId = $(this).attr('data-storyId');
+           var baseUrl = $(this).attr('data-baseurl');
            var commentId = $(this).attr('data-commentId');
            var activateElem = $(this).closest('li.like');
-           commentLike($(this).next(),activateElem ,userId,storyId, commentId);
+           commentLike($(this).next(),activateElem ,userId,storyId, commentId, baseUrl);
         });
     });
 
@@ -43,20 +45,29 @@ $("document").ready(function () {
         $(this).on('click', function() {
             var userId = $(this).attr('data-userId');
             var storyId = $(this).attr('data-storyId');
+            var baseUrl = $(this).attr('data-baseurl');
             var commentId = $(this).attr('data-commentId');
             var replyId = $(this).attr('data-replyId');
             var activateElem = $(this).closest('li.like');
-            replyLike($(this).next(),activateElem ,userId, storyId, commentId, replyId);
+            replyLike($(this).next(),activateElem ,userId, storyId, commentId, replyId, baseUrl);
         });
     });
 
 
 });
 
-function storyLike(element, activateElem, userId, storyId) {
+/**
+ * called when user likes a story
+ * @param element
+ * @param activateElem
+ * @param userId
+ * @param storyId
+ * @param baseurl
+ */
+function storyLike(element, activateElem, userId, storyId, baseurl) {
     $.ajax({
         type: "POST",
-        url: "http://localhost:8888/mystory/api/like/story/"+storyId,
+        url: baseurl + "like/story/" + storyId,
         headers: {
             'Authorization': 123
         },
@@ -77,6 +88,7 @@ function storyLike(element, activateElem, userId, storyId) {
             }
         },
         error: function (xhr, ajaxOptions, thrownError) {
+            alert(baseurl);
             alert(xhr.status);
             alert(thrownError);
         }
@@ -84,10 +96,18 @@ function storyLike(element, activateElem, userId, storyId) {
     });
 }
 
-function commentLike(element, activateElem, userId, storyId, commentId) {
+/**
+ * called when user likes a comment
+ * @param element
+ * @param activateElem
+ * @param userId
+ * @param storyId
+ * @param commentId
+ */
+function commentLike(element, activateElem, userId, storyId, commentId, baseurl) {
     $.ajax({
         type: "POST",
-        url: "http://localhost:8888/mystory/api/like/comment/"+commentId,
+        url: baseurl + "like/comment/"+commentId,
         headers: {
             'Authorization': 123
         },
@@ -116,10 +136,19 @@ function commentLike(element, activateElem, userId, storyId, commentId) {
     });
 }
 
-function replyLike(element, activateElem, userId, storyId, commentId, replyId) {
+/**
+ * called when user like comment under comment
+ * @param element
+ * @param activateElem
+ * @param userId
+ * @param storyId
+ * @param commentId
+ * @param replyId
+ */
+function replyLike(element, activateElem, userId, storyId, commentId, replyId, baseurl) {
     $.ajax({
         type: "POST",
-        url: "http://localhost:8888/mystory/api/like/reply/"+replyId,
+        url: baseurl + "like/reply/" + replyId,
         headers: {
             'Authorization': 123
         },

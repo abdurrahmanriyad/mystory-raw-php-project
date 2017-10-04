@@ -109,7 +109,7 @@
                                                         }
                                                     } ?>">
                                         <span class="upvote">
-                                            <button data-storyId="<?php echo $storyId; ?>" data-userId="<?php echo Session::get('user'); ?>">
+                                            <button data-storyId="<?php echo $storyId; ?>" data-userId="<?php echo Session::get('user'); ?>" data-baseurl="<?php echo base_url('api/') ?>">
                                                 <i class="fa fa-thumbs-up"></i>
                                             </button>
                                             <span class="likeCount"><?php echo $objStoryService->countStoryLikes($storyId); ?></span>
@@ -180,7 +180,7 @@
                                                       }
                                                   }
                                               ?>
-                                              "><span class="upvote"><button data-commentId="<?php echo $comment->id; ?>" data-storyId="<?php echo $storyId; ?>" data-userId="<?php echo Session::get('user'); ?>"><i class="fa fa-thumbs-up"></i></button> <span class="likeCount"><?php echo $objStoryService->countCommentLikes($storyId, $comment->id); ?></span></span></li>
+                                              "><span class="upvote"><button data-commentId="<?php echo $comment->id; ?>" data-storyId="<?php echo $storyId; ?>" data-userId="<?php echo Session::get('user'); ?>"  data-baseurl="<?php echo base_url('api/') ?>"><i class="fa fa-thumbs-up"></i></button> <span class="likeCount"><?php echo $objStoryService->countCommentLikes($storyId, $comment->id); ?></span></span></li>
                                               <li><a href="#"> <i class="fa fa-clock-o"></i>Posted on : <?php echo $comment->created_at; ?></a></li>
                                           </ul>
                                       </div>
@@ -223,7 +223,7 @@
                                                                       }
                                                                   }
                                                               ?>
-                                                              "><span class="upvote"><button data-replyId="<?php echo $reply->id; ?>" data-commentId="<?php echo $comment->id; ?>" data-storyId="<?php echo $storyId; ?>" data-userId="<?php echo Session::get('user'); ?>"><i class="fa fa-thumbs-up"></i></button> <span class="likeCount"><?php echo $objStoryService->countStoryLikes($storyId); ?></span></span></li>
+                                                              "><span class="upvote"><button data-replyId="<?php echo $reply->id; ?>" data-commentId="<?php echo $comment->id; ?>" data-storyId="<?php echo $storyId; ?>" data-userId="<?php echo Session::get('user'); ?>" data-baseurl="<?php echo base_url('api/') ?>"><i class="fa fa-thumbs-up"></i></button> <span class="likeCount"><?php echo $objStoryService->countStoryLikes($storyId); ?></span></span></li>
                                                               <li><a href="#"> <i class="fa fa-clock-o"></i>Posted on : <?php echo $reply->created_at; ?></a></li>
                                                           </ul>
                                                       </div>
