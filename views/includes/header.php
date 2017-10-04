@@ -31,7 +31,13 @@
                 <div class="col m8">
                     <ul class="main_nav">
                         <li><a href="index.php">Home</a></li>
-                        <li><a href="<?php echo base_url('user/member/dashboard/stories/create.php') ?>">Write Your Story</a></li>
+
+                        <?php
+                        $objMembershipService = new \Classes\Member\MembershipService();
+                        if ($objMembershipService->isLoggedIn()) : ?>
+                            <li><a href="<?php echo base_url('user/member/dashboard/stories/create.php') ?>">Write Your Story</a></li>
+                        <?php endif; ?>
+
                         <li><a href="#">Contact</a></li>
                         <?php
                             $objMembershipService = new \Classes\Member\MembershipService();
