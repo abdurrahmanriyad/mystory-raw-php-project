@@ -10,8 +10,6 @@ namespace Classes\Story;
 use Classes\Database\DbHelper;
 use Classes\Validation\Validation;
 
-require_once "../../../vendor/autoload.php";
-
 
 class Category
 {

@@ -2,8 +2,6 @@
 
 namespace Classes\Database;
 
-require_once $_SERVER['DOCUMENT_ROOT']."/mystory/vendor/autoload.php";
-
 use Classes\Config\Config;
 
 class DB
@@ -118,8 +116,6 @@ class DB
             if (!$this->query($sql, $fields)->error()) {
                 return true;
             }
-
-
         }
 
         return false;

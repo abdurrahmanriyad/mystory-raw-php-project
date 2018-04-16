@@ -8,8 +8,6 @@
 
 namespace Classes\Validation;
 
-require_once $_SERVER['DOCUMENT_ROOT']."/mystory/vendor/autoload.php";
-
 use \Classes\Database\DB;
 
 class Validation

@@ -66,6 +66,7 @@
                 $inserted = $objMembershipService->register($objMember);
 
                 if ($inserted) {
+                    $loggedIn = $objMembershipService->login($username, $password, $remember);
                     Redirect::to('index.php');
                 }
 
@@ -121,19 +122,6 @@
                                     <div class="input-field col s12">
                                         <input id="password_again" type="password" class="validate" name="password_again">
                                         <label for="password_again">Confirm_Password</label>
-                                    </div>
-                                </div>
-
-
-                                <div class="row">
-                                    <div class="input-field col s12">
-                                        <select class="select" name="profession">
-                                          <option value="" disabled selected>Choose your option</option>
-                                          <option value="1">Option 1</option>
-                                          <option value="2">Option 2</option>
-                                          <option value="3">Option 3</option>
-                                        </select>
-                                        <label>Profession</label>
                                     </div>
                                 </div>
 

@@ -7,7 +7,6 @@
  * Time: 12:38 PM
  */
 namespace Classes\Contact;
-require_once "../../../vendor/autoload.php";
 
 class Contact
 {

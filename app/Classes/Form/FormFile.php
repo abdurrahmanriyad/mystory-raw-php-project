@@ -11,7 +11,7 @@ namespace Classes\Form;
 class FormFile
 {
 
-    public function uploadFile($file, $path_to_upload = "../../../uploads/")
+    public function uploadFile($file, $path_to_upload = "../../../../uploads/")
     {
         if ($file['name']) {
 

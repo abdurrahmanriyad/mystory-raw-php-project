@@ -11,7 +11,7 @@ class CategoryRepository
 
     public function __construct()
     {
-        $this->db =DB::getInstance();
+        $this->db = DB::getInstance();
     }
 
     public function addCategory(Category $category)

@@ -33,7 +33,7 @@
                         <div class="card">
                             <div class="card-image">
                                 <img src="<?php echo base_url('uploads/'.$story->featured_image) ?>">
-                                <span class="card-title author">by <span>Riyad Uddin</span></span>
+                                <span class="card-title author">by <span>Pritom Chokroborty</span></span>
                             </div>
                             <div class="card-content">
                                 <h4 class="card-title"><strong><a href="<?php echo 'single-story.php?id='.$story->id ?>"><?php echo $story->title; ?></a></strong></h4>
