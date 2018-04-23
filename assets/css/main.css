@@ -41,6 +41,10 @@ body{
 
 }
 
+.mb-30{
+    margin-bottom: 30px !important;
+}
+
 /*search area*/
 .search-wrapper{
     margin: 0 5px;

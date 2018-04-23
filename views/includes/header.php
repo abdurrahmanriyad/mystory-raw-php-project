@@ -30,7 +30,7 @@
 
                 <div class="col m8">
                     <ul class="main_nav">
-                        <li><a href="index.php">Home</a></li>
+                        <li><a href="./">Home</a></li>
 
                         <?php
                         $objMembershipService = new \Classes\Member\MembershipService();

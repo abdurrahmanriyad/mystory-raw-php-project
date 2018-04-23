@@ -13,14 +13,14 @@
 
 <?php
     $objMembershipService = new MembershipService();
+    $objValidation = new Validation();
 
-    if ($objMembershipService->isLoggedIn()) {
+if ($objMembershipService->isLoggedIn()) {
         Redirect::to('index.php');
     }
 
-    if (Input::exists()) {
+if (Input::exists()) {
         if (Token::check(Input::get('token'))) {
-            $objValidation = new Validation();
             $objValidation->validate($_POST,
                 array(
                     'name' => array(
@@ -65,8 +65,8 @@
                 $inserted = $objMembershipService->register($objMember);
 
                 if ($inserted) {
-                    $loggedIn = $objMembershipService->login($username, $password, $remember);
-                    Redirect::to('index.php');
+                    $loggedIn = $objMembershipService->login(Input::get('username'), password_hash(Input::get('password'), PASSWORD_DEFAULT), true);
+                    Redirect::to('./');
                 }
 
             }
@@ -82,7 +82,22 @@
                 <div class="col m9">
                     <div class="content">
                         <div class="register_block  clearfix">
-
+                            <?php
+                                if ($objValidation->errors()) : ?>
+                                    <div class="col s8 offset-s2 mb-30">
+                                        <div class="card">
+                                            <div class="card-content">
+                                               <ul class="browser-default">
+                                                   <?php foreach ($objValidation->errors() as $error) : ?>
+                                                        <li class="red-text text-darken-1"><?php echo $error; ?></li>
+                                                    <?php endforeach; ?>
+                                               </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                            <?php
+                                endif;
+                            ?>
                             <form class="col s8 offset-s2" method="post" action="">
 
                                 <div class="row">
