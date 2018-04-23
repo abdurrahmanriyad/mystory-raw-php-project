@@ -1,4 +1,5 @@
 <?php
+    session_start();
     require_once "vendor/autoload.php";
     use \Classes\Validation\Input;
     use \Classes\Member\Member;
@@ -10,9 +11,7 @@
 
 ?>
 
-
 <?php
-
     $objMembershipService = new MembershipService();
 
     if ($objMembershipService->isLoggedIn()) {
@@ -70,8 +69,6 @@
                     Redirect::to('index.php');
                 }
 
-            } else {
-                print_r($objValidation->errors());
             }
         }
     }
@@ -131,7 +128,6 @@
                                         <label for="dateOfBirth">Date of Birth</label>
                                     </div>
                                 </div>
-
                                 <input type="hidden" name="token" value="<?php echo Token::generate(); ?>">
                                 <div class="right-align"><button class="waves-effect waves-light btn" type="submit">Register</button></div>
                             </form>

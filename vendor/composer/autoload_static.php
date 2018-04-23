@@ -7,11 +7,20 @@ namespace Composer\Autoload;
 class ComposerStaticInit81621421913bd5b509797842c5bdb959
 {
     public static $files = array (
+        '25072dd6e2470089de65ae7bf11d3109' => __DIR__ . '/..' . '/symfony/polyfill-php72/bootstrap.php',
+        '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
+        '667aeda72477189d0494fecd327c3641' => __DIR__ . '/..' . '/symfony/var-dumper/Resources/functions/dump.php',
         '29a57508a97872b78f4132a4ec912bfe' => __DIR__ . '/../..' . '/app/Support/helpers.php',
         '7fbe14ba42dfbeec3398ffdda0c4d4e2' => __DIR__ . '/../..' . '/app/Config/config.php',
     );
 
     public static $prefixLengthsPsr4 = array (
+        'S' => 
+        array (
+            'Symfony\\Polyfill\\Php72\\' => 23,
+            'Symfony\\Polyfill\\Mbstring\\' => 26,
+            'Symfony\\Component\\VarDumper\\' => 28,
+        ),
         'C' => 
         array (
             'Classes\\' => 8,
@@ -19,30 +28,22 @@ class ComposerStaticInit81621421913bd5b509797842c5bdb959
     );
 
     public static $prefixDirsPsr4 = array (
+        'Symfony\\Polyfill\\Php72\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/polyfill-php72',
+        ),
+        'Symfony\\Polyfill\\Mbstring\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/polyfill-mbstring',
+        ),
+        'Symfony\\Component\\VarDumper\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/symfony/var-dumper',
+        ),
         'Classes\\' => 
         array (
             0 => __DIR__ . '/../..' . '/app/Classes',
         ),
-    );
-
-    public static $classMap = array (
-        'Classes\\Authenticaiton\\UserAuth' => __DIR__ . '/../..' . '/app/Classes/Authentication/UserAuth.php',
-        'Classes\\Contact\\Contact' => __DIR__ . '/../..' . '/app/Classes/Contact/Contact.php',
-        'Classes\\Database\\DatabaseConnection' => __DIR__ . '/../..' . '/app/Classes/Database/DatabaseConnection.php',
-        'Classes\\Database\\DbHelper' => __DIR__ . '/../..' . '/app/Classes/Database/DbHelper.php',
-        'Classes\\Database\\MysqlConnection' => __DIR__ . '/../..' . '/app/Classes/Database/MysqlConnection.php',
-        'Classes\\Developer\\Developer' => __DIR__ . '/../..' . '/app/Classes/Developer/Developer.php',
-        'Classes\\Developer\\DeveloperRepository' => __DIR__ . '/../..' . '/app/Classes/Developer/DeveloperRepository.php',
-        'Classes\\Email\\Email' => __DIR__ . '/../..' . '/app/Classes/Email/Email.php',
-        'Classes\\Email\\EmailAction' => __DIR__ . '/../..' . '/app/Classes/Email/EmailAction.php',
-        'Classes\\Session\\Session' => __DIR__ . '/../..' . '/app/Classes/Util/Session.php',
-        'Classes\\Story\\Category' => __DIR__ . '/../..' . '/app/Classes/Story/Category.php',
-        'Classes\\Story\\Comment' => __DIR__ . '/../..' . '/app/Classes/Story/Comment.php',
-        'Classes\\Story\\Rating' => __DIR__ . '/../..' . '/app/Classes/Story/Rating.php',
-        'Classes\\Story\\Story' => __DIR__ . '/../..' . '/app/Classes/Story/Story.php',
-        'Classes\\Story\\StoryRepository' => __DIR__ . '/../..' . '/app/Classes/Story/StoryRepository.php',
-        'Classes\\Story\\Tag' => __DIR__ . '/../..' . '/app/Classes/Story/Tag.php',
-        'Classes\\User\\User' => __DIR__ . '/../..' . '/app/Classes/User/User.php',
     );
 
     public static function getInitializer(ClassLoader $loader)
@@ -50,7 +51,6 @@ class ComposerStaticInit81621421913bd5b509797842c5bdb959
         return \Closure::bind(function () use ($loader) {
             $loader->prefixLengthsPsr4 = ComposerStaticInit81621421913bd5b509797842c5bdb959::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInit81621421913bd5b509797842c5bdb959::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInit81621421913bd5b509797842c5bdb959::$classMap;
 
         }, null, ClassLoader::class);
     }

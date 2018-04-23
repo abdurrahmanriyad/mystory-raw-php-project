@@ -7,8 +7,6 @@
  */
 
 namespace Classes\Util;
-require_once $_SERVER['DOCUMENT_ROOT']."/mystory/vendor/autoload.php";
-
 use Classes\Config\Config;
 use Classes\Util\Session;
 
