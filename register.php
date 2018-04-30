@@ -8,12 +8,14 @@
     use \Classes\Util\Token;
     use \Classes\Util\Session;
     use \Classes\Util\Redirect;
+    use \Classes\Util\Mailer;
 
 ?>
 
 <?php
     $objMembershipService = new MembershipService();
     $objValidation = new Validation();
+    $objMailer = new Mailer();
 
 if ($objMembershipService->isLoggedIn()) {
         Redirect::to('index.php');
@@ -65,8 +67,10 @@ if (Input::exists()) {
                 $inserted = $objMembershipService->register($objMember);
 
                 if ($inserted) {
-                    $loggedIn = $objMembershipService->login(Input::get('username'), password_hash(Input::get('password'), PASSWORD_DEFAULT), true);
-                    Redirect::to('./');
+                    // get email of the user and send him an email
+                    Session::flash('email_confirm', 'Please confirm you email to activate your account');
+//                    $loggedIn = $objMembershipService->login(Input::get('username'), password_hash(Input::get('password'), PASSWORD_DEFAULT), true);
+//                    Redirect::to('./');
                 }
 
             }
@@ -98,6 +102,22 @@ if (Input::exists()) {
                             <?php
                                 endif;
                             ?>
+
+
+                            <?php
+                            if (Session::exists('email_confirm')) : ?>
+                                <div class="col s8 offset-s2 mb-30">
+                                    <div class="card">
+                                        <div class="card-content">
+                                            <?php echo Session::get('email_confirm'); ?>
+                                        </div>
+                                    </div>
+                                </div>
+                            <?php
+                            endif;
+                            ?>
+
+
                             <form class="col s8 offset-s2" method="post" action="">
 
                                 <div class="row">

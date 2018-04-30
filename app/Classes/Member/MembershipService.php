@@ -44,7 +44,7 @@ class MembershipService
         $inserted = $this->objMemberRepository->add($member);
 
         if ($inserted) {
-            return true;
+            return $inserted;
         }
 
         return false;
