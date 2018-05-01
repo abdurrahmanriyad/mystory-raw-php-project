@@ -32,7 +32,8 @@ if (Input::exists()) {
                     'username' => array(
                         'required' => true,
                         'min' => 5,
-                        'unique' => 'user'
+                        'unique' => 'user',
+                        'nospace' => true
                     ),
                     'email' => array(
                         'required' => true,

@@ -93,6 +93,11 @@ class Validation
                                 $this->addError("{$item} already exists");
                             }
                         break;
+                        case 'nospace':
+                            if ( preg_match('/\s/', $value) ) {
+                                $this->addError("{$item} must not have any space between");
+                            }
+                        break;
 
                     }
                 }
